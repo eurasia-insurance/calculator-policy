@@ -70,10 +70,8 @@ public class CalculatorController implements Serializable {
 
 	    switch (application.getProjectStage()) {
 	    case Development:
-		buildTestDataManyDrivers();
+		// buildTestDataManyDrivers();
 		buildTestDataManyVehicles();
-		// driverFacade.add(data);
-		// vehicleFacade.add(data);
 		break;
 	    case Production:
 	    default:
@@ -88,7 +86,7 @@ public class CalculatorController implements Serializable {
 	}
     }
 
-    private void buildTestDataManyVehicles() throws ValidationException {
+    public void buildTestDataManyVehicles() throws ValidationException {
 	InsuredDriverData drv2 = driverFacade.add(data);
 	drv2.setIdNumber("870622300359");
 	driverFacade.fetchInfo(data, drv2);

@@ -12,20 +12,6 @@
 		<p:commandButton value="#{gpovts['command.calculate-cost']}"
 			process="@form" update="@form"
 			oncomplete="handleDialogShow(xhr, status, args, PF('costDialog'))" />
-		<h:panelGroup>
-			<p:selectBooleanCheckbox widgetVar="applyDiscount"
-				value="#{calculationData.applyDiscount}">
-				<p:ajax event="change" process="@this" update="@form"
-					listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
-			</p:selectBooleanCheckbox>
-			<p:outputLabel onclick="PF('applyDiscount').toggle()">
-				<h:outputText value="#{gpovts['label.input.discount']} " />
-				<h:outputText value="#{discountData.discountValue}"
-					style="font-weight: bold;">
-					<f:convertNumber type="percent" />
-				</h:outputText>
-			</p:outputLabel>
-		</h:panelGroup>
 	</h:panelGrid>
 
 	<p:dialog header="#{gpovts['title.policy-cost']}"
@@ -33,21 +19,31 @@
 		height="300" closeOnEscape="true" id="costDialog">
 		<h:panelGroup styleClass="policyCostLabel">
 			<h:outputText value="#{gpovts['label.output.policy-cost']}" />
-			<h:outputText rendered="#{calculationData.applyDiscount}"
-				value=" #{gpovts['label.output.policy-cost-with-discount']} " />
-			<h:outputText style="font-weight: bold"
-				rendered="#{calculationData.applyDiscount}"
-				value="#{discountData.discountValue}">
-				<f:convertNumber type="percent" />
-			</h:outputText>
 		</h:panelGroup>
 		<h:outputText styleClass="policyCost"
 			value="#{calculationData.calculatedPremiumCost}">
-			<f:convertNumber type="currency" currencySymbol="&#8376;" />
+			<f:convertNumber type="currency" currencySymbol="&#8376;"
+				maxFractionDigits="0" groupingUsed="true" />
 		</h:outputText>
+
+		<h:panelGroup styleClass="policyCostLabel">
+			<h:outputText
+				value=" #{gpovts['label.output.policy-cost-with-discount']} " />
+			<p:spinner id="dicountValue"
+				value="#{discountData.discountPercentValue}" stepFactor="5"
+				max="100" min="0" suffix="%" size="4">
+				<p:ajax process="@this" update="discountCost,discountValueMessage" />
+			</p:spinner>
+		</h:panelGroup>
+		<h:panelGroup styleClass="policyCostLabel" id="discountValueMessage">
+			<p:message for="dicountValue" display="text" />
+		</h:panelGroup>
+		<h:outputText styleClass="policyCost" id="discountCost"
+			value="#{calculationData.calculatedPremiumCost * (1 - discountData.discountValue)}">
+			<f:convertNumber type="currency" currencySymbol="&#8376;"
+				maxFractionDigits="0" groupingUsed="true" />
+		</h:outputText>
+
 	</p:dialog>
-	<!-- 		<script type="text/javascript"> -->
-	<!--  			PF('costDialog').show(); -->
-	<!-- 		</script> -->
 
 </ui:composition>

@@ -25,7 +25,6 @@ public class CalculationData implements Serializable {
     private List<InsuredVehicleData> insuredVehicles = new ArrayList<>();
     private PolicyTermClass termClass = PolicyTermClass.YEAR;
     private double calculatedPremiumCost;
-    private boolean applyDiscount;
 
     @Override
     public int hashCode() {
@@ -82,13 +81,5 @@ public class CalculationData implements Serializable {
 
     public void setCalculatedPremiumCost(double calculatedPremiumCost) {
 	this.calculatedPremiumCost = calculatedPremiumCost;
-    }
-
-    public boolean isApplyDiscount() {
-	return applyDiscount;
-    }
-
-    public void setApplyDiscount(boolean applyDiscount) {
-	this.applyDiscount = applyDiscount;
     }
 }
