@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>kz.theeurasia.policy</groupId>
-	<artifactId>parent</artifactId>
+	<groupId>kz.theeurasia.policy.calc</groupId>
+	<artifactId>calc-parent</artifactId>
 	<version>1.0-RC4-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Policy : Parent</name>
+	<name>Policy : Calc : Parent</name>
 
 	<organization>
 		<name>Eurasia Insurance Company</name>
@@ -30,7 +30,8 @@
 	</properties>
 
 	<modules>
-		<module>core</module>
+		<module>webapp</module>
+		<module>ear</module>
 	</modules>
 
 	<dependencyManagement>
@@ -229,11 +230,10 @@
 	</build>
 
 	<scm>
-		<connection>scm:git:https://gitrepo.theeurasia.kz/eurasia/eurasia-policy.git</connection>
-		<developerConnection>scm:git:https://gitrepo.theeurasia.kz/eurasia/eurasia-policy.git</developerConnection>
+		<connection>scm:git:https://gitrepo.theeurasia.kz/eurasia/policy-eurasia36.git</connection>
+		<developerConnection>scm:git:https://gitrepo.theeurasia.kz/eurasia/policy-eurasia36.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
-
 
 	<repositories>
 		<repository>

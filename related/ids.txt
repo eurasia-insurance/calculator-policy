@@ -1,3 +1,0 @@
-    // InsuredDriverId - 45714238  - Корреец 45714239 - Катя
-    // InsuredVehicleId - 32235781 C200 рег номер A105YRO 
-    
