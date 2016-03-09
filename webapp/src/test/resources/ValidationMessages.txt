@@ -1,0 +1,2 @@
+validation.LotherThanZero.message = Значение не может быть меньше нуля
+validation.GreaterThanHundred.message = Значение не может быть более 100%
