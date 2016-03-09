@@ -4,7 +4,7 @@
 
 	<groupId>kz.theeurasia.policy.policy-calc</groupId>
 	<artifactId>calc-parent</artifactId>
-	<version>1.1-RC1-SNAPSHOT</version>
+	<version>1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Policy : Calc : Parent</name>
