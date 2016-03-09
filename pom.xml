@@ -230,8 +230,8 @@
 	</build>
 
 	<scm>
-		<connection>scm:git:https://gitrepo.theeurasia.kz/eurasia/policy-eurasia36.git</connection>
-		<developerConnection>scm:git:https://gitrepo.theeurasia.kz/eurasia/policy-eurasia36.git</developerConnection>
+		<connection>scm:git:https://gitrepo.theeurasia.kz/eurasia/eurasia-policy-calc.git</connection>
+		<developerConnection>scm:git:https://gitrepo.theeurasia.kz/eurasia/eurasia-policy-calc.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
