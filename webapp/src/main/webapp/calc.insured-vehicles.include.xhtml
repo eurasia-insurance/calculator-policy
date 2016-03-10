@@ -36,25 +36,10 @@
 
 
 			<h:panelGrid columns="1">
-
-				<!-- 				<p:outputLabel value="#{gpovts['label.input.vehicle.vin-code']}" /> -->
-				<!-- 				<h:panelGrid columns="2"> -->
-				<!-- 					<p:inputMask id="vehicleVINCode" value="#{vehicle.vehicleData.vinCode}" -->
-				<!-- 						mask="*****************" -->
-				<!-- 						onchange="rcVehicle_VinCodeChanged#{vehicle.safeId}()"> -->
-				<!-- 						<pe:keyFilter regEx="/[0123456789ABCDEFGHJKLMNPRSTUVWXYZ]/i" -->
-				<!-- 							preventPaste="false" /> -->
-				<!-- 					</p:inputMask> -->
-				<!-- 					<p:message for="vehicleVINCode" /> -->
-				<!-- 					<p:remoteCommand name="rcVehicle_VinCodeChanged#{vehicle.safeId}" -->
-				<!-- 						actionListener="#{calculationController.onVehicleVinCodeChanged(vehicle)}" -->
-				<!-- 						update="@form" process="@this,vehicleVINCode" /> -->
-				<!-- 				</h:panelGrid> -->
-
 				<p:outputLabel value="#{gpovts['label.input.vehicle-age-class']}" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleAgeClass"
-						value="#{vehicle.vehicleAgeClass}" disabled="#{vehicle.fetched}">
+						value="#{vehicle.vehicleAgeClass}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
 						<f:selectItems value="#{vehicleAgeClassService.selectableItemsSI}" />
@@ -63,8 +48,7 @@
 				</h:panelGrid>
 				<p:outputLabel value="#{gpovts['label.input.vehicle-class']}" />
 				<h:panelGrid columns="2">
-					<p:selectOneMenu id="vehicleClass" value="#{vehicle.vehicleClass}"
-						disabled="#{vehicle.fetched}">
+					<p:selectOneMenu id="vehicleClass" value="#{vehicle.vehicleClass}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
 						<f:selectItems value="#{vehicleClassService.selectableItemsSI}" />
