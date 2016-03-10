@@ -13,7 +13,8 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import kz.theeurasia.esbdproxy.domain.dict.general.CountryDict;
+import com.lapsa.country.Country;
+
 import kz.theeurasia.esbdproxy.domain.dict.general.CountryRegionDict;
 import kz.theeurasia.esbdproxy.domain.dict.general.IdentityCardTypeDict;
 import kz.theeurasia.esbdproxy.domain.dict.general.KZCityDict;
@@ -119,7 +120,7 @@ public class CalculatorController implements Serializable {
 	drv1.getResidenceData().setCity(KZCityDict.ALM);
 	drv1.getResidenceData().setAddress("Джамбула, 231");
 	drv1.getResidenceData().setResident(true);
-	drv1.getOriginData().setCountry(CountryDict.KAZ);
+	drv1.getOriginData().setCountry(Country.KAZ);
 	drv1.getDriverLicenseData().setNumber("123");
 	drv1.getDriverLicenseData().setDateOfIssue(new Date());
 	drv1.setHasAnyPrivilege(true);
@@ -169,7 +170,7 @@ public class CalculatorController implements Serializable {
 	drv3.getResidenceData().setCity(KZCityDict.ALM);
 	drv3.getResidenceData().setAddress("Джамбула, 231");
 	drv3.getResidenceData().setResident(true);
-	drv3.getOriginData().setCountry(CountryDict.KAZ);
+	drv3.getOriginData().setCountry(Country.KAZ);
 	drv3.getDriverLicenseData().setNumber("123");
 	drv3.getDriverLicenseData().setDateOfIssue(new Date());
 	drv3.setHasAnyPrivilege(false);
@@ -184,7 +185,7 @@ public class CalculatorController implements Serializable {
 	drv4.getResidenceData().setCity(KZCityDict.ALM);
 	drv4.getResidenceData().setAddress("Джамбула, 231");
 	drv4.getResidenceData().setResident(true);
-	drv4.getOriginData().setCountry(CountryDict.KAZ);
+	drv4.getOriginData().setCountry(Country.KAZ);
 	drv4.getDriverLicenseData().setNumber("123");
 	drv4.getDriverLicenseData().setDateOfIssue(new Date());
 	drv4.setHasAnyPrivilege(false);
