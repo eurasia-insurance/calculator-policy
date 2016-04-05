@@ -11,7 +11,6 @@ import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
 import kz.theeurasia.esbdproxy.domain.dict.osgpovts.VehicleAgeClassDict;
-import kz.theeurasia.esbdproxy.domain.dict.osgpovts.VehicleClassDict;
 import kz.theeurasia.esbdproxy.domain.entities.osgpovts.VehicleEntity;
 import kz.theeurasia.esbdproxy.services.InvalidInputParameter;
 import kz.theeurasia.esbdproxy.services.NotFound;
