@@ -67,17 +67,20 @@
 					<p:message for="vehicleRegion" />
 				</h:panelGrid>
 
-				<p:outputLabel value="#{gpovts['label.input.vehicle-city']}" />
-				<h:panelGrid columns="2">
-					<p:selectOneMenu id="vehicleCity"
-						value="#{vehicle.vehicleCertificateData.city}">
-						<p:ajax event="change" process="@this" update="@form"
-							listener="#{calculationController.onVehicleCityChanged(vehicle)}" />
-						<f:selectItems
-							value="#{kzCityService.selectableItemsByAreaSI(vehicle.vehicleCertificateData.region)}" />
-					</p:selectOneMenu>
-					<p:message for="vehicleCity" />
-				</h:panelGrid>
+				<h:panelGroup
+					rendered="#{not empty vehicle.vehicleCertificateData.region and vehicle.vehicleCertificateData.region ne 'GALM' and vehicle.vehicleCertificateData.region ne 'GAST'}">
+					<p:outputLabel value="#{gpovts['label.input.vehicle-city']}" />
+					<h:panelGrid columns="2">
+						<p:selectOneMenu id="vehicleCity"
+							value="#{vehicle.vehicleCertificateData.city}">
+							<p:ajax event="change" process="@this" update="@form"
+								listener="#{calculationController.onVehicleCityChanged(vehicle)}" />
+							<f:selectItems
+								value="#{kzCityService.selectableItemsByAreaSI(vehicle.vehicleCertificateData.region)}" />
+						</p:selectOneMenu>
+						<p:message for="vehicleCity" />
+					</h:panelGrid>
+				</h:panelGroup>
 
 			</h:panelGrid>
 
