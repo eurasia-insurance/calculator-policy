@@ -83,8 +83,8 @@ public class VehicleFacade implements Serializable {
 
     private void _resetFetchedInfo(CalculationData policy, InsuredVehicleData vehicle) {
 	vehicle.setFetchedEntity(null);
-	vehicle.setVehicleClass(VehicleClassDict.UNSPECIFIED);
-	vehicle.setVehicleAgeClass(VehicleAgeClassDict.UNSPECIFIED);
+	vehicle.setVehicleClass(null);
+	vehicle.setVehicleAgeClass(null);
 	vehicle.setVehicleData(new VehicleData());
     }
 }

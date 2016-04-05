@@ -24,7 +24,7 @@
 				<h:outputText rendered="#{not empty driver.displayName}"
 					value="#{driver.displayName}" />
 				<p:outputLabel
-					rendered="#{not empty driver.insuranceClassType and driver.insuranceClassType ne 'UNSPECIFIED'}"
+					rendered="#{not empty driver.insuranceClassType}"
 					value=" - #{gpovts['label.si.insurance-class.' += driver.insuranceClassType]}" />
 			</f:facet>
 			<f:facet name="actions">
@@ -58,6 +58,7 @@
 						disabled="#{driver.fetched}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
+						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{insuredAgeClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
 					<p:message for="driverAgeClass" />
@@ -70,6 +71,7 @@
 						value="#{driver.expirienceClass}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
+						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems
 							value="#{insuredExpirienceClassService.selectableItemsSI}" />
 					</p:selectOneMenu>

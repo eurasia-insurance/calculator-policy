@@ -101,7 +101,7 @@ public class DriverFacade implements Serializable {
 
     private void _reset(CalculationData policy, InsuredDriverData driver) {
 	_resetFetchedInfo(policy, driver);
-	driver.setExpirienceClass(InsuredExpirienceClassEnum.UNSPECIFIED);
+	driver.setExpirienceClass(null);
     }
 
     private void _resetFetchedInfo(CalculationData policy, InsuredDriverData driver) {
@@ -112,8 +112,8 @@ public class DriverFacade implements Serializable {
 	driver.setIdentityCardData(new IdentityCardData());
 	driver.setTaxPayerNumber(null);
 	driver.setContactData(new ContactData());
-	driver.setInsuranceClassType(InsuranceClassTypeDict.UNSPECIFIED);
-	driver.setAgeClass(InsuredAgeClassEnum.UNSPECIFIED);
+	driver.setInsuranceClassType(null);
+	driver.setAgeClass(null);
     }
 
 }

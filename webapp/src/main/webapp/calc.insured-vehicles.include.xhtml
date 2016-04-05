@@ -34,23 +34,27 @@
 				</p:commandLink>
 			</f:facet>
 
-
 			<h:panelGrid columns="1">
+
 				<p:outputLabel value="#{gpovts['label.input.vehicle-age-class']}" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleAgeClass"
-						value="#{vehicle.vehicleAgeClass}">
+						value="#{vehicle.vehicleAgeClass}" style="width: 200px;">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
+						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{vehicleAgeClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleAgeClass" />
 				</h:panelGrid>
+
 				<p:outputLabel value="#{gpovts['label.input.vehicle-class']}" />
 				<h:panelGrid columns="2">
-					<p:selectOneMenu id="vehicleClass" value="#{vehicle.vehicleClass}">
+					<p:selectOneMenu id="vehicleClass" value="#{vehicle.vehicleClass}"
+						style="width: 300px;">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
+						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{vehicleClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleClass" />
