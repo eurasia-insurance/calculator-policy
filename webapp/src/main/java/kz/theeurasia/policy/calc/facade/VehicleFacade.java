@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.lapsa.kz.country.KZArea;
+import com.lapsa.kz.country.KZCity;
 
 import kz.theeurasia.esbdproxy.domain.dict.osgpovts.VehicleAgeClassDict;
 import kz.theeurasia.esbdproxy.domain.dict.osgpovts.VehicleClassDict;
@@ -62,10 +63,15 @@ public class VehicleFacade implements Serializable {
     }
 
     public void evaluateMajorCity(InsuredVehicleData insuredVehicle) {
-	insuredVehicle.setForcedMajorCity(insuredVehicle.getVehicleCertificateData().getRegion().equals(KZArea.GALM)
-		|| insuredVehicle.getVehicleCertificateData().getRegion().equals(KZArea.GAST));
-	if (insuredVehicle.isForcedMajorCity())
-	    insuredVehicle.getVehicleCertificateData().setMajorCity(true);
+	KZArea region = insuredVehicle.getVehicleCertificateData().getRegion();
+	if (region == null) {
+	    insuredVehicle.getVehicleCertificateData().setCity(null);
+	    return;
+	}
+	if (region.equals(KZArea.GALM))
+	    insuredVehicle.getVehicleCertificateData().setCity(KZCity.ALM);
+	if (region.equals(KZArea.GAST))
+	    insuredVehicle.getVehicleCertificateData().setCity(KZCity.AST);
     }
 
     private void _reset(CalculationData policy, InsuredVehicleData vehicle) {
@@ -81,5 +87,4 @@ public class VehicleFacade implements Serializable {
 	vehicle.setVehicleAgeClass(VehicleAgeClassDict.UNSPECIFIED);
 	vehicle.setVehicleData(new VehicleData());
     }
-
 }

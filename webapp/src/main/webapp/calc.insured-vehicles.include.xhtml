@@ -55,42 +55,30 @@
 					</p:selectOneMenu>
 					<p:message for="vehicleClass" />
 				</h:panelGrid>
+
 				<p:outputLabel value="#{gpovts['label.input.vehicle-region']}" />
 				<h:panelGrid columns="2">
-					<p:selectOneMenu id="cehicleRegion"
+					<p:selectOneMenu id="vehicleRegion"
 						value="#{vehicle.vehicleCertificateData.region}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{calculationController.onVehicleRegionChanged(vehicle)}" />
 						<f:selectItems value="#{countryRegionService.selectableItemsSI}" />
 					</p:selectOneMenu>
-					<p:message for="cehicleRegion" />
+					<p:message for="vehicleRegion" />
 				</h:panelGrid>
 
+				<p:outputLabel value="#{gpovts['label.input.vehicle-city']}" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleCity"
-						value="#{vehicle.vehicleCertificateData.region}">
+						value="#{vehicle.vehicleCertificateData.city}">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{calculationController.onVehicleRegionChanged(vehicle)}" />
-						<f:selectItems value="#{countryRegionService.selectableItemsSI}" />
+							listener="#{calculationController.onVehicleCityChanged(vehicle)}" />
+						<f:selectItems
+							value="#{kzCityService.selectableItemsByAreaSI(vehicle.vehicleCertificateData.region)}" />
 					</p:selectOneMenu>
-					<p:message for="cehicleRegion" />
+					<p:message for="vehicleCity" />
 				</h:panelGrid>
 
-
-			</h:panelGrid>
-
-			<h:panelGrid columns="2">
-				<p:outputPanel>
-					<p:selectBooleanCheckbox
-						widgetVar="w_majorCityCheckbox#{vehicle.safeId}"
-						value="#{vehicle.vehicleCertificateData.majorCity}"
-						disabled="#{vehicle.forcedMajorCity}">
-						<p:ajax event="change" process="@this" update="@form"
-							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
-					</p:selectBooleanCheckbox>
-					<p:outputLabel value="#{gpovts['label.input.vehicle.major-city']}"
-						onclick="if (!PF('w_majorCityCheckbox#{vehicle.safeId}').disabled) {PF('w_majorCityCheckbox#{vehicle.safeId}').toggle();}" />
-				</p:outputPanel>
 			</h:panelGrid>
 
 		</p:panel>
