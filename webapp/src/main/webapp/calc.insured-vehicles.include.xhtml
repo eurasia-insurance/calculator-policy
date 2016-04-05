@@ -59,9 +59,11 @@
 				<p:outputLabel value="#{gpovts['label.input.vehicle-region']}" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleRegion"
-						value="#{vehicle.vehicleCertificateData.region}">
+						value="#{vehicle.vehicleCertificateData.region}" filter="true"
+						filterMatchMode="contains" style="width: 290px;">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{calculationController.onVehicleRegionChanged(vehicle)}" />
+						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{countryRegionService.selectableItemsSI}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleRegion" />
@@ -72,9 +74,11 @@
 					<p:outputLabel value="#{gpovts['label.input.vehicle-city']}" />
 					<h:panelGrid columns="2">
 						<p:selectOneMenu id="vehicleCity"
-							value="#{vehicle.vehicleCertificateData.city}">
+							value="#{vehicle.vehicleCertificateData.city}" filter="true"
+							filterMatchMode="contains" style="width: 200px;">
 							<p:ajax event="change" process="@this" update="@form"
 								listener="#{calculationController.onVehicleCityChanged(vehicle)}" />
+							<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 							<f:selectItems
 								value="#{kzCityService.selectableItemsByAreaSI(vehicle.vehicleCertificateData.region)}" />
 						</p:selectOneMenu>
