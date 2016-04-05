@@ -7,7 +7,8 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import kz.theeurasia.esbdproxy.domain.dict.general.CountryRegionDict;
+import com.lapsa.kz.country.KZArea;
+
 import kz.theeurasia.esbdproxy.domain.dict.osgpovts.VehicleAgeClassDict;
 import kz.theeurasia.esbdproxy.domain.dict.osgpovts.VehicleClassDict;
 import kz.theeurasia.esbdproxy.domain.entities.osgpovts.VehicleEntity;
@@ -61,9 +62,8 @@ public class VehicleFacade implements Serializable {
     }
 
     public void evaluateMajorCity(InsuredVehicleData insuredVehicle) {
-	insuredVehicle.setForcedMajorCity(
-		insuredVehicle.getVehicleCertificateData().getRegion().equals(CountryRegionDict.GALM)
-			|| insuredVehicle.getVehicleCertificateData().getRegion().equals(CountryRegionDict.GAST));
+	insuredVehicle.setForcedMajorCity(insuredVehicle.getVehicleCertificateData().getRegion().equals(KZArea.GALM)
+		|| insuredVehicle.getVehicleCertificateData().getRegion().equals(KZArea.GAST));
 	if (insuredVehicle.isForcedMajorCity())
 	    insuredVehicle.getVehicleCertificateData().setMajorCity(true);
     }
@@ -71,7 +71,7 @@ public class VehicleFacade implements Serializable {
     private void _reset(CalculationData policy, InsuredVehicleData vehicle) {
 	_resetFetchedInfo(policy, vehicle);
 	vehicle.getVehicleData().setVinCode(null);
-	vehicle.getVehicleCertificateData().setRegion(CountryRegionDict.UNSPECIFIED);
+	vehicle.getVehicleCertificateData().setRegion(null);
 	evaluateMajorCity(vehicle);
     }
 

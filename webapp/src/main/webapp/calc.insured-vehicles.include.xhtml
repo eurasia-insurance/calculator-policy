@@ -65,6 +65,18 @@
 					</p:selectOneMenu>
 					<p:message for="cehicleRegion" />
 				</h:panelGrid>
+
+				<h:panelGrid columns="2">
+					<p:selectOneMenu id="vehicleCity"
+						value="#{vehicle.vehicleCertificateData.region}">
+						<p:ajax event="change" process="@this" update="@form"
+							listener="#{calculationController.onVehicleRegionChanged(vehicle)}" />
+						<f:selectItems value="#{countryRegionService.selectableItemsSI}" />
+					</p:selectOneMenu>
+					<p:message for="cehicleRegion" />
+				</h:panelGrid>
+
+
 			</h:panelGrid>
 
 			<h:panelGrid columns="2">

@@ -14,10 +14,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.lapsa.country.Country;
+import com.lapsa.kz.country.KZArea;
+import com.lapsa.kz.country.KZCity;
 
-import kz.theeurasia.esbdproxy.domain.dict.general.CountryRegionDict;
 import kz.theeurasia.esbdproxy.domain.dict.general.IdentityCardTypeDict;
-import kz.theeurasia.esbdproxy.domain.dict.general.KZCityDict;
 import kz.theeurasia.esbdproxy.domain.dict.general.SexDict;
 import kz.theeurasia.esbdproxy.domain.enums.osgpovts.InsuredAgeClassEnum;
 import kz.theeurasia.esbdproxy.domain.enums.osgpovts.InsuredExpirienceClassEnum;
@@ -92,7 +92,7 @@ public class CalculatorController implements Serializable {
 	drv2.setIdNumber("870622300359");
 	driverFacade.fetchInfo(data, drv2);
 	drv2.setExpirienceClass(InsuredExpirienceClassEnum.MORE2);
-	drv2.getResidenceData().setCity(KZCityDict.ALM);
+	drv2.getResidenceData().setCity(KZCity.ALM);
 	drv2.getDriverLicenseData().setNumber("123");
 	drv2.getDriverLicenseData().setDateOfIssue(new Date());
 	drv2.setHasAnyPrivilege(false);
@@ -100,14 +100,14 @@ public class CalculatorController implements Serializable {
 	InsuredVehicleData vhc1 = vehicleFacade.add(data);
 	vhc1.getVehicleData().setVinCode("JN1TANS51U0303376");
 	vehicleFacade.fetchInfo(data, vhc1);
-	vhc1.getVehicleCertificateData().setRegion(CountryRegionDict.GALM);
+	vhc1.getVehicleCertificateData().setRegion(KZArea.GALM);
 	vehicleFacade.evaluateMajorCity(vhc1);
 	calculationFacade.calculatePremiumCost(data);
 
 	InsuredVehicleData vhc2 = vehicleFacade.add(data);
 	vhc2.getVehicleData().setVinCode("WDB2030421F503751");
 	vehicleFacade.fetchInfo(data, vhc2);
-	vhc2.getVehicleCertificateData().setRegion(CountryRegionDict.GALM);
+	vhc2.getVehicleCertificateData().setRegion(KZArea.GALM);
 	vehicleFacade.evaluateMajorCity(vhc2);
 	calculationFacade.calculatePremiumCost(data);
     }
@@ -117,7 +117,7 @@ public class CalculatorController implements Serializable {
 	drv1.setIdNumber("570325300699");
 	driverFacade.fetchInfo(data, drv1);
 	drv1.setExpirienceClass(InsuredExpirienceClassEnum.MORE2);
-	drv1.getResidenceData().setCity(KZCityDict.ALM);
+	drv1.getResidenceData().setCity(KZCity.ALM);
 	drv1.getResidenceData().setAddress("Джамбула, 231");
 	drv1.getResidenceData().setResident(true);
 	drv1.getOriginData().setCountry(Country.KAZ);
@@ -143,7 +143,7 @@ public class CalculatorController implements Serializable {
 	drv2.setIdNumber("870622300359");
 	driverFacade.fetchInfo(data, drv2);
 	drv2.setExpirienceClass(InsuredExpirienceClassEnum.MORE2);
-	drv2.getResidenceData().setCity(KZCityDict.ALM);
+	drv2.getResidenceData().setCity(KZCity.ALM);
 	// drv2.getResidenceData().setAddress("Джамбула, 231");
 	// drv2.getResidenceData().setResident(true);
 	// drv2.getOriginData().setCountry(CountryDict.KAZ);
@@ -167,7 +167,7 @@ public class CalculatorController implements Serializable {
 	drv3.getIdentityCardData().setDateOfIssue(new Date());
 	drv3.getIdentityCardData().setIssuingAuthority("МВД РФ");
 	drv3.getIdentityCardData().setNumber("123123123");
-	drv3.getResidenceData().setCity(KZCityDict.ALM);
+	drv3.getResidenceData().setCity(KZCity.ALM);
 	drv3.getResidenceData().setAddress("Джамбула, 231");
 	drv3.getResidenceData().setResident(true);
 	drv3.getOriginData().setCountry(Country.KAZ);
@@ -182,7 +182,7 @@ public class CalculatorController implements Serializable {
 	drv4.getPersonalData().setSex(SexDict.FEMALE);
 	drv4.getIdentityCardData().setIssuingAuthority("МВД РК");
 
-	drv4.getResidenceData().setCity(KZCityDict.ALM);
+	drv4.getResidenceData().setCity(KZCity.ALM);
 	drv4.getResidenceData().setAddress("Джамбула, 231");
 	drv4.getResidenceData().setResident(true);
 	drv4.getOriginData().setCountry(Country.KAZ);
@@ -193,7 +193,7 @@ public class CalculatorController implements Serializable {
 	InsuredVehicleData vhc1 = vehicleFacade.add(data);
 	vhc1.getVehicleData().setVinCode("JN1TANS51U0303376");
 	vehicleFacade.fetchInfo(data, vhc1);
-	vhc1.getVehicleCertificateData().setRegion(CountryRegionDict.GALM);
+	vhc1.getVehicleCertificateData().setRegion(KZArea.GALM);
 	vehicleFacade.evaluateMajorCity(vhc1);
 	calculationFacade.calculatePremiumCost(data);
     }

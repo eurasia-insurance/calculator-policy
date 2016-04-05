@@ -12,7 +12,6 @@ import kz.theeurasia.esbdproxy.domain.enums.osgpovts.InsuredAgeClassEnum;
 import kz.theeurasia.esbdproxy.domain.enums.osgpovts.InsuredExpirienceClassEnum;
 import kz.theeurasia.esbdproxy.services.InvalidInputParameter;
 import kz.theeurasia.esbdproxy.services.NotFound;
-import kz.theeurasia.esbdproxy.services.general.KZCityServiceDAO;
 import kz.theeurasia.esbdproxy.services.general.SubjectPersonServiceDAO;
 import kz.theeurasia.esbdproxy.services.osgpovts.InsuranceClassTypeServiceDAO;
 import kz.theeurasia.policy.calc.bean.CalculationData;
@@ -34,9 +33,6 @@ public class DriverFacade implements Serializable {
 
     @Inject
     private InsuranceClassTypeServiceDAO insuranceClassTypeService;
-
-    @Inject
-    private KZCityServiceDAO kzCityServiceDAO;
 
     public InsuredDriverData add(CalculationData policy) throws ValidationException {
 	if (policy.getInsuredDrivers().size() > 0 && policy.getInsuredVehicles().size() > 1)
@@ -70,7 +66,7 @@ public class DriverFacade implements Serializable {
 	    // TODO Здесь потенциальная проблема связанная с тем несоответстием
 	    // мапирования
 	    if (fetched.getOrigin().getCity() != null)
-		driver.getResidenceData().setCity(kzCityServiceDAO.getById(fetched.getOrigin().getCity().getId()));
+		driver.getResidenceData().setCity(fetched.getOrigin().getCity());
 	    driver.getOriginData().setCountry(fetched.getOrigin().getCountry());
 
 	    driver.getIdentityCardData().setDateOfIssue(fetched.getIdentityCard().getDateOfIssue().getTime());
