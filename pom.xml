@@ -31,7 +31,7 @@
 			<dependency>
 				<groupId>kz.theeurasia.policy</groupId>
 				<artifactId>policy-core</artifactId>
-				<version>1.1.2-SNAPSHOT</version>
+				<version>1.2-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>kz.theeurasia.esbdproxy</groupId>
