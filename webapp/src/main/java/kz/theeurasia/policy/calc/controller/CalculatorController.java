@@ -271,6 +271,7 @@ public class CalculatorController implements Serializable {
     }
 
     public void onVehicleRegionChanged(InsuredVehicleData insuredVehicle) {
+	insuredVehicle.getVehicleCertificateData().setCity(null);
 	vehicleFacade.evaluateMajorCity(insuredVehicle);
 	calculationFacade.calculatePremiumCost(data);
     }
