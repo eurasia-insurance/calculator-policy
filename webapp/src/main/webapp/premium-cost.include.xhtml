@@ -37,15 +37,21 @@
 				<p:ajax process="@this" update="discountCost,discountValueMessage" />
 			</p:spinner>
 		</h:panelGroup>
+
 		<h:panelGroup styleClass="policyCostLabel" id="discountValueMessage">
 			<p:message for="dicountValue" display="text" />
 		</h:panelGroup>
+
 		<h:outputText styleClass="policyCost" id="discountCost"
 			value="#{calculationData.calculatedPremiumCost * (1 - discountData.discountValue)}">
 			<f:convertNumber type="currency" currencySymbol="&#8376;"
 				maxFractionDigits="0" groupingUsed="true" />
 		</h:outputText>
 
+		<h:panelGroup styleClass="policyCostButton">
+			<p:button value="#{gpovts['command.close-dialog']}"
+				onclick="PF('costDialog').hide(); return false;" />
+		</h:panelGroup>
 	</p:dialog>
 
 </ui:composition>

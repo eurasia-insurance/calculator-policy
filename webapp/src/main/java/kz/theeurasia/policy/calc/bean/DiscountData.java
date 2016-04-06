@@ -11,7 +11,7 @@ import javax.validation.constraints.Min;
 @ViewScoped
 public class DiscountData implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = -3073071391117763140L;
 
     private double discountValue = 0.25d;
 

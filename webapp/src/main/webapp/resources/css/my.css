@@ -12,17 +12,21 @@
 /* 	margin-top: 20px; */
 /* 	margin-bottom: 20px; */
 /* } */
-.policyCost {
+.policyCostButton, .policyCost, .policyCostLabel {
 	display: block;
-	font-weight: bold;
-	font-size: 3em;
-	font-weight: bold;
 	text-align: center;
 }
 
+.policyCost {
+	font-weight: bold;
+	font-size: 3em;
+	font-weight: bold;
+}
+
 .policyCostLabel {
-	display: block;
-	text-align: center;
+}
+
+.policyCostButton {
 }
 
 .mainTable {
