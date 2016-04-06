@@ -7,21 +7,19 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	template="/WEB-INF/templates/clean.xhtml">
-	<f:metadata>
-		<f:viewAction action="#{calculationController.doVoid}" />
-	</f:metadata>
 
 	<ui:define name="page-title">#{glb['name.insurance.osgpovts.full']} - #{glb['name.eurasia.full']}</ui:define>
 
 	<ui:define name="page-content">
-		<h:form>
+
+		<h:form id="calcForm">
 			<h:panelGrid columns="2" styleClass="mainTable"
 				columnClasses="col1,col2">
 				<ui:decorate template="calc.insured-drivers.include.xhtml" />
 				<ui:decorate template="calc.insured-vehicles.include.xhtml" />
 			</h:panelGrid>
-
 			<ui:decorate template="premium-cost.include.xhtml" />
 		</h:form>
+
 	</ui:define>
 </ui:composition>

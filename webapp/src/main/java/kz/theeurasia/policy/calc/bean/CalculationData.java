@@ -3,10 +3,11 @@ package kz.theeurasia.policy.calc.bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.ProjectStage;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import kz.theeurasia.policy.domain.InsuredDriverData;
@@ -17,39 +18,26 @@ import kz.theeurasia.policy.domain.PolicyTermClass;
 @ViewScoped
 public class CalculationData implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
-    private final UUID id = UUID.randomUUID();
+    private static final long serialVersionUID = -910218412636084500L;
 
     private List<InsuredDriverData> insuredDrivers = new ArrayList<>();
     private List<InsuredVehicleData> insuredVehicles = new ArrayList<>();
     private PolicyTermClass termClass = PolicyTermClass.YEAR;
     private double calculatedPremiumCost;
 
-    @Override
-    public int hashCode() {
-	return this.getClass().hashCode() * id.hashCode();
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-	return obj != null && this.getClass().isInstance(obj) && getId().equals((this.getClass().cast(obj)).getId());
-    }
+    @Inject
+    @ProjectStageDepend(stage = ProjectStage.Production)
+    // @ProjectStageDepend(stage = ProjectStage.Development)
+    // @ManyDrivers
+    // @ManyVehicles
+    private DefaultCalculationDataBuilder dataBuilder;
 
     @PostConstruct
     public void init() {
-
-    }
-
-    public String getSafeId() {
-	return id.toString().replaceAll("-", "_");
+	dataBuilder.buildDefaultData(this);
     }
 
     // GENERATED
-
-    public UUID getId() {
-	return id;
-    }
 
     public List<InsuredDriverData> getInsuredDrivers() {
 	return insuredDrivers;
