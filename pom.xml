@@ -9,7 +9,7 @@
 
 	<groupId>kz.theeurasia.policy.policy-calc</groupId>
 	<artifactId>calc-parent</artifactId>
-	<version>1.1</version>
+	<version>1.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Policy : Calc : Parent</name>
@@ -78,7 +78,7 @@
 	<scm>
 		<connection>scm:git:https://gitrepo.theeurasia.kz/eurasia/eurasia-policy-calc.git</connection>
 		<developerConnection>scm:git:https://gitrepo.theeurasia.kz/eurasia/eurasia-policy-calc.git</developerConnection>
-		<tag>v1.1</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 </project>
