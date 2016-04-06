@@ -68,7 +68,9 @@ public class DriverFacade implements Serializable {
 		driver.getResidenceData().setCity(fetched.getOrigin().getCity());
 	    driver.getOriginData().setCountry(fetched.getOrigin().getCountry());
 
-	    driver.getIdentityCardData().setDateOfIssue(fetched.getIdentityCard().getDateOfIssue().getTime());
+	    if (fetched.getIdentityCard().getDateOfIssue() != null)
+		driver.getIdentityCardData().setDateOfIssue(fetched.getIdentityCard().getDateOfIssue().getTime());
+
 	    driver.getIdentityCardData().setType(fetched.getIdentityCard().getIdentityCardType());
 	    driver.getIdentityCardData().setIssuingAuthority(fetched.getIdentityCard().getIssuingAuthority());
 	    driver.getIdentityCardData().setNumber(fetched.getIdentityCard().getNumber());
