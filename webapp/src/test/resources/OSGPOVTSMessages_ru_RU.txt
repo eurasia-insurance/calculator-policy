@@ -30,6 +30,7 @@ command.add-vehicle = Добавить ТС
 command.remove-vehicle = Убрать ТС
 command.send-request = Отправить заявку в страховую компанию
 command.calculate-cost = Рассчитать стоимость полиса
+command.close-dialog = Закрыть
 
 # Text labels for outputs
 label.output.policy-cost = Стоимость полиса на 12 месяцев
