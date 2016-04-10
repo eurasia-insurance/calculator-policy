@@ -73,22 +73,22 @@
 					<p:message for="vehicleRegion" />
 				</h:panelGrid>
 
-				<h:panelGroup
-					rendered="#{not empty vehicle.vehicleCertificateData.region and vehicle.vehicleCertificateData.region ne 'GALM' and vehicle.vehicleCertificateData.region ne 'GAST'}">
-					<p:outputLabel value="#{gpovts['label.input.vehicle-city']}" />
-					<h:panelGrid columns="2">
-						<p:selectOneMenu id="vehicleCity"
-							value="#{vehicle.vehicleCertificateData.city}" filter="true"
-							filterMatchMode="contains" style="width: 200px;">
-							<p:ajax event="change" process="@this" update="@form"
-								listener="#{calculationController.onVehicleCityChanged(vehicle)}" />
-							<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
-							<f:selectItems
-								value="#{kzCityService.selectableItemsByAreaSI(vehicle.vehicleCertificateData.region)}" />
-						</p:selectOneMenu>
-						<p:message for="vehicleCity" />
-					</h:panelGrid>
-				</h:panelGroup>
+				<p:outputLabel value="#{gpovts['label.input.vehicle-city']}" />
+				<h:panelGrid columns="2">
+					<p:selectOneMenu id="vehicleCity"
+						value="#{vehicle.vehicleCertificateData.city}" filter="true"
+						filterMatchMode="contains" style="width: 200px;"
+						disabled="#{vehicle.vehicleCertificateData.region eq 'GALM' or vehicle.vehicleCertificateData.region eq 'GAST'}">
+						<p:ajax event="change" process="@this" update="@form"
+							listener="#{calculationController.onVehicleCityChanged(vehicle)}" />
+						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
+						<f:selectItems
+							value="#{kzCityService.regionalItemsByAreaSI(vehicle.vehicleCertificateData.region)}" />
+						<f:selectItem itemLabel="#{gpovts['label.si.kzcity.OTHER']}"
+							itemValue="OTHER" />
+					</p:selectOneMenu>
+					<p:message for="vehicleCity" />
+				</h:panelGrid>
 
 			</h:panelGrid>
 

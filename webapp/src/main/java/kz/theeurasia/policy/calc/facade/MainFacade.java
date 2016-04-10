@@ -103,12 +103,14 @@ public class MainFacade {
     }
 
     public void onVehicleRegionChanged(InsuredVehicleData insuredVehicle) {
-	insuredVehicle.getVehicleCertificateData().setCity(null);
+	vehicleFacade.handleAreaChanged(insuredVehicle);
 	vehicleFacade.evaluateMajorCity(insuredVehicle);
 	calculationFacade.calculatePremiumCost(data);
     }
 
-    public void onVehicleCityChanged(InsuredVehicleData insuredVehicle) {
+    public void onVehicleCityChanged(InsuredVehicleData vehicle) {
+	vehicleFacade.handleCityChanged(vehicle);
+	vehicleFacade.evaluateMajorCity(vehicle);
 	calculationFacade.calculatePremiumCost(data);
     }
 }
