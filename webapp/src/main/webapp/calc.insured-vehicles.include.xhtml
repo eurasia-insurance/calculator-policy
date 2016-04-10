@@ -84,7 +84,7 @@
 								listener="#{calculationController.onVehicleCityChanged(vehicle)}" />
 							<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 							<f:selectItems
-								value="#{kzCityService.regionalAndMajorItemsByAreaSI(vehicle.vehicleCertificateData.region)}" />
+								value="#{kzCityService.regionalItemsByAreaSI(vehicle.vehicleCertificateData.region)}" />
 							<f:selectItem itemLabel="#{gpovts['label.si.kzcity.OTHER']}"
 								itemValue="OTHER" />
 						</p:selectOneMenu>
