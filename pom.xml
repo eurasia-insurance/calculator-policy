@@ -30,17 +30,17 @@
 			<dependency>
 				<groupId>kz.theeurasia.policy</groupId>
 				<artifactId>policy-core</artifactId>
-				<version>1.2.1-SNAPSHOT</version>
+				<version>1.2.2-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>kz.theeurasia.esbdproxy</groupId>
 				<artifactId>esbdproxy-api</artifactId>
-				<version>1.2</version>
+				<version>1.2.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>kz.theeurasia.esbdproxy</groupId>
 				<artifactId>esbdproxy-ejbimpl</artifactId>
-				<version>1.2</version>
+				<version>1.2.1-SNAPSHOT</version>
 				<type>ejb</type>
 			</dependency>
 			<dependency>
