@@ -17,6 +17,7 @@ import kz.theeurasia.esbdproxy.services.NotFound;
 import kz.theeurasia.esbdproxy.services.osgpovts.VehicleServiceDAO;
 import kz.theeurasia.policy.calc.bean.CalculationData;
 import kz.theeurasia.policy.domain.InsuredVehicleData;
+import kz.theeurasia.policy.domain.VehicleCertificateData;
 import kz.theeurasia.policy.domain.VehicleData;
 
 @Named
@@ -63,10 +64,8 @@ public class VehicleFacade implements Serializable {
 
     public void evaluateMajorCity(InsuredVehicleData insuredVehicle) {
 	KZArea region = insuredVehicle.getVehicleCertificateData().getRegion();
-	if (region == null) {
-	    insuredVehicle.getVehicleCertificateData().setCity(null);
+	if (region == null)
 	    return;
-	}
 	if (region.equals(KZArea.GALM))
 	    insuredVehicle.getVehicleCertificateData().setCity(KZCity.ALM);
 	if (region.equals(KZArea.GAST))
@@ -85,5 +84,19 @@ public class VehicleFacade implements Serializable {
 	vehicle.setVehicleClass(null);
 	vehicle.setVehicleAgeClass(null);
 	vehicle.setVehicleData(new VehicleData());
+    }
+
+    public void handleAreaChanged(InsuredVehicleData insuredVehicle) {
+	VehicleCertificateData cer = insuredVehicle.getVehicleCertificateData();
+	KZArea region = cer.getRegion();
+	KZCity city = cer.getCity();
+	if (region != null && city != null && city.getArea() != null && !city.getArea().equals(region))
+	    cer.setCity(null);
+    }
+
+    public void handleCityChanged(InsuredVehicleData vehicle) {
+	KZCity city = vehicle.getVehicleCertificateData().getCity();
+	if (city != null && city.getArea() != null)
+	    vehicle.getVehicleCertificateData().setRegion(city.getArea());
     }
 }
