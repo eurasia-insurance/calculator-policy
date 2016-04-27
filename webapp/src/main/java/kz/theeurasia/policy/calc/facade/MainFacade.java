@@ -8,7 +8,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import kz.theeurasia.policy.calc.bean.CalculationData;
 import kz.theeurasia.policy.domain.InsuredDriverData;
 import kz.theeurasia.policy.domain.InsuredVehicleData;
 
@@ -27,12 +26,9 @@ public class MainFacade {
     @Inject
     private CalculationFacade calculationFacade;
 
-    @Inject
-    private CalculationData data;
-
     public void addInsuredDriver() {
 	try {
-	    driverFacade.add(data);
+	    driverFacade.add();
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
@@ -44,7 +40,7 @@ public class MainFacade {
 
     public void removeInsuredDriver(InsuredDriverData driver) {
 	try {
-	    driverFacade.remove(data, driver);
+	    driverFacade.remove(driver);
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
@@ -56,7 +52,7 @@ public class MainFacade {
 
     public void addInsuredVehicle() {
 	try {
-	    vehicleFacade.add(data);
+	    vehicleFacade.add();
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
@@ -68,7 +64,7 @@ public class MainFacade {
 
     public void removeInsuredVehicle(InsuredVehicleData insuredVehicle) {
 	try {
-	    vehicleFacade.remove(data, insuredVehicle);
+	    vehicleFacade.remove(insuredVehicle);
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
@@ -84,7 +80,7 @@ public class MainFacade {
 
     public void onDriverIdNumberChanged(InsuredDriverData insuredDriver) {
 	try {
-	    driverFacade.fetchInfo(data, insuredDriver);
+	    driverFacade.fetchInfo(insuredDriver);
 	} catch (ValidationException e) {
 	}
 	calculationFacade.calculatePremiumCost();
@@ -96,7 +92,7 @@ public class MainFacade {
 
     public void onVehicleVinCodeChanged(InsuredVehicleData insuredVehicle) {
 	try {
-	    vehicleFacade.fetchInfo(data, insuredVehicle);
+	    vehicleFacade.fetchInfo(insuredVehicle);
 	} catch (ValidationException e) {
 	}
 	calculationFacade.calculatePremiumCost();

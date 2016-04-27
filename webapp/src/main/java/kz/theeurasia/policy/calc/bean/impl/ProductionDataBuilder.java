@@ -8,7 +8,6 @@ import javax.enterprise.inject.Default;
 import javax.faces.application.ProjectStage;
 import javax.inject.Inject;
 
-import kz.theeurasia.policy.calc.bean.CalculationData;
 import kz.theeurasia.policy.calc.bean.DefaultCalculationDataBuilder;
 import kz.theeurasia.policy.calc.bean.ProjectStageDepend;
 import kz.theeurasia.policy.calc.facade.DriverFacade;
@@ -28,12 +27,12 @@ public class ProductionDataBuilder implements DefaultCalculationDataBuilder {
 
     @Inject
     private Logger logger;
-
+    
     @Override
-    public void buildDefaultData(CalculationData calculationData) {
+    public void buildDefaultData() {
 	try {
-	    driverFacade.add(calculationData);
-	    vehicleFacade.add(calculationData);
+	    driverFacade.add();
+	    vehicleFacade.add();
 	} catch (ValidationException e) {
 	    logger.log(Level.SEVERE, e.getMessage(), e);
 	}
