@@ -8,6 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import kz.theeurasia.policy.calc.bean.CalculationData;
 import kz.theeurasia.policy.domain.InsuredDriverData;
 import kz.theeurasia.policy.domain.InsuredVehicleData;
 
@@ -26,87 +27,90 @@ public class MainFacade {
     @Inject
     private CalculationFacade calculationFacade;
 
+    @Inject
+    private CalculationData data;
+
     public void addInsuredDriver() {
 	try {
-	    driverFacade.add();
+	    driverFacade.add(data);
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
 			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
 			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
-	calculationFacade.calculatePremiumCost();
+	calculationFacade.calculatePremiumCost(data);
     }
 
     public void removeInsuredDriver(InsuredDriverData driver) {
 	try {
-	    driverFacade.remove(driver);
+	    driverFacade.remove(data, driver);
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
 			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
 			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
-	calculationFacade.calculatePremiumCost();
+	calculationFacade.calculatePremiumCost(data);
     }
 
     public void addInsuredVehicle() {
 	try {
-	    vehicleFacade.add();
+	    vehicleFacade.add(data);
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
 			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
 			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
-	calculationFacade.calculatePremiumCost();
+	calculationFacade.calculatePremiumCost(data);
     }
 
     public void removeInsuredVehicle(InsuredVehicleData insuredVehicle) {
 	try {
-	    vehicleFacade.remove(insuredVehicle);
+	    vehicleFacade.remove(data, insuredVehicle);
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
 			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
 			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
-	calculationFacade.calculatePremiumCost();
+	calculationFacade.calculatePremiumCost(data);
     }
 
     public void doCalculatePolicyCost() {
-	calculationFacade.calculatePremiumCost();
+	calculationFacade.calculatePremiumCost(data);
     }
 
     public void onDriverIdNumberChanged(InsuredDriverData insuredDriver) {
 	try {
-	    driverFacade.fetchInfo(insuredDriver);
+	    driverFacade.fetchInfo(data, insuredDriver);
 	} catch (ValidationException e) {
 	}
-	calculationFacade.calculatePremiumCost();
+	calculationFacade.calculatePremiumCost(data);
     }
 
     public void onPolicyCostCalculationFormChanged() {
-	calculationFacade.calculatePremiumCost();
+	calculationFacade.calculatePremiumCost(data);
     }
 
     public void onVehicleVinCodeChanged(InsuredVehicleData insuredVehicle) {
 	try {
-	    vehicleFacade.fetchInfo(insuredVehicle);
+	    vehicleFacade.fetchInfo(data, insuredVehicle);
 	} catch (ValidationException e) {
 	}
-	calculationFacade.calculatePremiumCost();
+	calculationFacade.calculatePremiumCost(data);
     }
 
     public void onVehicleRegionChanged(InsuredVehicleData insuredVehicle) {
 	vehicleFacade.handleAreaChanged(insuredVehicle);
 	vehicleFacade.evaluateMajorCity(insuredVehicle);
-	calculationFacade.calculatePremiumCost();
+	calculationFacade.calculatePremiumCost(data);
     }
 
     public void onVehicleCityChanged(InsuredVehicleData vehicle) {
 	vehicleFacade.handleCityChanged(vehicle);
 	vehicleFacade.evaluateMajorCity(vehicle);
-	calculationFacade.calculatePremiumCost();
+	calculationFacade.calculatePremiumCost(data);
     }
 }

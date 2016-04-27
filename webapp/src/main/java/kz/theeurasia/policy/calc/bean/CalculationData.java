@@ -32,7 +32,7 @@ public class CalculationData implements Serializable {
 
     @PostConstruct
     public void init() {
-	dataBuilder.buildDefaultData();
+	dataBuilder.buildDefaultData(this);
     }
 
     // GENERATED

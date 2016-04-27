@@ -33,25 +33,22 @@ public class DriverFacade implements Serializable {
     @Inject
     private InsuranceClassTypeServiceDAO insuranceClassTypeService;
 
-    @Inject
-    private CalculationData policy;
-    
-    public InsuredDriverData add() throws ValidationException {
+    public InsuredDriverData add(CalculationData policy) throws ValidationException {
 	if (policy.getInsuredDrivers().size() > 0 && policy.getInsuredVehicles().size() > 1)
 	    throw new ValidationException(MessageBundleCode.ONLY_ONE_DRIVER_ALLOWED);
 	InsuredDriverData e = new InsuredDriverData();
 	policy.getInsuredDrivers().add(e);
-	_reset(e);
+	_reset(policy, e);
 	return e;
     }
 
-    public void remove(InsuredDriverData driver) throws ValidationException {
+    public void remove(CalculationData policy, InsuredDriverData driver) throws ValidationException {
 	if (policy.getInsuredDrivers().size() <= 1)
 	    throw new ValidationException(MessageBundleCode.DRIVER_LIST_CANT_BE_EMPTY);
 	policy.getInsuredDrivers().remove(driver);
     }
 
-    public void fetchInfo(InsuredDriverData driver) throws ValidationException {
+    public void fetchInfo(CalculationData policy, InsuredDriverData driver) throws ValidationException {
 	try {
 	    SubjectPersonEntity fetched = subjectPersonService.getByIIN(driver.getIdNumber());
 	    driver.setFetchedEntity(fetched);
@@ -96,19 +93,19 @@ public class DriverFacade implements Serializable {
 	    }
 
 	} catch (NotFound e) {
-	    _resetFetchedInfo(driver);
+	    _resetFetchedInfo(policy, driver);
 	    driver.setInsuranceClassType(insuranceClassTypeService.getDefault());
 	} catch (InvalidInputParameter e1) {
-	    _resetFetchedInfo(driver);
+	    _resetFetchedInfo(policy, driver);
 	}
     }
 
-    private void _reset(InsuredDriverData driver) {
-	_resetFetchedInfo(driver);
+    private void _reset(CalculationData policy, InsuredDriverData driver) {
+	_resetFetchedInfo(policy, driver);
 	driver.setExpirienceClass(null);
     }
 
-    private void _resetFetchedInfo(InsuredDriverData driver) {
+    private void _resetFetchedInfo(CalculationData policy, InsuredDriverData driver) {
 	driver.setFetchedEntity(null);
 	driver.setPersonalData(new PersonalData());
 	driver.setResidenceData(new ResidenceData());

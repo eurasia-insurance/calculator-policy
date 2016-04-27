@@ -18,10 +18,7 @@ public class CalculationFacade implements Serializable {
     @Inject
     private CalculationService calculationService;
 
-    @Inject
-    private CalculationData data;
-
-    public void calculatePremiumCost() {
+    public void calculatePremiumCost(CalculationData data) {
 	double cost = calculationService.calculatePremiumCost(data.getInsuredDrivers(), data.getInsuredVehicles(),
 		data.getTermClass());
 	data.setCalculatedPremiumCost(cost);

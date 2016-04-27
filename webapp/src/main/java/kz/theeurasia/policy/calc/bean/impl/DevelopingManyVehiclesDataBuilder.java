@@ -12,6 +12,7 @@ import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
 import kz.theeurasia.esbdproxy.domain.enums.osgpovts.InsuredExpirienceClassEnum;
+import kz.theeurasia.policy.calc.bean.CalculationData;
 import kz.theeurasia.policy.calc.bean.DefaultCalculationDataBuilder;
 import kz.theeurasia.policy.calc.bean.ProjectStageDepend;
 import kz.theeurasia.policy.calc.facade.CalculationFacade;
@@ -39,30 +40,30 @@ public class DevelopingManyVehiclesDataBuilder implements DefaultCalculationData
     private Logger logger;
 
     @Override
-    public void buildDefaultData() {
+    public void buildDefaultData(CalculationData calculationData) {
 	try {
-	    InsuredDriverData drv2 = driverFacade.add();
+	    InsuredDriverData drv2 = driverFacade.add(calculationData);
 	    drv2.setIdNumber("870622300359");
-	    driverFacade.fetchInfo(drv2);
+	    driverFacade.fetchInfo(calculationData, drv2);
 	    drv2.setExpirienceClass(InsuredExpirienceClassEnum.MORE2);
 	    drv2.getResidenceData().setCity(KZCity.ALM);
 	    drv2.getDriverLicenseData().setNumber("123");
 	    drv2.getDriverLicenseData().setDateOfIssue(new Date());
 	    drv2.setHasAnyPrivilege(false);
 
-	    InsuredVehicleData vhc1 = vehicleFacade.add();
+	    InsuredVehicleData vhc1 = vehicleFacade.add(calculationData);
 	    vhc1.getVehicleData().setVinCode("JN1TANS51U0303376");
-	    vehicleFacade.fetchInfo(vhc1);
+	    vehicleFacade.fetchInfo(calculationData, vhc1);
 	    vhc1.getVehicleCertificateData().setRegion(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc1);
 
-	    InsuredVehicleData vhc2 = vehicleFacade.add();
+	    InsuredVehicleData vhc2 = vehicleFacade.add(calculationData);
 	    vhc2.getVehicleData().setVinCode("WDB2030421F503751");
-	    vehicleFacade.fetchInfo(vhc2);
+	    vehicleFacade.fetchInfo(calculationData, vhc2);
 	    vhc2.getVehicleCertificateData().setRegion(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc2);
 
-	    calculationFacade.calculatePremiumCost();
+	    calculationFacade.calculatePremiumCost(calculationData);
 	} catch (ValidationException e) {
 	    logger.log(Level.SEVERE, e.getMessage(), e);
 	}
