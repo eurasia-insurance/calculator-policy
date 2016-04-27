@@ -12,7 +12,7 @@ import kz.theeurasia.policy.calc.bean.CalculationData;
 import kz.theeurasia.policy.domain.InsuredDriverData;
 import kz.theeurasia.policy.domain.InsuredVehicleData;
 
-@Named("calculationController")
+@Named("frontController")
 @ApplicationScoped
 public class MainFacade {
 

@@ -12,7 +12,7 @@
 
 		<f:facet name="header">
 			<p:commandButton value="#{gpovts['command.add-insured']}"
-				action="#{calculationController.addInsuredDriver}" process="@this"
+				action="#{frontController.addInsuredDriver}" process="@this"
 				update="@form" partialSubmit="true" partialSubmitFilter="@this"
 				disabled="#{fn:length(policy.insuredVehicles) gt 1}" />
 		</f:facet>
@@ -31,7 +31,7 @@
 				<p:commandLink
 					styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default"
 					rendered="#{fn:length(policy.insuredDrivers) gt 1}"
-					action="#{calculationController.removeInsuredDriver(driver)}"
+					action="#{frontController.removeInsuredDriver(driver)}"
 					process="@this" update="@form">
 					<h:outputText styleClass="ui-icon ui-icon-close" />
 				</p:commandLink>
@@ -48,7 +48,7 @@
 					</p:inputMask>
 					<p:message for="driverIdNumber" />
 					<p:remoteCommand name="rcDriver_IdNumberChanged#{driver.safeId}"
-						actionListener="#{calculationController.onDriverIdNumberChanged(driver)}"
+						actionListener="#{frontController.onDriverIdNumberChanged(driver)}"
 						update="@form" process="@this,driverIdNumber" />
 				</h:panelGrid>
 				<p:outputLabel
@@ -57,7 +57,7 @@
 					<p:selectOneMenu id="driverAgeClass" value="#{driver.ageClass}"
 						disabled="#{driver.fetched}">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
+							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{insuredAgeClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -70,7 +70,7 @@
 					<p:selectOneMenu id="driverExpirienceClass"
 						value="#{driver.expirienceClass}">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
+							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems
 							value="#{insuredExpirienceClassService.selectableItemsSI}" />
@@ -86,7 +86,7 @@
 						widgetVar="w_hasAnyPrivilegeCheckbox#{driver.safeId}"
 						value="#{driver.hasAnyPrivilege}">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
+							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
 					</p:selectBooleanCheckbox>
 					<p:outputLabel
 						value="#{gpovts['label.input.insured.has-privilege']}"

@@ -12,7 +12,7 @@
 
 		<f:facet name="header">
 			<p:commandButton value="#{gpovts['command.add-vehicle']}"
-				action="#{calculationController.addInsuredVehicle}" process="@this"
+				action="#{frontController.addInsuredVehicle}" process="@this"
 				update="@form"
 				disabled="#{fn:length(policy.insuredDrivers) gt 1}" />
 		</f:facet>
@@ -28,7 +28,7 @@
 				<p:commandLink
 					styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default"
 					rendered="#{fn:length(policy.insuredVehicles) gt 1}"
-					action="#{calculationController.removeInsuredVehicle(vehicle)}"
+					action="#{frontController.removeInsuredVehicle(vehicle)}"
 					process="@this" update="@form">
 					<h:outputText styleClass="ui-icon ui-icon-close" />
 				</p:commandLink>
@@ -41,7 +41,7 @@
 					<p:selectOneMenu id="vehicleAgeClass"
 						value="#{vehicle.vehicleAgeClass}" style="width: 200px;">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
+							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{vehicleAgeClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -53,7 +53,7 @@
 					<p:selectOneMenu id="vehicleClass" value="#{vehicle.vehicleClass}"
 						style="width: 300px;">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{calculationController.onPolicyCostCalculationFormChanged}" />
+							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{vehicleClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -66,7 +66,7 @@
 						value="#{vehicle.vehicleCertificateData.region}" filter="true"
 						filterMatchMode="contains" style="width: 290px;">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{calculationController.onVehicleRegionChanged(vehicle)}" />
+							listener="#{frontController.onVehicleRegionChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{countryRegionService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -80,7 +80,7 @@
 						filterMatchMode="contains" style="width: 200px;"
 						disabled="#{vehicle.vehicleCertificateData.region eq 'GALM' or vehicle.vehicleCertificateData.region eq 'GAST'}">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{calculationController.onVehicleCityChanged(vehicle)}" />
+							listener="#{frontController.onVehicleCityChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
 						<f:selectItems
 							value="#{kzCityService.regionalItemsByAreaSI(vehicle.vehicleCertificateData.region)}" />
