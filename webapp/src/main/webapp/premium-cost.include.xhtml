@@ -23,7 +23,7 @@
 			<h:outputText value="#{gpovts['label.output.policy-cost']}" />
 		</h:panelGroup>
 		<h:outputText styleClass="policyCost"
-			value="#{calculationData.calculatedPremiumCost}">
+			value="#{policy.calculatedPremiumCost}">
 			<f:convertNumber type="currency" currencySymbol="&#8376;"
 				maxFractionDigits="0" groupingUsed="true" />
 		</h:outputText>
@@ -43,7 +43,7 @@
 		</h:panelGroup>
 
 		<h:outputText styleClass="policyCost" id="discountCost"
-			value="#{calculationData.calculatedPremiumCost * (1 - discountData.discountValue)}">
+			value="#{policy.calculatedPremiumCost * (1 - discountData.discountValue)}">
 			<f:convertNumber type="currency" currencySymbol="&#8376;"
 				maxFractionDigits="0" groupingUsed="true" />
 		</h:outputText>

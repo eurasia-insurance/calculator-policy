@@ -7,14 +7,14 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
-	<p:dataGrid var="driver" value="#{calculationData.insuredDrivers}"
+	<p:dataGrid var="driver" value="#{policy.insuredDrivers}"
 		layout="grid" columns="1">
 
 		<f:facet name="header">
 			<p:commandButton value="#{gpovts['command.add-insured']}"
 				action="#{calculationController.addInsuredDriver}" process="@this"
 				update="@form" partialSubmit="true" partialSubmitFilter="@this"
-				disabled="#{fn:length(calculationData.insuredVehicles) gt 1}" />
+				disabled="#{fn:length(policy.insuredVehicles) gt 1}" />
 		</f:facet>
 
 		<p:panel id="currentDriverPanel">
@@ -30,7 +30,7 @@
 			<f:facet name="actions">
 				<p:commandLink
 					styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default"
-					rendered="#{fn:length(calculationData.insuredDrivers) gt 1}"
+					rendered="#{fn:length(policy.insuredDrivers) gt 1}"
 					action="#{calculationController.removeInsuredDriver(driver)}"
 					process="@this" update="@form">
 					<h:outputText styleClass="ui-icon ui-icon-close" />

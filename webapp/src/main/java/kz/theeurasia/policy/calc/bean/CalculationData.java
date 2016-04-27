@@ -13,7 +13,7 @@ import kz.theeurasia.policy.domain.InsuredDriverData;
 import kz.theeurasia.policy.domain.InsuredVehicleData;
 import kz.theeurasia.policy.domain.PolicyTermClass;
 
-@Named("calculationData")
+@Named("policy")
 @ViewScoped
 public class CalculationData implements Serializable {
 
