@@ -39,7 +39,7 @@ public class MainFacade {
 			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
 			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
-	calculationFacade.calculatePremiumCost(data);
+	calculationFacade.calculatePremiumCost();
     }
 
     public void removeInsuredDriver(InsuredDriverData driver) {
@@ -51,7 +51,7 @@ public class MainFacade {
 			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
 			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
-	calculationFacade.calculatePremiumCost(data);
+	calculationFacade.calculatePremiumCost();
     }
 
     public void addInsuredVehicle() {
@@ -63,7 +63,7 @@ public class MainFacade {
 			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
 			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
-	calculationFacade.calculatePremiumCost(data);
+	calculationFacade.calculatePremiumCost();
     }
 
     public void removeInsuredVehicle(InsuredVehicleData insuredVehicle) {
@@ -75,11 +75,11 @@ public class MainFacade {
 			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
 			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
-	calculationFacade.calculatePremiumCost(data);
+	calculationFacade.calculatePremiumCost();
     }
 
     public void doCalculatePolicyCost() {
-	calculationFacade.calculatePremiumCost(data);
+	calculationFacade.calculatePremiumCost();
     }
 
     public void onDriverIdNumberChanged(InsuredDriverData insuredDriver) {
@@ -87,11 +87,11 @@ public class MainFacade {
 	    driverFacade.fetchInfo(data, insuredDriver);
 	} catch (ValidationException e) {
 	}
-	calculationFacade.calculatePremiumCost(data);
+	calculationFacade.calculatePremiumCost();
     }
 
     public void onPolicyCostCalculationFormChanged() {
-	calculationFacade.calculatePremiumCost(data);
+	calculationFacade.calculatePremiumCost();
     }
 
     public void onVehicleVinCodeChanged(InsuredVehicleData insuredVehicle) {
@@ -99,18 +99,18 @@ public class MainFacade {
 	    vehicleFacade.fetchInfo(data, insuredVehicle);
 	} catch (ValidationException e) {
 	}
-	calculationFacade.calculatePremiumCost(data);
+	calculationFacade.calculatePremiumCost();
     }
 
     public void onVehicleRegionChanged(InsuredVehicleData insuredVehicle) {
 	vehicleFacade.handleAreaChanged(insuredVehicle);
 	vehicleFacade.evaluateMajorCity(insuredVehicle);
-	calculationFacade.calculatePremiumCost(data);
+	calculationFacade.calculatePremiumCost();
     }
 
     public void onVehicleCityChanged(InsuredVehicleData vehicle) {
 	vehicleFacade.handleCityChanged(vehicle);
 	vehicleFacade.evaluateMajorCity(vehicle);
-	calculationFacade.calculatePremiumCost(data);
+	calculationFacade.calculatePremiumCost();
     }
 }

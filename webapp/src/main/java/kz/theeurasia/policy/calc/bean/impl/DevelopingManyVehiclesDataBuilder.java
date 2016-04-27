@@ -56,14 +56,14 @@ public class DevelopingManyVehiclesDataBuilder implements DefaultCalculationData
 	    vehicleFacade.fetchInfo(calculationData, vhc1);
 	    vhc1.getVehicleCertificateData().setRegion(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc1);
-	    calculationFacade.calculatePremiumCost(calculationData);
 
 	    InsuredVehicleData vhc2 = vehicleFacade.add(calculationData);
 	    vhc2.getVehicleData().setVinCode("WDB2030421F503751");
 	    vehicleFacade.fetchInfo(calculationData, vhc2);
 	    vhc2.getVehicleCertificateData().setRegion(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc2);
-	    calculationFacade.calculatePremiumCost(calculationData);
+
+	    calculationFacade.calculatePremiumCost();
 	} catch (ValidationException e) {
 	    logger.log(Level.SEVERE, e.getMessage(), e);
 	}

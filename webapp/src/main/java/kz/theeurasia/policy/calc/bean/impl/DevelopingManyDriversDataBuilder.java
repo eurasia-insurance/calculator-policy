@@ -129,7 +129,8 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    vehicleFacade.fetchInfo(calculationData, vhc1);
 	    vhc1.getVehicleCertificateData().setRegion(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc1);
-	    calculationFacade.calculatePremiumCost(calculationData);
+
+	    calculationFacade.calculatePremiumCost();
 	} catch (ValidationException e) {
 	    logger.log(Level.SEVERE, e.getMessage(), e);
 	}
