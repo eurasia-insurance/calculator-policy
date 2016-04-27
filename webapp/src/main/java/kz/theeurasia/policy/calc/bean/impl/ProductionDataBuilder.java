@@ -4,6 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Default;
 import javax.faces.application.ProjectStage;
 import javax.inject.Inject;
 
@@ -16,6 +17,7 @@ import kz.theeurasia.policy.calc.facade.VehicleFacade;
 
 @RequestScoped
 @ProjectStageDepend(stage = ProjectStage.Production)
+@Default
 public class ProductionDataBuilder implements DefaultCalculationDataBuilder {
 
     @Inject

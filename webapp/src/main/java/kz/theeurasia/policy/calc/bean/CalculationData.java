@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.ProjectStage;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -26,7 +25,6 @@ public class CalculationData implements Serializable {
     private double calculatedPremiumCost;
 
     @Inject
-    @ProjectStageDepend(stage = ProjectStage.Production)
     // @ProjectStageDepend(stage = ProjectStage.Development)
     // @ManyDrivers
     // @ManyVehicles
