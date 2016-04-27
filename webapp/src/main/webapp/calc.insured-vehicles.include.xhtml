@@ -13,8 +13,7 @@
 		<f:facet name="header">
 			<p:commandButton value="#{gpovts['command.add-vehicle']}"
 				action="#{frontController.addInsuredVehicle}" process="@this"
-				update="@form"
-				disabled="#{fn:length(policy.insuredDrivers) gt 1}" />
+				update="@form" disabled="#{fn:length(policy.insuredDrivers) gt 1}" />
 		</f:facet>
 
 		<p:panel id="currentVehiclePanel">

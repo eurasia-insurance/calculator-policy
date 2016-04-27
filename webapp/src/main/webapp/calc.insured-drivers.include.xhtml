@@ -7,8 +7,8 @@
 	xmlns:pe="http://primefaces.org/ui/extensions"
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
 
-	<p:dataGrid var="driver" value="#{policy.insuredDrivers}"
-		layout="grid" columns="1">
+	<p:dataGrid var="driver" value="#{policy.insuredDrivers}" layout="grid"
+		columns="1">
 
 		<f:facet name="header">
 			<p:commandButton value="#{gpovts['command.add-insured']}"
@@ -23,8 +23,7 @@
 					value="#{gpovts['title.insuted-driver.default-name']}" />
 				<h:outputText rendered="#{not empty driver.displayName}"
 					value="#{driver.displayName}" />
-				<p:outputLabel
-					rendered="#{not empty driver.insuranceClassType}"
+				<p:outputLabel rendered="#{not empty driver.insuranceClassType}"
 					value=" - #{gpovts['label.si.insurance-class.' += driver.insuranceClassType]}" />
 			</f:facet>
 			<f:facet name="actions">
