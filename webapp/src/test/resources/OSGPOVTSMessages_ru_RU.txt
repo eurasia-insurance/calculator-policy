@@ -96,6 +96,5 @@ label.si.insurance-class.CLASS_11 = Класс 11
 label.si.insurance-class.CLASS_12 = Класс 12
 label.si.insurance-class.CLASS_13 = Класс 13
 label.si.insurance-class.CLASS_M = Класс М
-label.si.insurance-class.UNSPECIFIED = Не определено
 
 label.si.kzcity.OTHER = Иные города и населенные пункты
