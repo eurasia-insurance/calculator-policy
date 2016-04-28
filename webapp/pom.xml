@@ -16,6 +16,11 @@
 	<dependencies>
 		<!-- internal -->
 		<dependency>
+			<groupId>com.lapsa.kzlib</groupId>
+			<artifactId>kzlib-core</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>kz.theeurasia.policy</groupId>
 			<artifactId>policy-domain</artifactId>
 			<scope>compile</scope>
