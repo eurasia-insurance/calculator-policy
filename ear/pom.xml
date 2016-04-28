@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>kz.theeurasia.policy.policy-calc</groupId>
 		<artifactId>calc-parent</artifactId>
-		<version>1.1.2-SNAPSHOT</version>
+		<version>1.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>calc-ear</artifactId>
@@ -15,9 +15,9 @@
 	<dependencies>
 		<!-- own -->
 		<dependency>
-			<groupId>kz.theeurasia.policy.policy-calc</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>calc-webapp</artifactId>
-			<version>1.1.2-SNAPSHOT</version>
+			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>
 		<!-- internal -->
@@ -39,7 +39,7 @@
 					<skinnyWars>true</skinnyWars>
 					<modules>
 						<webModule>
-							<groupId>kz.theeurasia.policy.policy-calc</groupId>
+							<groupId>${project.groupId}</groupId>
 							<artifactId>calc-webapp</artifactId>
 							<contextRoot>/calc</contextRoot>
 						</webModule>
