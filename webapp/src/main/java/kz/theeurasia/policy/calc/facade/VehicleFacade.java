@@ -47,7 +47,7 @@ public class VehicleFacade implements Serializable {
     public void fetchInfo(CalculationData policy, InsuredVehicleData vehicle) throws ValidationException {
 	try {
 	    VehicleEntity fetched = vehicleService.getByVINCode(vehicle.getVehicleData().getVinCode());
-	    vehicle.setFetchedEntity(fetched);
+	    vehicle.setFetched(true);
 	    vehicle.setVehicleClass(fetched.getVehicleClass());
 	    if (fetched.getRealeaseDate() != null) {
 		int age = CalculatorUtil.calculateAgeByDOB(fetched.getRealeaseDate());
@@ -80,7 +80,7 @@ public class VehicleFacade implements Serializable {
     }
 
     private void _resetFetchedInfo(CalculationData policy, InsuredVehicleData vehicle) {
-	vehicle.setFetchedEntity(null);
+	vehicle.setFetched(false);
 	vehicle.setVehicleClass(null);
 	vehicle.setVehicleAgeClass(null);
 	vehicle.setVehicleData(new VehicleData());

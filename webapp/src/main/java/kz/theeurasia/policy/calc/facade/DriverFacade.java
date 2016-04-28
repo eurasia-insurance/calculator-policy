@@ -51,7 +51,7 @@ public class DriverFacade implements Serializable {
     public void fetchInfo(CalculationData policy, InsuredDriverData driver) throws ValidationException {
 	try {
 	    SubjectPersonEntity fetched = subjectPersonService.getByIIN(driver.getIdNumber());
-	    driver.setFetchedEntity(fetched);
+	    driver.setFetched(true);
 
 	    driver.getPersonalData().setName(fetched.getPersonal().getName());
 	    driver.getPersonalData().setSurename(fetched.getPersonal().getSurename());
@@ -106,7 +106,7 @@ public class DriverFacade implements Serializable {
     }
 
     private void _resetFetchedInfo(CalculationData policy, InsuredDriverData driver) {
-	driver.setFetchedEntity(null);
+	driver.setFetched(false);
 	driver.setPersonalData(new PersonalData());
 	driver.setResidenceData(new ResidenceData());
 	driver.setOriginData(new OriginData());
