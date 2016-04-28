@@ -16,9 +16,9 @@
 	<dependencies>
 		<!-- own -->
 		<dependency>
-			<groupId>${project.groupId}</groupId>
+			<groupId>kz.theeurasia.policy.policy-calc</groupId>
 			<artifactId>calc-webapp</artifactId>
-			<version>${project.version}</version>
+			<version>1.2-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
 		<!-- internal -->
@@ -40,7 +40,7 @@
 					<skinnyWars>true</skinnyWars>
 					<modules>
 						<webModule>
-							<groupId>${project.groupId}</groupId>
+							<groupId>kz.theeurasia.policy.policy-calc</groupId>
 							<artifactId>calc-webapp</artifactId>
 							<contextRoot>/calc</contextRoot>
 						</webModule>
