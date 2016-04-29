@@ -42,14 +42,14 @@
 			</dependency>
 			<!-- internal -->
 			<dependency>
-				<groupId>com.lapsa.kzlib</groupId>
-				<artifactId>kzlib-core</artifactId>
-				<version>1.0.2-SNAPSHOT</version>
+				<groupId>com.lapsa.kz-lib</groupId>
+				<artifactId>kz-core</artifactId>
+				<version>2.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
-				<groupId>com.lapsa.international-helper</groupId>
-				<artifactId>international-api</artifactId>
-				<version>1.0.1</version>
+				<groupId>com.lapsa.international-lib</groupId>
+				<artifactId>international-core</artifactId>
+				<version>2.0-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>kz.theeurasia.policy</groupId>
