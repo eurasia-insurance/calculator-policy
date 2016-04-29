@@ -26,12 +26,6 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>kz.theeurasia.esbdproxy</groupId>
-			<artifactId>esbdproxy-ejbimpl</artifactId>
-			<type>ejb</type>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
 			<groupId>com.lapsa.kzlib</groupId>
 			<artifactId>kzlib-core</artifactId>
 			<scope>compile</scope>

@@ -21,6 +21,11 @@
 			<version>1.2-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
+		<dependency>
+			<groupId>kz.theeurasia.esbdproxy</groupId>
+			<artifactId>esbdproxy-ejbimpl</artifactId>
+			<type>ejb</type>
+		</dependency>
 	</dependencies>
 
 	<build>
