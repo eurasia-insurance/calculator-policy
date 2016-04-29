@@ -27,6 +27,19 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- own -->
+			<dependency>
+				<groupId>kz.theeurasia.policy.policy-calc</groupId>
+				<artifactId>calc-webapp</artifactId>
+				<type>war</type>
+				<version>1.2-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>kz.theeurasia.policy.policy-calc</groupId>
+				<artifactId>calc-ear</artifactId>
+				<type>ear</type>
+				<version>1.2-SNAPSHOT</version>
+			</dependency>
 			<!-- internal -->
 			<dependency>
 				<groupId>com.lapsa.kzlib</groupId>

@@ -18,9 +18,9 @@
 		<dependency>
 			<groupId>kz.theeurasia.policy.policy-calc</groupId>
 			<artifactId>calc-webapp</artifactId>
-			<version>1.2-SNAPSHOT</version>
 			<type>war</type>
 		</dependency>
+		<!-- internal -->
 		<dependency>
 			<groupId>kz.theeurasia.esbdproxy</groupId>
 			<artifactId>esbdproxy-ejbimpl</artifactId>
