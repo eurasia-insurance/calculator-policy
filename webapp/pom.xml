@@ -48,7 +48,8 @@
 		<dependency>
 			<groupId>com.lapsa.kz-lib</groupId>
 			<artifactId>kz-eelib</artifactId>
-			<scope>runtime</scope>
+			<scope>compile</scope>
+			<optional>false</optional>
 		</dependency>
 		<dependency>
 			<groupId>com.lapsa.international-lib</groupId>
@@ -59,7 +60,8 @@
 		<dependency>
 			<groupId>com.lapsa.international-lib</groupId>
 			<artifactId>international-eelib</artifactId>
-			<scope>runtime</scope>
+			<scope>compile</scope>
+			<optional>false</optional>
 		</dependency>
 		<!-- external -->
 		<dependency>
