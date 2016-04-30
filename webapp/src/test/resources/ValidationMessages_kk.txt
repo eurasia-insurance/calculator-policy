@@ -1,0 +1,41 @@
+# local
+validation.LotherThanZero.message = мәні нөлден кем болуы мүмкін емес
+validation.GreaterThanHundred.message = Мән-ден астам 100% болуы мүмкін емес
+
+# from kz-eelib.jar
+com.lapsa.kz.idnumber.validators.ValidIdNumber.message = СТН жарамсыз
+
+com.lapsa.kz.country.validators.ValidKZArea.message = Аймақ дұрыс емес
+com.lapsa.kz.country.validators.ValidKZCity.message = Бұл қала дұрыс емес
+
+# from international-eelib.jar
+com.lapsa.phone.validators.ValidPhoneNumber.message = Сіздің телефон нөмірін енгізіңіз
+
+com.lapsa.country.validators.ValidCountry.message = Дұрыс көрсетілмеген ел
+
+com.lapsa.internet.validators.ValidEmail.message = Жарамсыз электрондық пошта мекен-жайы
+com.lapsa.internet.validators.ValidURL.message = Жарамсыз Адрес
+
+com.lapsa.cars.validators.ValidVINCode.message = VIN-код дұрыс емес
+
+# from policy-domain.jar
+kz.theeurasia.policy.domain.InsurantData.WhoIsInsurant.NotNull.message = Дұрыс мән
+kz.theeurasia.policy.domain.InsurantData.WhoIsInsurant.ValidEnumeration.message = Дұрыс мән
+
+kz.theeurasia.policy.domain.InsuredDriverData.IdNumber.NotNull.message = ЖСН Белгісіз
+kz.theeurasia.policy.domain.InsurantData.IdNumber.NotNull.message = {kz.theeurasia.policy.domain.InsuredDriverData.IdNumber.NotNull.message}
+
+# from policy-validators.jar
+kz.theeurasia.policy.validator.NotEmptyString.message = Міндетті өріс
+kz.theeurasia.policy.validator.NotNullValue.message = Міндетті өріс
+kz.theeurasia.policy.validator.ValidDateOfBirth.message = Жарамсыз туған күні
+kz.theeurasia.policy.validator.ValidDateOfIssue.message = Қате күні шығарылымның
+kz.theeurasia.policy.validator.ValidEnumerationValue.message = Қате мән
+kz.theeurasia.policy.validator.ValidIdentityCardType.message = Қате құжат түрі
+kz.theeurasia.policy.validator.ValidInsuranceAgeClass.message = Жасы санаты дұрыс аталған 
+kz.theeurasia.policy.validator.ValidInsuranceExpirienceClass.message = көрсетілген жарамсыз жүргізу өтілі болып табылады
+kz.theeurasia.policy.validator.ValidSex.message = Nekorrketnoe мән
+kz.theeurasia.policy.validator.ValidVehicleAgeClass.message = көрсетілген көлік құралының жарамсыз мерзімді операция болып табылады
+kz.theeurasia.policy.validator.ValidVehicleClass.message = TC класс дұрыс аталған 
+kz.theeurasia.policy.validator.ValidVehicleRegistrationNumber.message = Жарамсыз тіркеу нөмірі көлік құралының 
+kz.theeurasia.policy.validator.ValidVehicleYearOfIssue.message = Жыл TC дұрыс
