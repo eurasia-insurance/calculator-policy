@@ -1,2 +1,41 @@
+# local
 validation.LotherThanZero.message = Значение не может быть меньше нуля
 validation.GreaterThanHundred.message = Значение не может быть более 100%
+
+# from kz-eelib.jar
+com.lapsa.kz.idnumber.validators.ValidIdNumber.message = ИИН не корректен
+
+com.lapsa.kz.country.validators.ValidKZArea.message = Регион некорректен
+com.lapsa.kz.country.validators.ValidKZCity.message = Указанный город некоректен
+
+# from international-eelib.jar
+com.lapsa.phone.validators.ValidPhoneNumber.message = Введите номер телефона
+
+com.lapsa.country.validators.ValidCountry.message = Некорректно указана страна
+
+com.lapsa.internet.validators.ValidEmail.message = Некорректный адрес e-mail
+com.lapsa.internet.validators.ValidURL.message = Некорректный адрес сайта
+
+com.lapsa.cars.validators.ValidVINCode.message = VIN-код некорректен
+
+# from policy-domain.jar
+kz.theeurasia.policy.domain.InsurantData.WhoIsInsurant.NotNull.message = Выберите значение
+kz.theeurasia.policy.domain.InsurantData.WhoIsInsurant.ValidEnumeration.message = Неверное значение
+
+kz.theeurasia.policy.domain.InsuredDriverData.IdNumber.NotNull.message = ИИН не указан
+kz.theeurasia.policy.domain.InsurantData.IdNumber.NotNull.message = {kz.theeurasia.policy.domain.InsuredDriverData.IdNumber.NotNull.message}
+
+# from policy-validators.jar
+kz.theeurasia.policy.validator.NotEmptyString.message = Обязательное поле
+kz.theeurasia.policy.validator.NotNullValue.message = Обязательное поле
+kz.theeurasia.policy.validator.ValidDateOfBirth.message = Некорректная дата рождения
+kz.theeurasia.policy.validator.ValidDateOfIssue.message = Некорректная дата выдачи
+kz.theeurasia.policy.validator.ValidEnumerationValue.message = Некорректное значение
+kz.theeurasia.policy.validator.ValidIdentityCardType.message = Некорректный тип документа
+kz.theeurasia.policy.validator.ValidInsuranceAgeClass.message = Указана некорректная категория возраста
+kz.theeurasia.policy.validator.ValidInsuranceExpirienceClass.message = Указан некорректный стаж вождения
+kz.theeurasia.policy.validator.ValidSex.message = Некорркетное значение
+kz.theeurasia.policy.validator.ValidVehicleAgeClass.message = Указан некорректный срок эксплуатации ТС
+kz.theeurasia.policy.validator.ValidVehicleClass.message = Указан некорректный класс ТС
+kz.theeurasia.policy.validator.ValidVehicleRegistrationNumber.message = Неверный регистрационный номер ТС
+kz.theeurasia.policy.validator.ValidVehicleYearOfIssue.message = Год выпуска ТС некорректен
