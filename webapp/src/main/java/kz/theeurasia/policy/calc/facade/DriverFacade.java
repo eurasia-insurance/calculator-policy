@@ -6,7 +6,8 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import kz.theeurasia.esbdproxy.domain.dict.osgpovts.InsuranceClassTypeDict;
+import com.lapsa.insurance.elements.InsuranceClassType;
+
 import kz.theeurasia.esbdproxy.domain.entities.general.SubjectPersonEntity;
 import kz.theeurasia.esbdproxy.domain.enums.osgpovts.InsuredAgeClassEnum;
 import kz.theeurasia.esbdproxy.services.InvalidInputParameter;
@@ -82,7 +83,7 @@ public class DriverFacade implements Serializable {
 	    driver.getContactData().setSiteUrl(fetched.getContact().getSiteUrl());
 
 	    try {
-		InsuranceClassTypeDict insuranceClassType = insuranceClassTypeService.getForSubject(fetched);
+		InsuranceClassType insuranceClassType = insuranceClassTypeService.getForSubject(fetched);
 		driver.setInsuranceClassType(insuranceClassType);
 	    } catch (NotFound | InvalidInputParameter e) {
 		driver.setInsuranceClassType(insuranceClassTypeService.getDefault());
