@@ -10,13 +10,13 @@ import javax.faces.application.ProjectStage;
 import javax.inject.Inject;
 
 import com.lapsa.country.Country;
+import com.lapsa.insurance.elements.IdentityCardType;
+import com.lapsa.insurance.elements.InsuredAgeClass;
+import com.lapsa.insurance.elements.InsuredExpirienceClass;
+import com.lapsa.insurance.elements.Sex;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
-import kz.theeurasia.esbdproxy.domain.dict.general.IdentityCardTypeDict;
-import kz.theeurasia.esbdproxy.domain.dict.general.SexDict;
-import kz.theeurasia.esbdproxy.domain.enums.osgpovts.InsuredAgeClassEnum;
-import kz.theeurasia.esbdproxy.domain.enums.osgpovts.InsuredExpirienceClassEnum;
 import kz.theeurasia.policy.calc.bean.CalculationData;
 import kz.theeurasia.policy.calc.bean.DefaultCalculationDataBuilder;
 import kz.theeurasia.policy.calc.bean.ProjectStageDepend;
@@ -50,7 +50,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    InsuredDriverData drv1 = driverFacade.add(calculationData);
 	    drv1.setIdNumber("570325300699");
 	    driverFacade.fetchInfo(calculationData, drv1);
-	    drv1.setExpirienceClass(InsuredExpirienceClassEnum.MORE2);
+	    drv1.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv1.getResidenceData().setCity(KZCity.ALM);
 	    drv1.getResidenceData().setAddress("Джамбула, 231");
 	    drv1.getResidenceData().setResident(true);
@@ -76,7 +76,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    InsuredDriverData drv2 = driverFacade.add(calculationData);
 	    drv2.setIdNumber("870622300359");
 	    driverFacade.fetchInfo(calculationData, drv2);
-	    drv2.setExpirienceClass(InsuredExpirienceClassEnum.MORE2);
+	    drv2.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv2.getResidenceData().setCity(KZCity.ALM);
 	    // drv2.getResidenceData().setAddress("Джамбула, 231");
 	    // drv2.getResidenceData().setResident(true);
@@ -88,16 +88,16 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    InsuredDriverData drv3 = driverFacade.add(calculationData);
 	    drv3.setIdNumber("800225000319");
 	    driverFacade.fetchInfo(calculationData, drv3);
-	    drv3.setAgeClass(InsuredAgeClassEnum.OVER25);
-	    drv3.setExpirienceClass(InsuredExpirienceClassEnum.MORE2);
+	    drv3.setAgeClass(InsuredAgeClass.OVER25);
+	    drv3.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv3.getPersonalData().setName("Вадим");
 	    drv3.getPersonalData().setSurename("Исаев");
 	    drv3.getPersonalData().setPatronymic("Олегович");
 	    Calendar dob = Calendar.getInstance();
 	    dob.set(1980, Calendar.FEBRUARY, 25);
 	    drv3.getPersonalData().setDayOfBirth(dob.getTime());
-	    drv3.getPersonalData().setSex(SexDict.MALE);
-	    drv3.getIdentityCardData().setType(IdentityCardTypeDict.PASSPORT);
+	    drv3.getPersonalData().setSex(Sex.MALE);
+	    drv3.getIdentityCardData().setType(IdentityCardType.PASSPORT);
 	    drv3.getIdentityCardData().setDateOfIssue(new Date());
 	    drv3.getIdentityCardData().setIssuingAuthority("МВД РФ");
 	    drv3.getIdentityCardData().setNumber("123123123");
@@ -112,8 +112,8 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    InsuredDriverData drv4 = driverFacade.add(calculationData);
 	    drv4.setIdNumber("860401402685");
 	    driverFacade.fetchInfo(calculationData, drv4);
-	    drv4.setExpirienceClass(InsuredExpirienceClassEnum.MORE2);
-	    drv4.getPersonalData().setSex(SexDict.FEMALE);
+	    drv4.setExpirienceClass(InsuredExpirienceClass.MORE2);
+	    drv4.getPersonalData().setSex(Sex.FEMALE);
 	    drv4.getIdentityCardData().setIssuingAuthority("МВД РК");
 
 	    drv4.getResidenceData().setCity(KZCity.ALM);

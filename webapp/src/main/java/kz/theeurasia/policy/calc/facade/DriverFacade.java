@@ -7,13 +7,13 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.lapsa.insurance.elements.InsuranceClassType;
+import com.lapsa.insurance.elements.InsuredAgeClass;
 
 import kz.theeurasia.esbdproxy.domain.entities.general.SubjectPersonEntity;
-import kz.theeurasia.esbdproxy.domain.enums.osgpovts.InsuredAgeClassEnum;
 import kz.theeurasia.esbdproxy.services.InvalidInputParameter;
 import kz.theeurasia.esbdproxy.services.NotFound;
+import kz.theeurasia.esbdproxy.services.elements.InsuranceClassTypeServiceDAO;
 import kz.theeurasia.esbdproxy.services.general.SubjectPersonServiceDAO;
-import kz.theeurasia.esbdproxy.services.osgpovts.InsuranceClassTypeServiceDAO;
 import kz.theeurasia.policy.calc.bean.CalculationData;
 import kz.theeurasia.policy.domain.ContactData;
 import kz.theeurasia.policy.domain.IdentityCardData;
@@ -90,7 +90,7 @@ public class DriverFacade implements Serializable {
 	    }
 	    if (fetched.getPersonal().getDayOfBirth() != null) {
 		int years = CalculatorUtil.calculateAgeByDOB(driver.getPersonalData().getDayOfBirth());
-		driver.setAgeClass(years > 25 ? InsuredAgeClassEnum.OVER25 : InsuredAgeClassEnum.UNDER25);
+		driver.setAgeClass(years > 25 ? InsuredAgeClass.OVER25 : InsuredAgeClass.UNDER25);
 	    }
 
 	} catch (NotFound e) {

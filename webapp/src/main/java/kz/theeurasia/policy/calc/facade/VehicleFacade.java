@@ -7,10 +7,10 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.lapsa.insurance.elements.VehicleAgeClass;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
-import kz.theeurasia.esbdproxy.domain.dict.osgpovts.VehicleAgeClassDict;
 import kz.theeurasia.esbdproxy.domain.entities.osgpovts.VehicleEntity;
 import kz.theeurasia.esbdproxy.services.InvalidInputParameter;
 import kz.theeurasia.esbdproxy.services.NotFound;
@@ -51,7 +51,7 @@ public class VehicleFacade implements Serializable {
 	    vehicle.setVehicleClass(fetched.getVehicleClass());
 	    if (fetched.getRealeaseDate() != null) {
 		int age = CalculatorUtil.calculateAgeByDOB(fetched.getRealeaseDate());
-		vehicle.setVehicleAgeClass(age > 7 ? VehicleAgeClassDict.OVER7 : VehicleAgeClassDict.UNDER7);
+		vehicle.setVehicleAgeClass(age > 7 ? VehicleAgeClass.OVER7 : VehicleAgeClass.UNDER7);
 	    }
 	    vehicle.getVehicleData().setColor(fetched.getColor());
 	    vehicle.getVehicleData().setManufacturer(fetched.getVehicleModel().getManufacturer().getName());
