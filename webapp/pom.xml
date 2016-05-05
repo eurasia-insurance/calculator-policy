@@ -28,7 +28,7 @@
 			<optional>false</optional>
 		</dependency>
 		<dependency>
-			<groupId>kz.theeurasia.policy</groupId>
+			<groupId>kz.theeurasia.policy-services</groupId>
 			<artifactId>policy-services</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
