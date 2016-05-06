@@ -24,8 +24,8 @@
 		</h:panelGroup>
 		<h:outputText styleClass="policyCost"
 			value="#{policy.calculatedPremiumCost}">
-			<f:convertNumber type="currency" currencySymbol="&#8376;"
-				maxFractionDigits="0" groupingUsed="true" />
+			<f:convertNumber type="currency" locale="kk_KZ" maxFractionDigits="0"
+				groupingUsed="true" currencySymbol="&#8376;" />
 		</h:outputText>
 
 		<h:panelGroup styleClass="policyCostLabel">
@@ -44,8 +44,8 @@
 
 		<h:outputText styleClass="policyCost" id="discountCost"
 			value="#{policy.calculatedPremiumCost * (1 - discountData.discountValue)}">
-			<f:convertNumber type="currency" currencySymbol="&#8376;"
-				maxFractionDigits="0" groupingUsed="true" />
+			<f:convertNumber type="currency" locale="kk_KZ" maxFractionDigits="0"
+				groupingUsed="true" currencySymbol="&#8376;" />
 		</h:outputText>
 
 		<h:panelGroup styleClass="policyCostButton">
