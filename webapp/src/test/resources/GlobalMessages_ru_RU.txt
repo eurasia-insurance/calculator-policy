@@ -42,3 +42,8 @@ label.input.contact-data.site-url = Адрес веб-сайта
 label.command.wizard.next = Далее
 label.command.wizard.prev = Назад
 label.command.add-image = Загрузить
+
+
+# Other labels
+
+label.si.UNSPECIFIED = Не указано
