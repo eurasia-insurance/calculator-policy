@@ -41,7 +41,7 @@
 				<p:outputLabel value="#{gpovts['label.input.insured.id-number']}" />
 				<h:panelGrid columns="2">
 					<p:inputMask id="driverIdNumber" value="#{driver.idNumber}"
-						mask="999999999999"
+						mask="9999 99999 999"
 						onchange="rcDriver_IdNumberChanged#{driver.safeId}()"
 						converter="maskedIdNumberConverter">
 						<pe:keyFilter regEx="/[0123456789]/i" preventPaste="false" />

@@ -23,6 +23,12 @@
 		</dependency>
 		<dependency>
 			<groupId>kz.theeurasia.policy</groupId>
+			<artifactId>policy-validators</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>kz.theeurasia.policy</groupId>
 			<artifactId>policy-domain</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
