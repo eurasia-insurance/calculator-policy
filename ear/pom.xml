@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>kz.theeurasia.policy.policy-calc</groupId>
 		<artifactId>calc-parent</artifactId>
-		<version>1.2-pre-rc1</version>
+		<version>1.2-pre-rc2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>calc-ear</artifactId>
