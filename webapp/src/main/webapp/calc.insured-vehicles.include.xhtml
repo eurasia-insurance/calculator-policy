@@ -42,7 +42,7 @@
 						style="width: 200px;">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
-						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
+						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{vehicleAgeClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleAgeClass" />
@@ -54,7 +54,7 @@
 						disabled="#{vehicle.fetched}" style="width: 300px;">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
-						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
+						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{vehicleClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleClass" />
@@ -67,8 +67,8 @@
 						filterMatchMode="contains" style="width: 290px;">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{frontController.onVehicleRegionChanged(vehicle)}" />
-						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
-						<f:selectItems value="#{countryRegionService.selectableItemsSI}" />
+						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
+						<f:selectItems value="#{kzAreaService.selectableItemsSI}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleRegion" />
 				</h:panelGrid>
@@ -81,11 +81,9 @@
 						disabled="#{vehicle.vehicleCertificateData.region eq 'GALM' or vehicle.vehicleCertificateData.region eq 'GAST'}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{frontController.onVehicleCityChanged(vehicle)}" />
-						<f:selectItem itemLabel="#{coremsg['label.si.UNSPECIFIED']}" />
+						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems
 							value="#{kzCityService.regionalItemsByAreaSI(vehicle.vehicleCertificateData.region)}" />
-						<f:selectItem itemLabel="#{gpovts['label.si.kzcity.OTHER']}"
-							itemValue="OTHER" />
 					</p:selectOneMenu>
 					<p:message for="vehicleCity" />
 				</h:panelGrid>
