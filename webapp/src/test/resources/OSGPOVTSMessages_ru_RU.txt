@@ -80,21 +80,3 @@ label.input.vehicle-certificate-data.date-of-issue = Дата выдачи св�
 label.input.vehicle-certificate-data.registration-number = Регистрационный номер ТС
 label.input.vehicle-certificate.scan-files = Скан-копии свидетельсвта о регистрации ТС
 label.input.discount = Расчитать с учетом скидки
-
-label.si.insurance-class.CLASS_0 = Класс 0
-label.si.insurance-class.CLASS_1 = Класс 1
-label.si.insurance-class.CLASS_2 = Класс 2
-label.si.insurance-class.CLASS_3 = Класс 3
-label.si.insurance-class.CLASS_4 = Класс 4
-label.si.insurance-class.CLASS_5 = Класс 5
-label.si.insurance-class.CLASS_6 = Класс 6
-label.si.insurance-class.CLASS_7 = Класс 7
-label.si.insurance-class.CLASS_8 = Класс 8
-label.si.insurance-class.CLASS_9 = Класс 9
-label.si.insurance-class.CLASS_10 = Класс 10
-label.si.insurance-class.CLASS_11 = Класс 11
-label.si.insurance-class.CLASS_12 = Класс 12
-label.si.insurance-class.CLASS_13 = Класс 13
-label.si.insurance-class.CLASS_M = Класс М
-
-label.si.kzcity.OTHER = Иные города и населенные пункты
