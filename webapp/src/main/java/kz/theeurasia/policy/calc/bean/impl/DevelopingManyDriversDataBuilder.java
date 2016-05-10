@@ -10,6 +10,8 @@ import javax.faces.application.ProjectStage;
 import javax.inject.Inject;
 
 import com.lapsa.country.Country;
+import com.lapsa.insurance.domain.InsuredDriverData;
+import com.lapsa.insurance.domain.InsuredVehicleData;
 import com.lapsa.insurance.elements.IdentityCardType;
 import com.lapsa.insurance.elements.InsuredAgeClass;
 import com.lapsa.insurance.elements.InsuredExpirienceClass;
@@ -24,8 +26,6 @@ import kz.theeurasia.policy.calc.facade.CalculationFacade;
 import kz.theeurasia.policy.calc.facade.DriverFacade;
 import kz.theeurasia.policy.calc.facade.ValidationException;
 import kz.theeurasia.policy.calc.facade.VehicleFacade;
-import kz.theeurasia.policy.domain.InsuredDriverData;
-import kz.theeurasia.policy.domain.InsuredVehicleData;
 
 @RequestScoped
 @ProjectStageDepend(stage = ProjectStage.Development)

@@ -7,6 +7,8 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.lapsa.insurance.domain.InsuredVehicleData;
+import com.lapsa.insurance.domain.VehicleData;
 import com.lapsa.insurance.elements.VehicleAgeClass;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
@@ -16,8 +18,6 @@ import kz.theeurasia.esbdproxy.services.InvalidInputParameter;
 import kz.theeurasia.esbdproxy.services.NotFound;
 import kz.theeurasia.esbdproxy.services.osgpovts.VehicleServiceDAO;
 import kz.theeurasia.policy.calc.bean.Calculation;
-import kz.theeurasia.policy.domain.InsuredVehicleData;
-import kz.theeurasia.policy.domain.VehicleData;
 
 @Named
 @ApplicationScoped

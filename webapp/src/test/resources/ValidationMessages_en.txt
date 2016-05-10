@@ -19,11 +19,11 @@ com.lapsa.internet.validators.ValidURL.message = Invalid URL
 com.lapsa.cars.validators.ValidVINCode.message = Invalid vehicle VIN-code
 
 # from policy-domain.jar
-kz.theeurasia.policy.domain.InsurantData.WhoIsInsurant.NotNull.message = Required value
-kz.theeurasia.policy.domain.InsurantData.WhoIsInsurant.ValidEnumeration.message = Wrong value
+com.lapsa.insurance.domain.InsurantData.WhoIsInsurant.NotNull.message = Required value
+com.lapsa.insurance.domain.InsurantData.WhoIsInsurant.ValidEnumeration.message = Wrong value
 
-kz.theeurasia.policy.domain.InsuredDriverData.IdNumber.NotNull.message = ID number is required
-kz.theeurasia.policy.domain.InsurantData.IdNumber.NotNull.message = {kz.theeurasia.policy.domain.InsuredDriverData.IdNumber.NotNull.message}
+com.lapsa.insurance.domain.InsuredDriverData.IdNumber.NotNull.message = ID number is required
+com.lapsa.insurance.domain.InsurantData.IdNumber.NotNull.message = {com.lapsa.insurance.domain.InsuredDriverData.IdNumber.NotNull.message}
 
 # from policy-validators.jar
 kz.theeurasia.policy.validator.NotEmptyString.message = Required field

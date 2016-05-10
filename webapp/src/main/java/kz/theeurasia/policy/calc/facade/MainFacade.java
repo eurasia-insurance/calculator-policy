@@ -8,9 +8,10 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.lapsa.insurance.domain.InsuredDriverData;
+import com.lapsa.insurance.domain.InsuredVehicleData;
+
 import kz.theeurasia.policy.calc.bean.Calculation;
-import kz.theeurasia.policy.domain.InsuredDriverData;
-import kz.theeurasia.policy.domain.InsuredVehicleData;
 
 @Named("frontController")
 @ApplicationScoped

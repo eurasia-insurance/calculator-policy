@@ -6,6 +6,12 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.lapsa.insurance.domain.ContactData;
+import com.lapsa.insurance.domain.IdentityCardData;
+import com.lapsa.insurance.domain.InsuredDriverData;
+import com.lapsa.insurance.domain.OriginData;
+import com.lapsa.insurance.domain.PersonalData;
+import com.lapsa.insurance.domain.ResidenceData;
 import com.lapsa.insurance.elements.InsuranceClassType;
 import com.lapsa.insurance.elements.InsuredAgeClass;
 
@@ -15,12 +21,6 @@ import kz.theeurasia.esbdproxy.services.NotFound;
 import kz.theeurasia.esbdproxy.services.elements.InsuranceClassTypeServiceDAO;
 import kz.theeurasia.esbdproxy.services.general.SubjectPersonServiceDAO;
 import kz.theeurasia.policy.calc.bean.Calculation;
-import kz.theeurasia.policy.domain.ContactData;
-import kz.theeurasia.policy.domain.IdentityCardData;
-import kz.theeurasia.policy.domain.InsuredDriverData;
-import kz.theeurasia.policy.domain.OriginData;
-import kz.theeurasia.policy.domain.PersonalData;
-import kz.theeurasia.policy.domain.ResidenceData;
 
 @Named
 @ApplicationScoped

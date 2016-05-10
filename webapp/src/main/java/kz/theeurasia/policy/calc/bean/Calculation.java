@@ -9,9 +9,9 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import kz.theeurasia.policy.domain.CalculationData;
-import kz.theeurasia.policy.domain.InsuredDriverData;
-import kz.theeurasia.policy.domain.InsuredVehicleData;
+import com.lapsa.insurance.domain.CalculationData;
+import com.lapsa.insurance.domain.InsuredDriverData;
+import com.lapsa.insurance.domain.InsuredVehicleData;
 
 @Named("policy")
 @ViewScoped

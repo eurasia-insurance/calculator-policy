@@ -19,11 +19,11 @@ com.lapsa.internet.validators.ValidURL.message = Жарамсыз Адрес
 com.lapsa.cars.validators.ValidVINCode.message = VIN-код дұрыс емес
 
 # from policy-domain.jar
-kz.theeurasia.policy.domain.InsurantData.WhoIsInsurant.NotNull.message = Дұрыс мән
-kz.theeurasia.policy.domain.InsurantData.WhoIsInsurant.ValidEnumeration.message = Дұрыс мән
+com.lapsa.insurance.domain.InsurantData.WhoIsInsurant.NotNull.message = Дұрыс мән
+com.lapsa.insurance.domain.InsurantData.WhoIsInsurant.ValidEnumeration.message = Дұрыс мән
 
-kz.theeurasia.policy.domain.InsuredDriverData.IdNumber.NotNull.message = ЖСН Белгісіз
-kz.theeurasia.policy.domain.InsurantData.IdNumber.NotNull.message = {kz.theeurasia.policy.domain.InsuredDriverData.IdNumber.NotNull.message}
+com.lapsa.insurance.domain.InsuredDriverData.IdNumber.NotNull.message = ЖСН Белгісіз
+com.lapsa.insurance.domain.InsurantData.IdNumber.NotNull.message = {com.lapsa.insurance.domain.InsuredDriverData.IdNumber.NotNull.message}
 
 # from policy-validators.jar
 kz.theeurasia.policy.validator.NotEmptyString.message = Міндетті өріс

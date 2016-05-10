@@ -19,11 +19,11 @@ com.lapsa.internet.validators.ValidURL.message = Некорректный адр
 com.lapsa.cars.validators.ValidVINCode.message = VIN-код некорректен
 
 # from policy-domain.jar
-kz.theeurasia.policy.domain.InsurantData.WhoIsInsurant.NotNull.message = Выберите значение
-kz.theeurasia.policy.domain.InsurantData.WhoIsInsurant.ValidEnumeration.message = Неверное значение
+com.lapsa.insurance.domain.InsurantData.WhoIsInsurant.NotNull.message = Выберите значение
+com.lapsa.insurance.domain.InsurantData.WhoIsInsurant.ValidEnumeration.message = Неверное значение
 
-kz.theeurasia.policy.domain.InsuredDriverData.IdNumber.NotNull.message = ИИН не указан
-kz.theeurasia.policy.domain.InsurantData.IdNumber.NotNull.message = {kz.theeurasia.policy.domain.InsuredDriverData.IdNumber.NotNull.message}
+com.lapsa.insurance.domain.InsuredDriverData.IdNumber.NotNull.message = ИИН не указан
+com.lapsa.insurance.domain.InsurantData.IdNumber.NotNull.message = {com.lapsa.insurance.domain.InsuredDriverData.IdNumber.NotNull.message}
 
 # from policy-validators.jar
 kz.theeurasia.policy.validator.NotEmptyString.message = Обязательное поле
