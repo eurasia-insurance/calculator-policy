@@ -15,19 +15,19 @@
 	<dependencies>
 		<!-- internal -->
 		<dependency>
-			<groupId>kz.theeurasia.policy</groupId>
+			<groupId>com.lapsa.insurance-lib</groupId>
 			<artifactId>policy-elements</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
 		<dependency>
-			<groupId>kz.theeurasia.policy</groupId>
+			<groupId>com.lapsa.insurance-lib</groupId>
 			<artifactId>policy-validators</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
 		<dependency>
-			<groupId>kz.theeurasia.policy</groupId>
+			<groupId>com.lapsa.insurance-lib</groupId>
 			<artifactId>policy-domain</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
