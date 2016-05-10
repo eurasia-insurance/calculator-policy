@@ -16,7 +16,7 @@
 		<!-- internal -->
 		<dependency>
 			<groupId>com.lapsa.insurance-lib</groupId>
-			<artifactId>policy-elements</artifactId>
+			<artifactId>insurance-elements</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
