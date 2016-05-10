@@ -17,7 +17,6 @@ import kz.theeurasia.esbdproxy.services.NotFound;
 import kz.theeurasia.esbdproxy.services.osgpovts.VehicleServiceDAO;
 import kz.theeurasia.policy.calc.bean.Calculation;
 import kz.theeurasia.policy.domain.InsuredVehicleData;
-import kz.theeurasia.policy.domain.VehicleCertificateData;
 import kz.theeurasia.policy.domain.VehicleData;
 
 @Named
@@ -63,19 +62,19 @@ public class VehicleFacade implements Serializable {
     }
 
     public void evaluateMajorCity(InsuredVehicleData insuredVehicle) {
-	KZArea region = insuredVehicle.getVehicleCertificateData().getRegion();
+	KZArea region = insuredVehicle.getRegion();
 	if (region == null)
 	    return;
 	if (region.equals(KZArea.GALM))
-	    insuredVehicle.getVehicleCertificateData().setCity(KZCity.ALM);
+	    insuredVehicle.setCity(KZCity.ALM);
 	if (region.equals(KZArea.GAST))
-	    insuredVehicle.getVehicleCertificateData().setCity(KZCity.AST);
+	    insuredVehicle.setCity(KZCity.AST);
     }
 
     private void _reset(Calculation policy, InsuredVehicleData vehicle) {
 	_resetFetchedInfo(policy, vehicle);
 	vehicle.getVehicleData().setVinCode(null);
-	vehicle.getVehicleCertificateData().setRegion(null);
+	vehicle.setRegion(null);
 	evaluateMajorCity(vehicle);
     }
 
@@ -87,16 +86,15 @@ public class VehicleFacade implements Serializable {
     }
 
     public void handleAreaChanged(InsuredVehicleData insuredVehicle) {
-	VehicleCertificateData cer = insuredVehicle.getVehicleCertificateData();
-	KZArea region = cer.getRegion();
-	KZCity city = cer.getCity();
+	KZArea region = insuredVehicle.getRegion();
+	KZCity city = insuredVehicle.getCity();
 	if (region != null && city != null && city.getArea() != null && !city.getArea().equals(region))
-	    cer.setCity(null);
+	    insuredVehicle.setCity(null);
     }
 
     public void handleCityChanged(InsuredVehicleData vehicle) {
-	KZCity city = vehicle.getVehicleCertificateData().getCity();
+	KZCity city = vehicle.getCity();
 	if (city != null && city.getArea() != null)
-	    vehicle.getVehicleCertificateData().setRegion(city.getArea());
+	    vehicle.setRegion(city.getArea());
     }
 }
