@@ -39,8 +39,8 @@
 			<optional>false</optional>
 		</dependency>
 		<dependency>
-			<groupId>kz.theeurasia.esbdproxy</groupId>
-			<artifactId>esbdproxy-api</artifactId>
+			<groupId>com.lapsa.insurance-lib</groupId>
+			<artifactId>insurance-esbd</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>

@@ -21,8 +21,8 @@
 		</dependency>
 		<!-- internal -->
 		<dependency>
-			<groupId>kz.theeurasia.esbdproxy</groupId>
-			<artifactId>esbdproxy-ejbimpl</artifactId>
+			<groupId>com.lapsa.insurance-lib</groupId>
+			<artifactId>insurance-esbd-impl-ws</artifactId>
 			<type>ejb</type>
 		</dependency>
 	</dependencies>
