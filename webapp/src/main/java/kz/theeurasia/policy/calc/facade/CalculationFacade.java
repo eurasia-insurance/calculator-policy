@@ -6,8 +6,9 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.lapsa.insurance.domain.services.CalculationService;
+
 import kz.theeurasia.policy.calc.bean.Calculation;
-import kz.theeurasia.policy.services.CalculationService;
 
 @Named
 @ApplicationScoped
