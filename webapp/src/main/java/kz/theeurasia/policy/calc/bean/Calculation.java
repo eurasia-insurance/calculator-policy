@@ -9,20 +9,19 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import kz.theeurasia.policy.domain.CalculationData;
 import kz.theeurasia.policy.domain.InsuredDriverData;
 import kz.theeurasia.policy.domain.InsuredVehicleData;
-import kz.theeurasia.policy.domain.PolicyTermClass;
 
 @Named("policy")
 @ViewScoped
-public class CalculationData implements Serializable {
+public class Calculation implements Serializable {
 
     private static final long serialVersionUID = -910218412636084500L;
 
     private List<InsuredDriverData> insuredDrivers = new ArrayList<>();
     private List<InsuredVehicleData> insuredVehicles = new ArrayList<>();
-    private PolicyTermClass termClass = PolicyTermClass.YEAR;
-    private double calculatedPremiumCost;
+    private CalculationData calculation = new CalculationData();
 
     @Inject
     // @ProjectStageDepend(stage = ProjectStage.Development)
@@ -53,19 +52,7 @@ public class CalculationData implements Serializable {
 	this.insuredVehicles = insuredVehicles;
     }
 
-    public PolicyTermClass getTermClass() {
-	return termClass;
-    }
-
-    public void setTermClass(PolicyTermClass termClass) {
-	this.termClass = termClass;
-    }
-
-    public double getCalculatedPremiumCost() {
-	return calculatedPremiumCost;
-    }
-
-    public void setCalculatedPremiumCost(double calculatedPremiumCost) {
-	this.calculatedPremiumCost = calculatedPremiumCost;
+    public CalculationData getCalculation() {
+	return calculation;
     }
 }

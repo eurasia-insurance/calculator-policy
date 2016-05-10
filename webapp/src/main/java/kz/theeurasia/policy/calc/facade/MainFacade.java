@@ -8,7 +8,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import kz.theeurasia.policy.calc.bean.CalculationData;
+import kz.theeurasia.policy.calc.bean.Calculation;
 import kz.theeurasia.policy.domain.InsuredDriverData;
 import kz.theeurasia.policy.domain.InsuredVehicleData;
 
@@ -28,7 +28,7 @@ public class MainFacade {
     private CalculationFacade calculationFacade;
 
     @Inject
-    private CalculationData data;
+    private Calculation data;
 
     public void addInsuredDriver() {
 	try {

@@ -15,7 +15,7 @@ import kz.theeurasia.esbdproxy.domain.entities.osgpovts.VehicleEntity;
 import kz.theeurasia.esbdproxy.services.InvalidInputParameter;
 import kz.theeurasia.esbdproxy.services.NotFound;
 import kz.theeurasia.esbdproxy.services.osgpovts.VehicleServiceDAO;
-import kz.theeurasia.policy.calc.bean.CalculationData;
+import kz.theeurasia.policy.calc.bean.Calculation;
 import kz.theeurasia.policy.domain.InsuredVehicleData;
 import kz.theeurasia.policy.domain.VehicleCertificateData;
 import kz.theeurasia.policy.domain.VehicleData;
@@ -29,7 +29,7 @@ public class VehicleFacade implements Serializable {
     @Inject
     private VehicleServiceDAO vehicleService;
 
-    public InsuredVehicleData add(CalculationData policy) throws ValidationException {
+    public InsuredVehicleData add(Calculation policy) throws ValidationException {
 	if (policy.getInsuredVehicles().size() > 0 && policy.getInsuredDrivers().size() > 1)
 	    throw new ValidationException(MessageBundleCode.ONLY_ONE_VEHICLE_ALLOWED);
 	InsuredVehicleData e = new InsuredVehicleData();
@@ -38,13 +38,13 @@ public class VehicleFacade implements Serializable {
 	return e;
     }
 
-    public void remove(CalculationData policy, InsuredVehicleData vehicle) throws ValidationException {
+    public void remove(Calculation policy, InsuredVehicleData vehicle) throws ValidationException {
 	if (policy.getInsuredVehicles().size() <= 1)
 	    throw new ValidationException(MessageBundleCode.VEHICLES_LIST_CANT_BE_EMPTY);
 	policy.getInsuredVehicles().remove(vehicle);
     }
 
-    public void fetchInfo(CalculationData policy, InsuredVehicleData vehicle) throws ValidationException {
+    public void fetchInfo(Calculation policy, InsuredVehicleData vehicle) throws ValidationException {
 	try {
 	    VehicleEntity fetched = vehicleService.getByVINCode(vehicle.getVehicleData().getVinCode());
 	    vehicle.setFetched(true);
@@ -72,14 +72,14 @@ public class VehicleFacade implements Serializable {
 	    insuredVehicle.getVehicleCertificateData().setCity(KZCity.AST);
     }
 
-    private void _reset(CalculationData policy, InsuredVehicleData vehicle) {
+    private void _reset(Calculation policy, InsuredVehicleData vehicle) {
 	_resetFetchedInfo(policy, vehicle);
 	vehicle.getVehicleData().setVinCode(null);
 	vehicle.getVehicleCertificateData().setRegion(null);
 	evaluateMajorCity(vehicle);
     }
 
-    private void _resetFetchedInfo(CalculationData policy, InsuredVehicleData vehicle) {
+    private void _resetFetchedInfo(Calculation policy, InsuredVehicleData vehicle) {
 	vehicle.setFetched(false);
 	vehicle.setVehicleClass(null);
 	vehicle.setVehicleAgeClass(null);

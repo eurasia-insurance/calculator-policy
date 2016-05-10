@@ -6,7 +6,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import kz.theeurasia.policy.calc.bean.CalculationData;
+import kz.theeurasia.policy.calc.bean.Calculation;
 import kz.theeurasia.policy.services.CalculationService;
 
 @Named
@@ -18,9 +18,9 @@ public class CalculationFacade implements Serializable {
     @Inject
     private CalculationService calculationService;
 
-    public void calculatePremiumCost(CalculationData data) {
+    public void calculatePremiumCost(Calculation data) {
 	double cost = calculationService.calculatePremiumCost(data.getInsuredDrivers(), data.getInsuredVehicles(),
-		data.getTermClass());
-	data.setCalculatedPremiumCost(cost);
+		data.getCalculation().getTermClass());
+	data.getCalculation().setPremiumCost(cost);
     }
 }

@@ -14,7 +14,7 @@ import kz.theeurasia.esbdproxy.services.InvalidInputParameter;
 import kz.theeurasia.esbdproxy.services.NotFound;
 import kz.theeurasia.esbdproxy.services.elements.InsuranceClassTypeServiceDAO;
 import kz.theeurasia.esbdproxy.services.general.SubjectPersonServiceDAO;
-import kz.theeurasia.policy.calc.bean.CalculationData;
+import kz.theeurasia.policy.calc.bean.Calculation;
 import kz.theeurasia.policy.domain.ContactData;
 import kz.theeurasia.policy.domain.IdentityCardData;
 import kz.theeurasia.policy.domain.InsuredDriverData;
@@ -34,7 +34,7 @@ public class DriverFacade implements Serializable {
     @Inject
     private InsuranceClassTypeServiceDAO insuranceClassTypeService;
 
-    public InsuredDriverData add(CalculationData policy) throws ValidationException {
+    public InsuredDriverData add(Calculation policy) throws ValidationException {
 	if (policy.getInsuredDrivers().size() > 0 && policy.getInsuredVehicles().size() > 1)
 	    throw new ValidationException(MessageBundleCode.ONLY_ONE_DRIVER_ALLOWED);
 	InsuredDriverData e = new InsuredDriverData();
@@ -43,13 +43,13 @@ public class DriverFacade implements Serializable {
 	return e;
     }
 
-    public void remove(CalculationData policy, InsuredDriverData driver) throws ValidationException {
+    public void remove(Calculation policy, InsuredDriverData driver) throws ValidationException {
 	if (policy.getInsuredDrivers().size() <= 1)
 	    throw new ValidationException(MessageBundleCode.DRIVER_LIST_CANT_BE_EMPTY);
 	policy.getInsuredDrivers().remove(driver);
     }
 
-    public void fetchInfo(CalculationData policy, InsuredDriverData driver) throws ValidationException {
+    public void fetchInfo(Calculation policy, InsuredDriverData driver) throws ValidationException {
 	try {
 	    SubjectPersonEntity fetched = subjectPersonService.getByIIN(driver.getIdNumber());
 	    driver.setFetched(true);
@@ -101,12 +101,12 @@ public class DriverFacade implements Serializable {
 	}
     }
 
-    private void _reset(CalculationData policy, InsuredDriverData driver) {
+    private void _reset(Calculation policy, InsuredDriverData driver) {
 	_resetFetchedInfo(policy, driver);
 	driver.setExpirienceClass(null);
     }
 
-    private void _resetFetchedInfo(CalculationData policy, InsuredDriverData driver) {
+    private void _resetFetchedInfo(Calculation policy, InsuredDriverData driver) {
 	driver.setFetched(false);
 	driver.setPersonalData(new PersonalData());
 	driver.setResidenceData(new ResidenceData());

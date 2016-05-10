@@ -17,7 +17,7 @@ import com.lapsa.insurance.elements.Sex;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
-import kz.theeurasia.policy.calc.bean.CalculationData;
+import kz.theeurasia.policy.calc.bean.Calculation;
 import kz.theeurasia.policy.calc.bean.DefaultCalculationDataBuilder;
 import kz.theeurasia.policy.calc.bean.ProjectStageDepend;
 import kz.theeurasia.policy.calc.facade.CalculationFacade;
@@ -45,11 +45,11 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
     private Logger logger;
 
     @Override
-    public void buildDefaultData(CalculationData calculationData) {
+    public void buildDefaultData(Calculation calculation) {
 	try {
-	    InsuredDriverData drv1 = driverFacade.add(calculationData);
+	    InsuredDriverData drv1 = driverFacade.add(calculation);
 	    drv1.setIdNumber("570325300699");
-	    driverFacade.fetchInfo(calculationData, drv1);
+	    driverFacade.fetchInfo(calculation, drv1);
 	    drv1.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv1.getResidenceData().setCity(KZCity.ALM);
 	    drv1.getResidenceData().setAddress("Джамбула, 231");
@@ -73,9 +73,9 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv1.getPrivilegerCertificateData().setNumber("123");
 	    drv1.getPrivilegerCertificateData().setDateOfIssue(new Date());
 
-	    InsuredDriverData drv2 = driverFacade.add(calculationData);
+	    InsuredDriverData drv2 = driverFacade.add(calculation);
 	    drv2.setIdNumber("870622300359");
-	    driverFacade.fetchInfo(calculationData, drv2);
+	    driverFacade.fetchInfo(calculation, drv2);
 	    drv2.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv2.getResidenceData().setCity(KZCity.ALM);
 	    // drv2.getResidenceData().setAddress("Джамбула, 231");
@@ -85,9 +85,9 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv2.getDriverLicenseData().setDateOfIssue(new Date());
 	    drv2.setHasAnyPrivilege(false);
 
-	    InsuredDriverData drv3 = driverFacade.add(calculationData);
+	    InsuredDriverData drv3 = driverFacade.add(calculation);
 	    drv3.setIdNumber("800225000319");
-	    driverFacade.fetchInfo(calculationData, drv3);
+	    driverFacade.fetchInfo(calculation, drv3);
 	    drv3.setAgeClass(InsuredAgeClass.OVER25);
 	    drv3.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv3.getPersonalData().setName("Вадим");
@@ -109,9 +109,9 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv3.getDriverLicenseData().setDateOfIssue(new Date());
 	    drv3.setHasAnyPrivilege(false);
 
-	    InsuredDriverData drv4 = driverFacade.add(calculationData);
+	    InsuredDriverData drv4 = driverFacade.add(calculation);
 	    drv4.setIdNumber("860401402685");
-	    driverFacade.fetchInfo(calculationData, drv4);
+	    driverFacade.fetchInfo(calculation, drv4);
 	    drv4.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv4.getPersonalData().setSex(Sex.FEMALE);
 	    drv4.getIdentityCardData().setIssuingAuthority("МВД РК");
@@ -124,13 +124,13 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv4.getDriverLicenseData().setDateOfIssue(new Date());
 	    drv4.setHasAnyPrivilege(false);
 
-	    InsuredVehicleData vhc1 = vehicleFacade.add(calculationData);
+	    InsuredVehicleData vhc1 = vehicleFacade.add(calculation);
 	    vhc1.getVehicleData().setVinCode("JN1TANS51U0303376");
-	    vehicleFacade.fetchInfo(calculationData, vhc1);
-	    vhc1.getVehicleCertificateData().setRegion(KZArea.GALM);
+	    vehicleFacade.fetchInfo(calculation, vhc1);
+	    vhc1.setRegion(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc1);
 
-	    calculationFacade.calculatePremiumCost(calculationData);
+	    calculationFacade.calculatePremiumCost(calculation);
 	} catch (ValidationException e) {
 	    logger.log(Level.SEVERE, e.getMessage(), e);
 	}
