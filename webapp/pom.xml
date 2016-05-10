@@ -33,12 +33,6 @@
 			<optional>false</optional>
 		</dependency>
 		<dependency>
-			<groupId>kz.theeurasia.policy-services</groupId>
-			<artifactId>policy-services</artifactId>
-			<scope>compile</scope>
-			<optional>false</optional>
-		</dependency>
-		<dependency>
 			<groupId>com.lapsa.insurance-lib</groupId>
 			<artifactId>insurance-esbd</artifactId>
 			<scope>compile</scope>
