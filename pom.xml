@@ -72,7 +72,7 @@
 			</dependency>
 			<dependency>
 				<groupId>com.lapsa.insurance-lib</groupId>
-				<artifactId>policy-validators</artifactId>
+				<artifactId>insurance-eelib</artifactId>
 				<version>1.3-pre-rc2-SNAPSHOT</version>
 			</dependency>
 			<dependency>

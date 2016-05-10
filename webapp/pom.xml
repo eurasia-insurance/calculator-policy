@@ -22,7 +22,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.lapsa.insurance-lib</groupId>
-			<artifactId>policy-validators</artifactId>
+			<artifactId>insurance-eelib</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
