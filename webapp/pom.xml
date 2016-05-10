@@ -28,7 +28,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.lapsa.insurance-lib</groupId>
-			<artifactId>policy-domain</artifactId>
+			<artifactId>insurance-domain</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
