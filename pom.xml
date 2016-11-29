@@ -8,7 +8,7 @@
 	</parent>
 
 	<groupId>kz.theeurasia.policy.policy-calc</groupId>
-	<artifactId>policy-calc-parent</artifactId>
+	<artifactId>parent</artifactId>
 	<version>1.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
