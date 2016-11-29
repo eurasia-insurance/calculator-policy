@@ -24,6 +24,7 @@
 		<!-- APIs -->
 		<kz-lib.version>2.2</kz-lib.version>
 		<international-lib.version>2.0.2</international-lib.version>
+		<lapsa-lib.version>1.1.1</lapsa-lib.version>
 		<insurance-lib.version>1.5</insurance-lib.version>
 		<!-- EJBs & WARs -->
 		<insurance-services-impl-cdi.version>1.2</insurance-services-impl-cdi.version>
@@ -114,6 +115,12 @@
 				<artifactId>esbd-connection-impl-default</artifactId>
 				<version>${esbd-connection-impl-default.version}</version>
 				<type>ejb</type>
+			</dependency>
+			<!-- internal lapsa -->
+			<dependency>
+				<groupId>com.lapsa.lapsa-lib</groupId>
+				<artifactId>lapsa-validation</artifactId>
+				<version>${lapsa-lib.version}</version>
 			</dependency>
 			<!-- external -->
 			<dependency>
