@@ -17,6 +17,7 @@
 
 	<modules>
 		<module>webapp</module>
+		<module>dependencies</module>
 		<module>ear</module>
 	</modules>
 
@@ -44,6 +45,12 @@
 				<artifactId>calc-webapp</artifactId>
 				<version>${project.version}</version>
 				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>${project.groupId}</groupId>
+				<artifactId>calc-dependencies</artifactId>
+				<version>${project.version}</version>
+				<type>pom</type>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
