@@ -8,8 +8,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.lapsa.insurance.domain.InsuredDriverData;
-import com.lapsa.insurance.domain.InsuredVehicleData;
+import com.lapsa.insurance.domain.policy.PolicyDriver;
+import com.lapsa.insurance.domain.policy.PolicyVehicle;
 
 import kz.theeurasia.policy.calc.bean.Calculation;
 
@@ -43,7 +43,7 @@ public class MainFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
-    public void removeInsuredDriver(InsuredDriverData driver) {
+    public void removeInsuredDriver(PolicyDriver driver) {
 	try {
 	    driverFacade.remove(data, driver);
 	} catch (ValidationException e) {
@@ -67,7 +67,7 @@ public class MainFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
-    public void removeInsuredVehicle(InsuredVehicleData insuredVehicle) {
+    public void removeInsuredVehicle(PolicyVehicle insuredVehicle) {
 	try {
 	    vehicleFacade.remove(data, insuredVehicle);
 	} catch (ValidationException e) {
@@ -83,7 +83,7 @@ public class MainFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
-    public void onDriverIdNumberChanged(InsuredDriverData insuredDriver) {
+    public void onDriverIdNumberChanged(PolicyDriver insuredDriver) {
 	try {
 	    driverFacade.fetchInfo(data, insuredDriver);
 	} catch (ValidationException e) {
@@ -95,7 +95,7 @@ public class MainFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
-    public void onVehicleVinCodeChanged(InsuredVehicleData insuredVehicle) {
+    public void onVehicleVinCodeChanged(PolicyVehicle insuredVehicle) {
 	try {
 	    vehicleFacade.fetchInfo(data, insuredVehicle);
 	} catch (ValidationException e) {
@@ -103,13 +103,13 @@ public class MainFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
-    public void onVehicleRegionChanged(InsuredVehicleData insuredVehicle) {
+    public void onVehicleRegionChanged(PolicyVehicle insuredVehicle) {
 	vehicleFacade.handleAreaChanged(insuredVehicle);
 	vehicleFacade.evaluateMajorCity(insuredVehicle);
 	calculationFacade.calculatePremiumCost(data);
     }
 
-    public void onVehicleCityChanged(InsuredVehicleData vehicle) {
+    public void onVehicleCityChanged(PolicyVehicle vehicle) {
 	vehicleFacade.handleCityChanged(vehicle);
 	vehicleFacade.evaluateMajorCity(vehicle);
 	calculationFacade.calculatePremiumCost(data);

@@ -10,8 +10,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.lapsa.insurance.domain.CalculationData;
-import com.lapsa.insurance.domain.InsuredDriverData;
-import com.lapsa.insurance.domain.InsuredVehicleData;
+import com.lapsa.insurance.domain.policy.PolicyDriver;
+import com.lapsa.insurance.domain.policy.PolicyVehicle;
 
 @Named("policy")
 @ViewScoped
@@ -19,8 +19,8 @@ public class Calculation implements Serializable {
 
     private static final long serialVersionUID = -910218412636084500L;
 
-    private List<InsuredDriverData> insuredDrivers = new ArrayList<>();
-    private List<InsuredVehicleData> insuredVehicles = new ArrayList<>();
+    private List<PolicyDriver> insuredDrivers = new ArrayList<>();
+    private List<PolicyVehicle> insuredVehicles = new ArrayList<>();
     private CalculationData calculation = new CalculationData();
 
     @Inject
@@ -36,19 +36,19 @@ public class Calculation implements Serializable {
 
     // GENERATED
 
-    public List<InsuredDriverData> getInsuredDrivers() {
+    public List<PolicyDriver> getInsuredDrivers() {
 	return insuredDrivers;
     }
 
-    public void setInsuredDrivers(List<InsuredDriverData> insuredDrivers) {
+    public void setInsuredDrivers(List<PolicyDriver> insuredDrivers) {
 	this.insuredDrivers = insuredDrivers;
     }
 
-    public List<InsuredVehicleData> getInsuredVehicles() {
+    public List<PolicyVehicle> getInsuredVehicles() {
 	return insuredVehicles;
     }
 
-    public void setInsuredVehicles(List<InsuredVehicleData> insuredVehicles) {
+    public void setInsuredVehicles(List<PolicyVehicle> insuredVehicles) {
 	this.insuredVehicles = insuredVehicles;
     }
 

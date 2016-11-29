@@ -63,7 +63,7 @@
 				<p:outputLabel value="#{gpovts['label.input.vehicle-region']}" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleRegion"
-						value="#{vehicle.region}" filter="true"
+						value="#{vehicle.area}" filter="true"
 						filterMatchMode="contains" style="width: 290px;">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{frontController.onVehicleRegionChanged(vehicle)}" />
@@ -78,12 +78,12 @@
 					<p:selectOneMenu id="vehicleCity"
 						value="#{vehicle.city}" filter="true"
 						filterMatchMode="contains" style="width: 200px;"
-						disabled="#{vehicle.region eq 'GALM' or vehicle.region eq 'GAST'}">
+						disabled="#{vehicle.area eq 'GALM' or vehicle.area eq 'GAST'}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{frontController.onVehicleCityChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems
-							value="#{kzCityService.regionalItemsByAreaSI(vehicle.region)}" />
+							value="#{kzCityService.regionalItemsByAreaSI(vehicle.area)}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleCity" />
 				</h:panelGrid>

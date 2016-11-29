@@ -6,7 +6,9 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.lapsa.insurance.domain.services.CalculationService;
+import com.lapsa.insurance.domain.CalculationData;
+import com.lapsa.insurance.domain.policy.Policy;
+import com.lapsa.insurance.services.other.PolicyCalculationService;
 
 import kz.theeurasia.policy.calc.bean.Calculation;
 
@@ -17,11 +19,15 @@ public class CalculationFacade implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Inject
-    private CalculationService calculationService;
+    private PolicyCalculationService calculationService;
 
     public void calculatePremiumCost(Calculation data) {
-	double cost = calculationService.calculatePremiumCost(data.getInsuredDrivers(), data.getInsuredVehicles(),
-		data.getCalculation().getTermClass());
-	data.getCalculation().setPremiumCost(cost);
+	Policy policy = new Policy();
+	policy.setCalculation(new CalculationData());
+	policy.setInsuredDrivers(data.getInsuredDrivers());
+	policy.setInsuredVehicles(data.getInsuredVehicles());
+
+	calculationService.calculatePolicyCost(policy);
+	data.getCalculation().setPremiumCost(policy.getCalculation().getPremiumCost());
     }
 }

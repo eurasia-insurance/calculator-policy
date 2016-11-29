@@ -7,16 +7,15 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import com.lapsa.insurance.domain.InsuredVehicleData;
-import com.lapsa.insurance.domain.VehicleData;
+import com.lapsa.insurance.domain.policy.PolicyVehicle;
 import com.lapsa.insurance.elements.VehicleAgeClass;
+import com.lapsa.insurance.esbd.domain.entities.policy.VehicleEntity;
+import com.lapsa.insurance.esbd.services.InvalidInputParameter;
+import com.lapsa.insurance.esbd.services.NotFound;
+import com.lapsa.insurance.esbd.services.policy.VehicleServiceDAO;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
-import kz.theeurasia.esbdproxy.domain.entities.osgpovts.VehicleEntity;
-import kz.theeurasia.esbdproxy.services.InvalidInputParameter;
-import kz.theeurasia.esbdproxy.services.NotFound;
-import kz.theeurasia.esbdproxy.services.osgpovts.VehicleServiceDAO;
 import kz.theeurasia.policy.calc.bean.Calculation;
 
 @Named
@@ -28,41 +27,41 @@ public class VehicleFacade implements Serializable {
     @Inject
     private VehicleServiceDAO vehicleService;
 
-    public InsuredVehicleData add(Calculation policy) throws ValidationException {
+    public PolicyVehicle add(Calculation policy) throws ValidationException {
 	if (policy.getInsuredVehicles().size() > 0 && policy.getInsuredDrivers().size() > 1)
 	    throw new ValidationException(MessageBundleCode.ONLY_ONE_VEHICLE_ALLOWED);
-	InsuredVehicleData e = new InsuredVehicleData();
+	PolicyVehicle e = new PolicyVehicle();
 	policy.getInsuredVehicles().add(e);
 	_reset(policy, e);
 	return e;
     }
 
-    public void remove(Calculation policy, InsuredVehicleData vehicle) throws ValidationException {
+    public void remove(Calculation policy, PolicyVehicle vehicle) throws ValidationException {
 	if (policy.getInsuredVehicles().size() <= 1)
 	    throw new ValidationException(MessageBundleCode.VEHICLES_LIST_CANT_BE_EMPTY);
 	policy.getInsuredVehicles().remove(vehicle);
     }
 
-    public void fetchInfo(Calculation policy, InsuredVehicleData vehicle) throws ValidationException {
+    public void fetchInfo(Calculation policy, PolicyVehicle vehicle) throws ValidationException {
 	try {
-	    VehicleEntity fetched = vehicleService.getByVINCode(vehicle.getVehicleData().getVinCode());
+	    VehicleEntity fetched = vehicleService.getByVINCode(vehicle.getVinCode());
 	    vehicle.setFetched(true);
 	    vehicle.setVehicleClass(fetched.getVehicleClass());
 	    if (fetched.getRealeaseDate() != null) {
 		int age = CalculatorUtil.calculateAgeByDOB(fetched.getRealeaseDate());
 		vehicle.setVehicleAgeClass(age > 7 ? VehicleAgeClass.OVER7 : VehicleAgeClass.UNDER7);
 	    }
-	    vehicle.getVehicleData().setColor(fetched.getColor());
-	    vehicle.getVehicleData().setManufacturer(fetched.getVehicleModel().getManufacturer().getName());
-	    vehicle.getVehicleData().setModel(fetched.getVehicleModel().getName());
-	    vehicle.getVehicleData().setYearOfIssue(fetched.getRealeaseDate().get(Calendar.YEAR));
+	    vehicle.setColor(fetched.getColor());
+	    vehicle.setManufacturer(fetched.getVehicleModel().getManufacturer().getName());
+	    vehicle.setModel(fetched.getVehicleModel().getName());
+	    vehicle.setYearOfManufacture(fetched.getRealeaseDate().get(Calendar.YEAR));
 	} catch (NotFound | InvalidInputParameter e) {
 	    _resetFetchedInfo(policy, vehicle);
 	}
     }
 
-    public void evaluateMajorCity(InsuredVehicleData insuredVehicle) {
-	KZArea region = insuredVehicle.getRegion();
+    public void evaluateMajorCity(PolicyVehicle insuredVehicle) {
+	KZArea region = insuredVehicle.getArea();
 	if (region == null)
 	    return;
 	if (region.equals(KZArea.GALM))
@@ -71,30 +70,35 @@ public class VehicleFacade implements Serializable {
 	    insuredVehicle.setCity(KZCity.AST);
     }
 
-    private void _reset(Calculation policy, InsuredVehicleData vehicle) {
+    private void _reset(Calculation policy, PolicyVehicle vehicle) {
 	_resetFetchedInfo(policy, vehicle);
-	vehicle.getVehicleData().setVinCode(null);
-	vehicle.setRegion(null);
+	vehicle.setVinCode(null);
+	vehicle.setArea(null);
 	evaluateMajorCity(vehicle);
     }
 
-    private void _resetFetchedInfo(Calculation policy, InsuredVehicleData vehicle) {
+    private void _resetFetchedInfo(Calculation policy, PolicyVehicle vehicle) {
 	vehicle.setFetched(false);
 	vehicle.setVehicleClass(null);
 	vehicle.setVehicleAgeClass(null);
-	vehicle.setVehicleData(new VehicleData());
+	vehicle.setVehicleClass(null);
+	vehicle.setVehicleAgeClass(null);
+	vehicle.setColor(null);
+	vehicle.setManufacturer(null);
+	vehicle.setModel(null);
+	vehicle.setYearOfManufacture(null);
     }
 
-    public void handleAreaChanged(InsuredVehicleData insuredVehicle) {
-	KZArea region = insuredVehicle.getRegion();
+    public void handleAreaChanged(PolicyVehicle insuredVehicle) {
+	KZArea region = insuredVehicle.getArea();
 	KZCity city = insuredVehicle.getCity();
 	if (region != null && city != null && city.getArea() != null && !city.getArea().equals(region))
 	    insuredVehicle.setCity(null);
     }
 
-    public void handleCityChanged(InsuredVehicleData vehicle) {
+    public void handleCityChanged(PolicyVehicle vehicle) {
 	KZCity city = vehicle.getCity();
 	if (city != null && city.getArea() != null)
-	    vehicle.setRegion(city.getArea());
+	    vehicle.setArea(city.getArea());
     }
 }
