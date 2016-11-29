@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>kz.theeurasia.policy.policy-calc</groupId>
-		<artifactId>calc-parent</artifactId>
+		<artifactId>policy-calc-parent</artifactId>
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>calc-dependencies</artifactId>
+	<artifactId>policy-calc-dependencies</artifactId>
 	<packaging>pom</packaging>
 
 	<name>Policy : Calc : App depdendencies</name>
@@ -16,7 +16,7 @@
 		<!-- own -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>calc-webapp</artifactId>
+			<artifactId>policy-calc-webapp</artifactId>
 			<type>war</type>
 		</dependency>
 		<!-- internal insurance -->

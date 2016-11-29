@@ -7,7 +7,7 @@
 		<version>1.3-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>calc-webapp</artifactId>
+	<artifactId>policy-calc-webapp</artifactId>
 	<packaging>war</packaging>
 
 	<name>Policy : Calc : Web-application ARchive</name>
