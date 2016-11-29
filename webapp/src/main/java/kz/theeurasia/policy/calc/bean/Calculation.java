@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
+import org.omnifaces.cdi.ViewScoped;
 
 import com.lapsa.insurance.domain.CalculationData;
 import com.lapsa.insurance.domain.policy.PolicyDriver;

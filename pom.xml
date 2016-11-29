@@ -33,6 +33,7 @@
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
 		<primefaces-themes.version>1.0.10</primefaces-themes.version>
+		<omnifaces.version>2.5.1</omnifaces.version>
 	</properties>
 
 	<dependencyManagement>
@@ -132,6 +133,11 @@
 				<groupId>org.primefaces.themes</groupId>
 				<artifactId>all-themes</artifactId>
 				<version>${primefaces-themes.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.omnifaces</groupId>
+				<artifactId>omnifaces</artifactId>
+				<version>${omnifaces.version}</version>
 			</dependency>
 			<!-- JavaEE -->
 			<dependency>

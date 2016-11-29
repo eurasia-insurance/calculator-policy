@@ -16,5 +16,6 @@
 			<base-name>OSGPOVTSMessages</base-name>
 			<var>gpovts</var>
 		</resource-bundle>
+		<resource-handler>org.omnifaces.resourcehandler.CombinedResourceHandler</resource-handler>
 	</application>
 </faces-config>
