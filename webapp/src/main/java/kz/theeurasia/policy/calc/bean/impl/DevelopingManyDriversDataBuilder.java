@@ -10,8 +10,8 @@ import javax.faces.application.ProjectStage;
 import javax.inject.Inject;
 
 import com.lapsa.country.Country;
-import com.lapsa.insurance.domain.InsuredDriverData;
-import com.lapsa.insurance.domain.InsuredVehicleData;
+import com.lapsa.insurance.domain.policy.PolicyDriver;
+import com.lapsa.insurance.domain.policy.PolicyVehicle;
 import com.lapsa.insurance.elements.IdentityCardType;
 import com.lapsa.insurance.elements.InsuredAgeClass;
 import com.lapsa.insurance.elements.InsuredExpirienceClass;
@@ -47,7 +47,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
     @Override
     public void buildDefaultData(Calculation calculation) {
 	try {
-	    InsuredDriverData drv1 = driverFacade.add(calculation);
+	    PolicyDriver drv1 = driverFacade.add(calculation);
 	    drv1.setIdNumber("570325300699");
 	    driverFacade.fetchInfo(calculation, drv1);
 	    drv1.setExpirienceClass(InsuredExpirienceClass.MORE2);
@@ -73,7 +73,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv1.getPrivilegerCertificateData().setNumber("123");
 	    drv1.getPrivilegerCertificateData().setDateOfIssue(new Date());
 
-	    InsuredDriverData drv2 = driverFacade.add(calculation);
+	    PolicyDriver drv2 = driverFacade.add(calculation);
 	    drv2.setIdNumber("870622300359");
 	    driverFacade.fetchInfo(calculation, drv2);
 	    drv2.setExpirienceClass(InsuredExpirienceClass.MORE2);
@@ -85,7 +85,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv2.getDriverLicenseData().setDateOfIssue(new Date());
 	    drv2.setHasAnyPrivilege(false);
 
-	    InsuredDriverData drv3 = driverFacade.add(calculation);
+	    PolicyDriver drv3 = driverFacade.add(calculation);
 	    drv3.setIdNumber("800225000319");
 	    driverFacade.fetchInfo(calculation, drv3);
 	    drv3.setAgeClass(InsuredAgeClass.OVER25);
@@ -109,7 +109,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv3.getDriverLicenseData().setDateOfIssue(new Date());
 	    drv3.setHasAnyPrivilege(false);
 
-	    InsuredDriverData drv4 = driverFacade.add(calculation);
+	    PolicyDriver drv4 = driverFacade.add(calculation);
 	    drv4.setIdNumber("860401402685");
 	    driverFacade.fetchInfo(calculation, drv4);
 	    drv4.setExpirienceClass(InsuredExpirienceClass.MORE2);
@@ -124,10 +124,10 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv4.getDriverLicenseData().setDateOfIssue(new Date());
 	    drv4.setHasAnyPrivilege(false);
 
-	    InsuredVehicleData vhc1 = vehicleFacade.add(calculation);
-	    vhc1.getVehicleData().setVinCode("JN1TANS51U0303376");
+	    PolicyVehicle vhc1 = vehicleFacade.add(calculation);
+	    vhc1.setVinCode("JN1TANS51U0303376");
 	    vehicleFacade.fetchInfo(calculation, vhc1);
-	    vhc1.setRegion(KZArea.GALM);
+	    vhc1.setArea(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc1);
 
 	    calculationFacade.calculatePremiumCost(calculation);

@@ -8,8 +8,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.application.ProjectStage;
 import javax.inject.Inject;
 
-import com.lapsa.insurance.domain.InsuredDriverData;
-import com.lapsa.insurance.domain.InsuredVehicleData;
+import com.lapsa.insurance.domain.policy.PolicyDriver;
+import com.lapsa.insurance.domain.policy.PolicyVehicle;
 import com.lapsa.insurance.elements.InsuredExpirienceClass;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
@@ -42,7 +42,7 @@ public class DevelopingManyVehiclesDataBuilder implements DefaultCalculationData
     @Override
     public void buildDefaultData(Calculation calculation) {
 	try {
-	    InsuredDriverData drv2 = driverFacade.add(calculation);
+	    PolicyDriver drv2 = driverFacade.add(calculation);
 	    drv2.setIdNumber("870622300359");
 	    driverFacade.fetchInfo(calculation, drv2);
 	    drv2.setExpirienceClass(InsuredExpirienceClass.MORE2);
@@ -51,16 +51,16 @@ public class DevelopingManyVehiclesDataBuilder implements DefaultCalculationData
 	    drv2.getDriverLicenseData().setDateOfIssue(new Date());
 	    drv2.setHasAnyPrivilege(false);
 
-	    InsuredVehicleData vhc1 = vehicleFacade.add(calculation);
-	    vhc1.getVehicleData().setVinCode("JN1TANS51U0303376");
+	    PolicyVehicle vhc1 = vehicleFacade.add(calculation);
+	    vhc1.setVinCode("JN1TANS51U0303376");
 	    vehicleFacade.fetchInfo(calculation, vhc1);
-	    vhc1.setRegion(KZArea.GALM);
+	    vhc1.setArea(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc1);
 
-	    InsuredVehicleData vhc2 = vehicleFacade.add(calculation);
-	    vhc2.getVehicleData().setVinCode("WDB2030421F503751");
+	    PolicyVehicle vhc2 = vehicleFacade.add(calculation);
+	    vhc2.setVinCode("WDB2030421F503751");
 	    vehicleFacade.fetchInfo(calculation, vhc2);
-	    vhc2.setRegion(KZArea.GALM);
+	    vhc2.setArea(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc2);
 
 	    calculationFacade.calculatePremiumCost(calculation);

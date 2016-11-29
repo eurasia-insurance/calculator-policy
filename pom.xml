@@ -1,106 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.lapsa.maven.pom</groupId>
 		<artifactId>javaee7-app-parent</artifactId>
-		<version>1.1.2</version>
+		<version>2.0</version>
 	</parent>
 
 	<groupId>kz.theeurasia.policy.policy-calc</groupId>
 	<artifactId>calc-parent</artifactId>
-	<version>1.2-pre-rc2-SNAPSHOT</version>
+	<version>1.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Policy : Calc : Parent</name>
-
-	<organization>
-		<name>Eurasia Insurance Company</name>
-		<url>http://www.theeurasia.kz</url>
-	</organization>
 
 	<modules>
 		<module>webapp</module>
 		<module>ear</module>
 	</modules>
 
+	<properties>
+		<!-- APIs -->
+		<kz-lib.version>2.2</kz-lib.version>
+		<international-lib.version>2.0.2</international-lib.version>
+		<insurance-lib.version>1.5</insurance-lib.version>
+		<!-- EJBs & WARs -->
+		<insurance-persistence-impl-jpa.version>1.4</insurance-persistence-impl-jpa.version>
+		<insurance-services-impl-cdi.version>1.2</insurance-services-impl-cdi.version>
+		<insurance-esbd-impl-ws.version>2.1</insurance-esbd-impl-ws.version>
+		<esbd-connection-impl-default.version>1.0.1</esbd-connection-impl-default.version>
+		<!-- external -->
+		<primefaces.version>5.3.16</primefaces.version>
+		<primefaces-themes.version>1.0.10</primefaces-themes.version>
+	</properties>
+
 	<dependencyManagement>
 		<dependencies>
 			<!-- own -->
 			<dependency>
-				<groupId>kz.theeurasia.policy.policy-calc</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>calc-webapp</artifactId>
-				<version>1.2-pre-rc2-SNAPSHOT</version>
+				<version>${project.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
-				<groupId>kz.theeurasia.policy.policy-calc</groupId>
+				<groupId>${project.groupId}</groupId>
 				<artifactId>calc-ear</artifactId>
-				<version>1.2-pre-rc2-SNAPSHOT</version>
+				<version>${project.version}</version>
 				<type>ear</type>
 			</dependency>
-			<!-- internal -->
+			<!-- internal kz -->
 			<dependency>
 				<groupId>com.lapsa.kz-lib</groupId>
 				<artifactId>kz-core</artifactId>
-				<version>2.0-pre-rc2-SNAPSHOT</version>
+				<version>${kz-lib.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.lapsa.kz-lib</groupId>
 				<artifactId>kz-eelib</artifactId>
-				<version>2.0-pre-rc2-SNAPSHOT</version>
+				<version>${kz-lib.version}</version>
 			</dependency>
+			<!-- internal international -->
 			<dependency>
 				<groupId>com.lapsa.international-lib</groupId>
 				<artifactId>international-core</artifactId>
-				<version>2.0-pre-rc2-SNAPSHOT</version>
+				<version>${international-lib.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.lapsa.international-lib</groupId>
 				<artifactId>international-eelib</artifactId>
-				<version>2.0-pre-rc2-SNAPSHOT</version>
+				<version>${international-lib.version}</version>
 			</dependency>
+			<!-- intenral insurance -->
 			<dependency>
 				<groupId>com.lapsa.insurance-lib</groupId>
 				<artifactId>insurance-elements</artifactId>
-				<version>1.3-pre-rc2-SNAPSHOT</version>
+				<version>${insurance-lib.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.lapsa.insurance-lib</groupId>
 				<artifactId>insurance-domain</artifactId>
-				<version>1.3-pre-rc2-SNAPSHOT</version>
+				<version>${insurance-lib.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.lapsa.insurance-lib</groupId>
 				<artifactId>insurance-validation</artifactId>
-				<version>1.3-pre-rc2-SNAPSHOT</version>
+				<version>${insurance-lib.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.lapsa.insurance-lib</groupId>
-				<artifactId>insurance-eelib</artifactId>
-				<version>1.3-pre-rc2-SNAPSHOT</version>
+				<artifactId>insurance-faces</artifactId>
+				<version>${insurance-lib.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.lapsa.insurance-lib</groupId>
 				<artifactId>insurance-esbd</artifactId>
-				<version>1.3-pre-rc2-SNAPSHOT</version>
+				<version>${insurance-lib.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.lapsa.insurance-lib</groupId>
+				<artifactId>insurance-services-impl-cdi</artifactId>
+				<version>${insurance-services-impl-cdi.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.lapsa.insurance-lib</groupId>
 				<artifactId>insurance-esbd-impl-ws</artifactId>
-				<version>1.3-pre-rc2-SNAPSHOT</version>
+				<version>${insurance-esbd-impl-ws.version}</version>
+				<type>ejb</type>
+			</dependency>
+			<!-- internal esbd -->
+			<dependency>
+				<groupId>com.lapsa.esbd-lib</groupId>
+				<artifactId>esbd-connection-impl-default</artifactId>
+				<version>${esbd-connection-impl-default.version}</version>
 				<type>ejb</type>
 			</dependency>
 			<!-- external -->
 			<dependency>
 				<groupId>org.primefaces</groupId>
 				<artifactId>primefaces</artifactId>
-				<version>5.3</version>
+				<version>${primefaces.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.primefaces.themes</groupId>
 				<artifactId>all-themes</artifactId>
-				<version>1.0.10</version>
+				<version>${primefaces-themes.version}</version>
 			</dependency>
 			<!-- JavaEE -->
 			<dependency>
@@ -112,10 +137,20 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<organization>
+		<name>Eurasia Insurance Company</name>
+		<url>http://www.theeurasia.kz</url>
+	</organization>
+
 	<scm>
-		<connection>scm:git:https://gitrepo.theeurasia.kz/eurasia/eurasia-policy-calc.git</connection>
-		<developerConnection>scm:git:https://gitrepo.theeurasia.kz/eurasia/eurasia-policy-calc.git</developerConnection>
+		<connection>scm:git:https://gitlab.lapsa.tech/eurasia/eurasia-policy-calc.git</connection>
+		<developerConnection>scm:git:https://gitlab.lapsa.tech/eurasia/eurasia-policy-calc.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
+
+	<issueManagement>
+		<system>gitlab</system>
+		<url>https://gitlab.lapsa.tech/eurasia/eurasia-policy-calc/issues</url>
+	</issueManagement>
 
 </project>
