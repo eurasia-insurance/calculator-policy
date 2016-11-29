@@ -26,7 +26,6 @@
 		<international-lib.version>2.0.2</international-lib.version>
 		<insurance-lib.version>1.5</insurance-lib.version>
 		<!-- EJBs & WARs -->
-		<insurance-persistence-impl-jpa.version>1.4</insurance-persistence-impl-jpa.version>
 		<insurance-services-impl-cdi.version>1.2</insurance-services-impl-cdi.version>
 		<insurance-esbd-impl-ws.version>2.1</insurance-esbd-impl-ws.version>
 		<esbd-connection-impl-default.version>1.0.1</esbd-connection-impl-default.version>
