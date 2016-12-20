@@ -20,6 +20,7 @@ import com.lapsa.insurance.esbd.services.elements.InsuranceClassTypeServiceDAO;
 import com.lapsa.insurance.esbd.services.general.SubjectPersonServiceDAO;
 
 import kz.theeurasia.policy.calc.api.DriverFacade;
+import kz.theeurasia.policy.calc.api.MessageBundleCode;
 import kz.theeurasia.policy.calc.api.ValidationException;
 
 @Named

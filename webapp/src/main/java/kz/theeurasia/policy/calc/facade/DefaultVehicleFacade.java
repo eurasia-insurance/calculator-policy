@@ -16,6 +16,7 @@ import com.lapsa.insurance.esbd.services.policy.VehicleServiceDAO;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
+import kz.theeurasia.policy.calc.api.MessageBundleCode;
 import kz.theeurasia.policy.calc.api.ValidationException;
 import kz.theeurasia.policy.calc.api.VehicleFacade;
 

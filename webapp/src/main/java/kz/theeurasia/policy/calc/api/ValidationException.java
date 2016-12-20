@@ -1,7 +1,5 @@
 package kz.theeurasia.policy.calc.api;
 
-import kz.theeurasia.policy.calc.facade.MessageBundleCode;
-
 public class ValidationException extends Exception {
 
     private static final long serialVersionUID = 1L;
