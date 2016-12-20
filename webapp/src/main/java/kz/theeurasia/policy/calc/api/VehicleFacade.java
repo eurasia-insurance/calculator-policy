@@ -19,4 +19,6 @@ public interface VehicleFacade extends Serializable {
 
     void handleCityChanged(PolicyVehicle vehicle);
 
+    void handleTemporaryEntryChanged(PolicyVehicle vehicle);
+
 }

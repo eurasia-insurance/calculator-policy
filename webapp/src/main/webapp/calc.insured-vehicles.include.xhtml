@@ -11,7 +11,9 @@
 	<c:set var="plc" value="#{policy.value}" />
 
 	<p:dataGrid var="vehicle" value="#{plc.insuredVehicles}" layout="grid"
-		columns="1">
+		columns="1" rowIndexVar="iteration">
+
+		<c:set var="vehicleNumber" value="#{iteration + 1}" />
 
 		<f:facet name="header">
 			<p:commandButton value="#{gpovts['command.add-vehicle']}"
@@ -63,10 +65,25 @@
 					<p:message for="vehicleClass" />
 				</h:panelGrid>
 
+				<h:panelGrid columns="2">
+					<p:outputPanel>
+						<p:selectBooleanCheckbox
+							widgetVar="temporaryEntry#{vehicleNumber}WV"
+							value="#{vehicle.temporaryEntry}">
+							<p:ajax event="change" process="@this" update="@form"
+								listener="#{actionFacade.onVehicleTemporaryEntryChanged(vehicle)}" />
+						</p:selectBooleanCheckbox>
+						<p:outputLabel
+							value="#{gpovts['label.input.vehicle.temporary-entry']}"
+							onclick="PF('temporaryEntry#{vehicleNumber}WV').toggle()" />
+					</p:outputPanel>
+				</h:panelGrid>
+
 				<p:outputLabel value="#{gpovts['label.input.vehicle-region']}" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleRegion" value="#{vehicle.area}"
-						filter="true" filterMatchMode="contains" style="width: 290px;">
+						filter="true" filterMatchMode="contains" style="width: 290px;"
+						disabled="#{vehicle.temporaryEntry}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onVehicleRegionChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
@@ -79,7 +96,7 @@
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleCity" value="#{vehicle.city}"
 						filter="true" filterMatchMode="contains" style="width: 200px;"
-						disabled="#{vehicle.area eq 'GALM' or vehicle.area eq 'GAST'}">
+						disabled="#{vehicle.temporaryEntry or vehicle.area eq 'GALM' or vehicle.area eq 'GAST'}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onVehicleCityChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />

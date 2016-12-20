@@ -131,6 +131,12 @@ public class DefaultActionFacade implements ActionFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
+    public void onVehicleTemporaryEntryChanged(PolicyVehicle vehicle) {
+	Policy policy = policyHolder.getValue();
+	vehicleFacade.handleTemporaryEntryChanged(vehicle);
+	calculationFacade.calculatePremiumCost(policy);
+    }
+
     public void onVehicleRegionChanged(PolicyVehicle insuredVehicle) {
 	Policy data = policyHolder.getValue();
 	vehicleFacade.handleAreaChanged(insuredVehicle);
