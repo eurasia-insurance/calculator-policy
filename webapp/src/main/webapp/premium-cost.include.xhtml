@@ -11,12 +11,14 @@
 
 	<c:set var="plc" value="#{policy.value}" />
 
+	<p:defaultCommand target="cmdCalculateCost" />
 	<h:panelGrid columns="2">
-		<p:defaultCommand target="cmdCalculateCost" />
 		<p:commandButton id="cmdCalculateCost"
 			value="#{gpovts['command.calculate-cost']}" process="@form"
 			update="@form"
 			oncomplete="handleDialogShow(xhr, status, args, PF('costDialog'))" />
+		<p:commandButton id="cmdReset" value="Новый расчет" process="@this"
+			update="@form" action="#{actionFacade.doInitialize}" />
 	</h:panelGrid>
 
 	<p:dialog header="#{gpovts['title.policy-cost']}"
