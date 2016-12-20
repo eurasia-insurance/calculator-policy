@@ -11,10 +11,10 @@ import javax.inject.Inject;
 import com.lapsa.insurance.domain.policy.Policy;
 
 import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
+import kz.theeurasia.policy.calc.api.DriverFacade;
+import kz.theeurasia.policy.calc.api.VehicleFacade;
 import kz.theeurasia.policy.calc.bean.ProjectStageDepend;
-import kz.theeurasia.policy.calc.facade.DriverFacade;
 import kz.theeurasia.policy.calc.facade.ValidationException;
-import kz.theeurasia.policy.calc.facade.VehicleFacade;
 
 @RequestScoped
 @ProjectStageDepend(stage = ProjectStage.Production)

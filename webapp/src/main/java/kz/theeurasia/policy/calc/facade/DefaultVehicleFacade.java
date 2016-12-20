@@ -1,6 +1,5 @@
 package kz.theeurasia.policy.calc.facade;
 
-import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -17,15 +16,18 @@ import com.lapsa.insurance.esbd.services.policy.VehicleServiceDAO;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
+import kz.theeurasia.policy.calc.api.VehicleFacade;
+
 @Named
 @ApplicationScoped
-public class VehicleFacade implements Serializable {
+public class DefaultVehicleFacade implements VehicleFacade {
 
     private static final long serialVersionUID = 1L;
 
     @Inject
     private VehicleServiceDAO vehicleService;
 
+    @Override
     public PolicyVehicle add(Policy policy) throws ValidationException {
 	if (policy.getInsuredVehicles().size() > 0 && policy.getInsuredDrivers().size() > 1)
 	    throw new ValidationException(MessageBundleCode.ONLY_ONE_VEHICLE_ALLOWED);
@@ -35,12 +37,14 @@ public class VehicleFacade implements Serializable {
 	return e;
     }
 
+    @Override
     public void remove(Policy policy, PolicyVehicle vehicle) throws ValidationException {
 	if (policy.getInsuredVehicles().size() <= 1)
 	    throw new ValidationException(MessageBundleCode.VEHICLES_LIST_CANT_BE_EMPTY);
 	policy.getInsuredVehicles().remove(vehicle);
     }
 
+    @Override
     public void fetchInfo(Policy policy, PolicyVehicle vehicle) throws ValidationException {
 	try {
 	    VehicleEntity fetched = vehicleService.getByVINCode(vehicle.getVinCode());

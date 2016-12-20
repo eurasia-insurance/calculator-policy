@@ -14,7 +14,9 @@ import com.lapsa.insurance.domain.policy.PolicyVehicle;
 
 import kz.theeurasia.policy.calc.api.ActionFacade;
 import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
+import kz.theeurasia.policy.calc.api.DriverFacade;
 import kz.theeurasia.policy.calc.api.PolicyHolder;
+import kz.theeurasia.policy.calc.api.VehicleFacade;
 
 @Named("actionFacade")
 @ApplicationScoped

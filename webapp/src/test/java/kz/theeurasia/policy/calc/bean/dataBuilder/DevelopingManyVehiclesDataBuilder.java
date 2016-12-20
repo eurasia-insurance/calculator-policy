@@ -16,11 +16,11 @@ import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
 import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
+import kz.theeurasia.policy.calc.api.DriverFacade;
+import kz.theeurasia.policy.calc.api.VehicleFacade;
 import kz.theeurasia.policy.calc.bean.ProjectStageDepend;
 import kz.theeurasia.policy.calc.facade.CalculationFacade;
-import kz.theeurasia.policy.calc.facade.DriverFacade;
 import kz.theeurasia.policy.calc.facade.ValidationException;
-import kz.theeurasia.policy.calc.facade.VehicleFacade;
 
 @RequestScoped
 @ProjectStageDepend(stage = ProjectStage.Development)

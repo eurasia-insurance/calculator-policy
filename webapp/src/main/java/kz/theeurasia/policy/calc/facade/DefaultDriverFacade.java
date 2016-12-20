@@ -1,7 +1,5 @@
 package kz.theeurasia.policy.calc.facade;
 
-import java.io.Serializable;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,9 +19,11 @@ import com.lapsa.insurance.esbd.services.NotFound;
 import com.lapsa.insurance.esbd.services.elements.InsuranceClassTypeServiceDAO;
 import com.lapsa.insurance.esbd.services.general.SubjectPersonServiceDAO;
 
+import kz.theeurasia.policy.calc.api.DriverFacade;
+
 @Named
 @ApplicationScoped
-public class DriverFacade implements Serializable {
+public class DefaultDriverFacade implements DriverFacade {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,6 +33,7 @@ public class DriverFacade implements Serializable {
     @Inject
     private InsuranceClassTypeServiceDAO insuranceClassTypeService;
 
+    @Override
     public PolicyDriver add(Policy policy) throws ValidationException {
 	if (policy.getInsuredDrivers().size() > 0 && policy.getInsuredVehicles().size() > 1)
 	    throw new ValidationException(MessageBundleCode.ONLY_ONE_DRIVER_ALLOWED);
@@ -42,12 +43,14 @@ public class DriverFacade implements Serializable {
 	return e;
     }
 
+    @Override
     public void remove(Policy policy, PolicyDriver driver) throws ValidationException {
 	if (policy.getInsuredDrivers().size() <= 1)
 	    throw new ValidationException(MessageBundleCode.DRIVER_LIST_CANT_BE_EMPTY);
 	policy.getInsuredDrivers().remove(driver);
     }
 
+    @Override
     public void fetchInfo(Policy policy, PolicyDriver driver) throws ValidationException {
 	try {
 	    SubjectPersonEntity fetched = subjectPersonService.getByIIN(driver.getIdNumber());
