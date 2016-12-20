@@ -18,7 +18,7 @@ import kz.theeurasia.policy.calc.bean.DefaultCalculationDataBuilder;
 
 @Named("frontController")
 @ApplicationScoped
-public class MainFacade implements ActionFacade {
+public class DefaultActionFacade implements ActionFacade {
 
     private ResourceBundle gpovts;
 
