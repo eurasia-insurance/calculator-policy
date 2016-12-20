@@ -16,7 +16,7 @@ import kz.theeurasia.policy.calc.api.facade.ActionFacade;
 import kz.theeurasia.policy.calc.api.holder.PolicyHolder;
 import kz.theeurasia.policy.calc.bean.DefaultCalculationDataBuilder;
 
-@Named("frontController")
+@Named("actionFacade")
 @ApplicationScoped
 public class DefaultActionFacade implements ActionFacade {
 

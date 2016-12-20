@@ -15,7 +15,7 @@
 
 		<f:facet name="header">
 			<p:commandButton value="#{gpovts['command.add-vehicle']}"
-				action="#{frontController.addInsuredVehicle}" process="@this"
+				action="#{actionFacade.addInsuredVehicle}" process="@this"
 				update="@form" disabled="#{fn:length(plc.insuredDrivers) gt 1}" />
 		</f:facet>
 
@@ -30,7 +30,7 @@
 				<p:commandLink
 					styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default"
 					rendered="#{fn:length(plc.insuredVehicles) gt 1}"
-					action="#{frontController.removeInsuredVehicle(vehicle)}"
+					action="#{actionFacade.removeInsuredVehicle(vehicle)}"
 					process="@this" update="@form">
 					<h:outputText styleClass="ui-icon ui-icon-close" />
 				</p:commandLink>
@@ -44,7 +44,7 @@
 						value="#{vehicle.vehicleAgeClass}" disabled="#{vehicle.fetched}"
 						style="width: 200px;">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
+							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{vehicleAgeClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -56,7 +56,7 @@
 					<p:selectOneMenu id="vehicleClass" value="#{vehicle.vehicleClass}"
 						disabled="#{vehicle.fetched}" style="width: 300px;">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
+							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{vehicleClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -68,7 +68,7 @@
 					<p:selectOneMenu id="vehicleRegion" value="#{vehicle.area}"
 						filter="true" filterMatchMode="contains" style="width: 290px;">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onVehicleRegionChanged(vehicle)}" />
+							listener="#{actionFacade.onVehicleRegionChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{kzAreaService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -81,7 +81,7 @@
 						filter="true" filterMatchMode="contains" style="width: 200px;"
 						disabled="#{vehicle.area eq 'GALM' or vehicle.area eq 'GAST'}">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onVehicleCityChanged(vehicle)}" />
+							listener="#{actionFacade.onVehicleCityChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems
 							value="#{kzCityService.regionalItemsByAreaSI(vehicle.area)}" />
