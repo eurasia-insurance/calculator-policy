@@ -1,4 +1,4 @@
-package kz.theeurasia.policy.calc.bean.impl;
+package kz.theeurasia.policy.calc.bean.dataBuilder;
 
 import java.util.Date;
 import java.util.logging.Level;
