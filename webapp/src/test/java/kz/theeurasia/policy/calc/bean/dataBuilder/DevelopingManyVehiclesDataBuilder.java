@@ -20,7 +20,6 @@ import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
 import kz.theeurasia.policy.calc.api.DriverFacade;
 import kz.theeurasia.policy.calc.api.ValidationException;
 import kz.theeurasia.policy.calc.api.VehicleFacade;
-import kz.theeurasia.policy.calc.bean.ProjectStageDepend;
 
 @RequestScoped
 @ProjectStageDepend(stage = ProjectStage.Development)
