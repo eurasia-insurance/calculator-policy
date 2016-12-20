@@ -1,5 +1,7 @@
 package kz.theeurasia.policy.calc.bean;
 
+import com.lapsa.insurance.domain.policy.Policy;
+
 public interface DefaultCalculationDataBuilder {
-    void buildDefaultData(Calculation calculation);
+    void buildDefaultData(Policy calculation);
 }

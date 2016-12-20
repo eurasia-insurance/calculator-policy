@@ -11,6 +11,7 @@ import com.lapsa.insurance.domain.IdentityCardData;
 import com.lapsa.insurance.domain.OriginData;
 import com.lapsa.insurance.domain.PersonalData;
 import com.lapsa.insurance.domain.ResidenceData;
+import com.lapsa.insurance.domain.policy.Policy;
 import com.lapsa.insurance.domain.policy.PolicyDriver;
 import com.lapsa.insurance.elements.InsuranceClassType;
 import com.lapsa.insurance.elements.InsuredAgeClass;
@@ -19,8 +20,6 @@ import com.lapsa.insurance.esbd.services.InvalidInputParameter;
 import com.lapsa.insurance.esbd.services.NotFound;
 import com.lapsa.insurance.esbd.services.elements.InsuranceClassTypeServiceDAO;
 import com.lapsa.insurance.esbd.services.general.SubjectPersonServiceDAO;
-
-import kz.theeurasia.policy.calc.bean.Calculation;
 
 @Named
 @ApplicationScoped
@@ -34,7 +33,7 @@ public class DriverFacade implements Serializable {
     @Inject
     private InsuranceClassTypeServiceDAO insuranceClassTypeService;
 
-    public PolicyDriver add(Calculation policy) throws ValidationException {
+    public PolicyDriver add(Policy policy) throws ValidationException {
 	if (policy.getInsuredDrivers().size() > 0 && policy.getInsuredVehicles().size() > 1)
 	    throw new ValidationException(MessageBundleCode.ONLY_ONE_DRIVER_ALLOWED);
 	PolicyDriver e = new PolicyDriver();
@@ -43,13 +42,13 @@ public class DriverFacade implements Serializable {
 	return e;
     }
 
-    public void remove(Calculation policy, PolicyDriver driver) throws ValidationException {
+    public void remove(Policy policy, PolicyDriver driver) throws ValidationException {
 	if (policy.getInsuredDrivers().size() <= 1)
 	    throw new ValidationException(MessageBundleCode.DRIVER_LIST_CANT_BE_EMPTY);
 	policy.getInsuredDrivers().remove(driver);
     }
 
-    public void fetchInfo(Calculation policy, PolicyDriver driver) throws ValidationException {
+    public void fetchInfo(Policy policy, PolicyDriver driver) throws ValidationException {
 	try {
 	    SubjectPersonEntity fetched = subjectPersonService.getByIIN(driver.getIdNumber());
 	    driver.setFetched(true);
@@ -101,12 +100,12 @@ public class DriverFacade implements Serializable {
 	}
     }
 
-    private void _reset(Calculation policy, PolicyDriver driver) {
+    private void _reset(Policy policy, PolicyDriver driver) {
 	_resetFetchedInfo(policy, driver);
 	driver.setExpirienceClass(null);
     }
 
-    private void _resetFetchedInfo(Calculation policy, PolicyDriver driver) {
+    private void _resetFetchedInfo(Policy policy, PolicyDriver driver) {
 	driver.setFetched(false);
 	driver.setPersonalData(new PersonalData());
 	driver.setResidenceData(new ResidenceData());

@@ -12,6 +12,10 @@
 
 	<ui:define name="page-content">
 
+		<f:metadata>
+			<f:viewAction action="#{frontController.doInitialize}" />
+		</f:metadata>
+
 		<h:form id="calcForm">
 			<h:panelGrid columns="2" styleClass="mainTable"
 				columnClasses="col1,col2">
