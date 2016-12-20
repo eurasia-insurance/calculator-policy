@@ -46,6 +46,7 @@ label.input.vehicle-region = Регион регистрации ТС
 label.input.vehicle-city = Город регистрации ТС
 label.input.vehicle-age-class = Срок эксплуатации ТС
 label.input.vehicle-class = Тип ТС
+label.input.vehicle.temporary-entry = временный въезд на территорию РК
 label.driver-license-data = Водительское удостоверение
 label.driver-license-data.number = Номер документа
 label.driver-license-data.date-of-issue = Дата выдачи
