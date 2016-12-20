@@ -12,9 +12,9 @@ import com.lapsa.insurance.domain.policy.Policy;
 import com.lapsa.insurance.domain.policy.PolicyDriver;
 import com.lapsa.insurance.domain.policy.PolicyVehicle;
 
-import kz.theeurasia.policy.calc.api.facade.ActionFacade;
-import kz.theeurasia.policy.calc.api.holder.PolicyHolder;
-import kz.theeurasia.policy.calc.bean.DefaultCalculationDataBuilder;
+import kz.theeurasia.policy.calc.api.ActionFacade;
+import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
+import kz.theeurasia.policy.calc.api.PolicyHolder;
 
 @Named("actionFacade")
 @ApplicationScoped

@@ -1,4 +1,4 @@
-package kz.theeurasia.policy.calc.api.holder;
+package kz.theeurasia.policy.calc.api;
 
 import com.lapsa.insurance.domain.policy.Policy;
 

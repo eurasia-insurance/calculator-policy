@@ -1,4 +1,4 @@
-package kz.theeurasia.policy.calc.api.facade;
+package kz.theeurasia.policy.calc.api;
 
 public interface ActionFacade {
 

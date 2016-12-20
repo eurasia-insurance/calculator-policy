@@ -20,7 +20,7 @@ import com.lapsa.insurance.elements.Sex;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
-import kz.theeurasia.policy.calc.bean.DefaultCalculationDataBuilder;
+import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
 import kz.theeurasia.policy.calc.bean.ProjectStageDepend;
 import kz.theeurasia.policy.calc.facade.CalculationFacade;
 import kz.theeurasia.policy.calc.facade.DriverFacade;

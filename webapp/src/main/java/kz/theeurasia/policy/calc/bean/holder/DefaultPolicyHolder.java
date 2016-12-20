@@ -6,7 +6,7 @@ import org.omnifaces.cdi.ViewScoped;
 
 import com.lapsa.insurance.domain.policy.Policy;
 
-import kz.theeurasia.policy.calc.api.holder.PolicyHolder;
+import kz.theeurasia.policy.calc.api.PolicyHolder;
 
 @Named("policy")
 @ViewScoped
