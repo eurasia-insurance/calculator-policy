@@ -1,4 +1,4 @@
-package kz.theeurasia.policy.calc.facade;
+package kz.theeurasia.policy.calc.bean.facade;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
