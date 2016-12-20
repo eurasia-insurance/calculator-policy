@@ -5,8 +5,6 @@ import java.io.Serializable;
 import com.lapsa.insurance.domain.policy.Policy;
 import com.lapsa.insurance.domain.policy.PolicyDriver;
 
-import kz.theeurasia.policy.calc.facade.ValidationException;
-
 public interface DriverFacade extends Serializable {
     PolicyDriver add(Policy policy) throws ValidationException;
 

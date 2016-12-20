@@ -1,4 +1,6 @@
-package kz.theeurasia.policy.calc.facade;
+package kz.theeurasia.policy.calc.api;
+
+import kz.theeurasia.policy.calc.facade.MessageBundleCode;
 
 public class ValidationException extends Exception {
 

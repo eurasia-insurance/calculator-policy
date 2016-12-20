@@ -16,6 +16,7 @@ import kz.theeurasia.policy.calc.api.ActionFacade;
 import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
 import kz.theeurasia.policy.calc.api.DriverFacade;
 import kz.theeurasia.policy.calc.api.PolicyHolder;
+import kz.theeurasia.policy.calc.api.ValidationException;
 import kz.theeurasia.policy.calc.api.VehicleFacade;
 
 @Named("actionFacade")
