@@ -51,6 +51,7 @@ public class DefaultActionFacade implements ActionFacade {
 	return null;
     }
 
+    @Override
     public void addInsuredDriver() {
 	Policy data = policyHolder.getValue();
 	try {
@@ -64,6 +65,7 @@ public class DefaultActionFacade implements ActionFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
+    @Override
     public void removeInsuredDriver(PolicyDriver driver) {
 	Policy data = policyHolder.getValue();
 	try {
@@ -77,6 +79,7 @@ public class DefaultActionFacade implements ActionFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
+    @Override
     public void addInsuredVehicle() {
 	Policy data = policyHolder.getValue();
 	try {
@@ -90,6 +93,7 @@ public class DefaultActionFacade implements ActionFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
+    @Override
     public void removeInsuredVehicle(PolicyVehicle insuredVehicle) {
 	Policy data = policyHolder.getValue();
 	try {
@@ -103,11 +107,13 @@ public class DefaultActionFacade implements ActionFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
+    @Override
     public void doCalculatePolicyCost() {
 	Policy data = policyHolder.getValue();
 	calculationFacade.calculatePremiumCost(data);
     }
 
+    @Override
     public void onDriverIdNumberChanged(PolicyDriver insuredDriver) {
 	Policy data = policyHolder.getValue();
 	try {
@@ -117,11 +123,13 @@ public class DefaultActionFacade implements ActionFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
+    @Override
     public void onPolicyCostCalculationFormChanged() {
 	Policy data = policyHolder.getValue();
 	calculationFacade.calculatePremiumCost(data);
     }
 
+    @Override
     public void onVehicleVinCodeChanged(PolicyVehicle insuredVehicle) {
 	Policy data = policyHolder.getValue();
 	try {
@@ -131,12 +139,14 @@ public class DefaultActionFacade implements ActionFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
+    @Override
     public void onVehicleTemporaryEntryChanged(PolicyVehicle vehicle) {
 	Policy policy = policyHolder.getValue();
 	vehicleFacade.handleTemporaryEntryChanged(vehicle);
 	calculationFacade.calculatePremiumCost(policy);
     }
 
+    @Override
     public void onVehicleRegionChanged(PolicyVehicle insuredVehicle) {
 	Policy data = policyHolder.getValue();
 	vehicleFacade.handleAreaChanged(insuredVehicle);
@@ -144,6 +154,7 @@ public class DefaultActionFacade implements ActionFacade {
 	calculationFacade.calculatePremiumCost(data);
     }
 
+    @Override
     public void onVehicleCityChanged(PolicyVehicle vehicle) {
 	Policy data = policyHolder.getValue();
 	vehicleFacade.handleCityChanged(vehicle);
