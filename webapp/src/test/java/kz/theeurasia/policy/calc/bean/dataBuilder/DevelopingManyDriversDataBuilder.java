@@ -1,4 +1,4 @@
-package kz.theeurasia.policy.calc.bean.impl;
+package kz.theeurasia.policy.calc.bean.dataBuilder;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -10,6 +10,7 @@ import javax.faces.application.ProjectStage;
 import javax.inject.Inject;
 
 import com.lapsa.country.Country;
+import com.lapsa.insurance.domain.policy.Policy;
 import com.lapsa.insurance.domain.policy.PolicyDriver;
 import com.lapsa.insurance.domain.policy.PolicyVehicle;
 import com.lapsa.insurance.elements.IdentityCardType;
@@ -19,13 +20,11 @@ import com.lapsa.insurance.elements.Sex;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
-import kz.theeurasia.policy.calc.bean.Calculation;
-import kz.theeurasia.policy.calc.bean.DefaultCalculationDataBuilder;
-import kz.theeurasia.policy.calc.bean.ProjectStageDepend;
-import kz.theeurasia.policy.calc.facade.CalculationFacade;
-import kz.theeurasia.policy.calc.facade.DriverFacade;
-import kz.theeurasia.policy.calc.facade.ValidationException;
-import kz.theeurasia.policy.calc.facade.VehicleFacade;
+import kz.theeurasia.policy.calc.api.CalculationFacade;
+import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
+import kz.theeurasia.policy.calc.api.DriverFacade;
+import kz.theeurasia.policy.calc.api.ValidationException;
+import kz.theeurasia.policy.calc.api.VehicleFacade;
 
 @RequestScoped
 @ProjectStageDepend(stage = ProjectStage.Development)
@@ -45,7 +44,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
     private Logger logger;
 
     @Override
-    public void buildDefaultData(Calculation calculation) {
+    public void buildDefaultData(Policy calculation) {
 	try {
 	    PolicyDriver drv1 = driverFacade.add(calculation);
 	    drv1.setIdNumber("570325300699");

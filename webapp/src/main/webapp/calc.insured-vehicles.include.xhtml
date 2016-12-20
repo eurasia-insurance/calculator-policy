@@ -5,15 +5,18 @@
 	xmlns:comp="http://xmlns.jcp.org/jsf/composite"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions"
-	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
-	<p:dataGrid var="vehicle" value="#{policy.insuredVehicles}"
-		layout="grid" columns="1">
+	<c:set var="plc" value="#{policy.value}" />
+
+	<p:dataGrid var="vehicle" value="#{plc.insuredVehicles}" layout="grid"
+		columns="1">
 
 		<f:facet name="header">
 			<p:commandButton value="#{gpovts['command.add-vehicle']}"
-				action="#{frontController.addInsuredVehicle}" process="@this"
-				update="@form" disabled="#{fn:length(policy.insuredDrivers) gt 1}" />
+				action="#{actionFacade.addInsuredVehicle}" process="@this"
+				update="@form" disabled="#{fn:length(plc.insuredDrivers) gt 1}" />
 		</f:facet>
 
 		<p:panel id="currentVehiclePanel">
@@ -26,8 +29,8 @@
 			<f:facet name="actions">
 				<p:commandLink
 					styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default"
-					rendered="#{fn:length(policy.insuredVehicles) gt 1}"
-					action="#{frontController.removeInsuredVehicle(vehicle)}"
+					rendered="#{fn:length(plc.insuredVehicles) gt 1}"
+					action="#{actionFacade.removeInsuredVehicle(vehicle)}"
 					process="@this" update="@form">
 					<h:outputText styleClass="ui-icon ui-icon-close" />
 				</p:commandLink>
@@ -41,7 +44,7 @@
 						value="#{vehicle.vehicleAgeClass}" disabled="#{vehicle.fetched}"
 						style="width: 200px;">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
+							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{vehicleAgeClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -53,7 +56,7 @@
 					<p:selectOneMenu id="vehicleClass" value="#{vehicle.vehicleClass}"
 						disabled="#{vehicle.fetched}" style="width: 300px;">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
+							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{vehicleClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -62,11 +65,10 @@
 
 				<p:outputLabel value="#{gpovts['label.input.vehicle-region']}" />
 				<h:panelGrid columns="2">
-					<p:selectOneMenu id="vehicleRegion"
-						value="#{vehicle.area}" filter="true"
-						filterMatchMode="contains" style="width: 290px;">
+					<p:selectOneMenu id="vehicleRegion" value="#{vehicle.area}"
+						filter="true" filterMatchMode="contains" style="width: 290px;">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onVehicleRegionChanged(vehicle)}" />
+							listener="#{actionFacade.onVehicleRegionChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{kzAreaService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -75,12 +77,11 @@
 
 				<p:outputLabel value="#{gpovts['label.input.vehicle-city']}" />
 				<h:panelGrid columns="2">
-					<p:selectOneMenu id="vehicleCity"
-						value="#{vehicle.city}" filter="true"
-						filterMatchMode="contains" style="width: 200px;"
+					<p:selectOneMenu id="vehicleCity" value="#{vehicle.city}"
+						filter="true" filterMatchMode="contains" style="width: 200px;"
 						disabled="#{vehicle.area eq 'GALM' or vehicle.area eq 'GAST'}">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onVehicleCityChanged(vehicle)}" />
+							listener="#{actionFacade.onVehicleCityChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems
 							value="#{kzCityService.regionalItemsByAreaSI(vehicle.area)}" />

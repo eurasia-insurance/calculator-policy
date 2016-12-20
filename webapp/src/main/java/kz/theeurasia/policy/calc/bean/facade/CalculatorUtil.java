@@ -1,4 +1,4 @@
-package kz.theeurasia.policy.calc.facade;
+package kz.theeurasia.policy.calc.bean.facade;
 
 import java.util.Calendar;
 import java.util.Date;

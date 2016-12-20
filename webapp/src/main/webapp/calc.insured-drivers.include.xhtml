@@ -8,17 +8,18 @@
 	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
 	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
+	<c:set var="plc" value="#{policy.value}" />
 
-	<p:dataGrid var="driver" value="#{policy.insuredDrivers}" layout="grid"
+	<p:dataGrid var="driver" value="#{plc.insuredDrivers}" layout="grid"
 		columns="1" rowIndexVar="iteration">
 
 		<c:set var="driverNumber" value="#{iteration + 1}" />
 
 		<f:facet name="header">
 			<p:commandButton value="#{gpovts['command.add-insured']}"
-				action="#{frontController.addInsuredDriver}" process="@this"
+				action="#{actionFacade.addInsuredDriver}" process="@this"
 				update="@form" partialSubmit="true" partialSubmitFilter="@this"
-				disabled="#{fn:length(policy.insuredVehicles) gt 1}" />
+				disabled="#{fn:length(plc.insuredVehicles) gt 1}" />
 		</f:facet>
 
 		<p:panel id="currentDriverPanel">
@@ -33,8 +34,8 @@
 			<f:facet name="actions">
 				<p:commandLink
 					styleClass="ui-panel-titlebar-icon ui-corner-all ui-state-default"
-					rendered="#{fn:length(policy.insuredDrivers) gt 1}"
-					action="#{frontController.removeInsuredDriver(driver)}"
+					rendered="#{fn:length(plc.insuredDrivers) gt 1}"
+					action="#{actionFacade.removeInsuredDriver(driver)}"
 					process="@this" update="@form">
 					<h:outputText styleClass="ui-icon ui-icon-close" />
 				</p:commandLink>
@@ -48,7 +49,7 @@
 						mask="9999 99999 999" converter="maskedIdNumberConverter">
 						<pe:keyFilter regEx="/[0123456789]/i" preventPaste="false" />
 						<p:ajax process="@this" update="@form"
-							listener="#{frontController.onDriverIdNumberChanged(driver)}" />
+							listener="#{actionFacade.onDriverIdNumberChanged(driver)}" />
 					</p:inputMask>
 					<p:message for="driverIdNumber" />
 				</h:panelGrid>
@@ -58,7 +59,7 @@
 					<p:selectOneMenu id="driverAgeClass" value="#{driver.ageClass}"
 						disabled="#{driver.fetched}">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
+							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems value="#{insuredAgeClassService.selectableItemsSI}" />
 					</p:selectOneMenu>
@@ -71,7 +72,7 @@
 					<p:selectOneMenu id="driverExpirienceClass"
 						value="#{driver.expirienceClass}">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
+							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
 						<f:selectItems
 							value="#{insuredExpirienceClassService.selectableItemsSI}" />
@@ -87,7 +88,7 @@
 						widgetVar="w_hasAnyPrivilegeCheckbox#{driverNumber}"
 						value="#{driver.hasAnyPrivilege}">
 						<p:ajax event="change" process="@this" update="@form"
-							listener="#{frontController.onPolicyCostCalculationFormChanged}" />
+							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 					</p:selectBooleanCheckbox>
 					<p:outputLabel
 						value="#{gpovts['label.input.insured.has-privilege']}"
