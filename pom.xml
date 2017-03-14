@@ -9,7 +9,7 @@
 
 	<groupId>kz.theeurasia.policy.policy-calc</groupId>
 	<artifactId>parent</artifactId>
-	<version>1.4.1</version>
+	<version>1.4.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Policy : Calc : Parent</name>
