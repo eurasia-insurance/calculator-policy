@@ -1,5 +1,6 @@
 package kz.theeurasia.policy.calc.bean.facade;
 
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -8,6 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.lapsa.insurance.domain.InsurancePeriodData;
 import com.lapsa.insurance.domain.policy.Policy;
 import com.lapsa.insurance.domain.policy.PolicyDriver;
 import com.lapsa.insurance.domain.policy.PolicyVehicle;
@@ -48,6 +50,31 @@ public class DefaultActionFacade implements ActionFacade {
     public String doInitialize() {
 	policyHolder.setValue(new Policy());
 	dataBuilder.buildDefaultData(policyHolder.getValue());
+	doPeriodYear();
+	return null;
+    }
+
+    @Override
+    public String doPeriodYear() {
+	InsurancePeriodData period = new InsurancePeriodData();
+	period.setFrom(LocalDate.now());
+	period.setTo(LocalDate.now().plusYears(1).minusDays(1));
+
+	Policy policy = policyHolder.getValue();
+	policy.setPeriod(period);
+	calculationFacade.calculatePremiumCost(policy);
+	return null;
+    }
+
+    @Override
+    public String doPeriodMonth(int monthsCount) {
+	InsurancePeriodData period = new InsurancePeriodData();
+	period.setFrom(LocalDate.now());
+	period.setTo(LocalDate.now().plusMonths(monthsCount));
+
+	Policy policy = policyHolder.getValue();
+	policy.setPeriod(period);
+	calculationFacade.calculatePremiumCost(policy);
 	return null;
     }
 

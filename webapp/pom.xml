@@ -78,7 +78,7 @@
 		<!-- internal lapsa -->
 		<dependency>
 			<groupId>com.lapsa.lapsa-lib</groupId>
-			<artifactId>lapsa-validation</artifactId>
+			<artifactId>lapsa-faces</artifactId>
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
