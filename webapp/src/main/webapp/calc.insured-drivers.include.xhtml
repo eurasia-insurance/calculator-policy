@@ -17,7 +17,7 @@
 		<c:set var="driverNumber" value="#{iteration + 1}" />
 
 		<f:facet name="header">
-			<p:commandButton value="#{gpovts['command.add-insured']}"
+			<p:commandButton value="Добавить водителя"
 				action="#{actionFacade.addInsuredDriver}" process="@this"
 				update="@form" partialSubmit="true" partialSubmitFilter="@this"
 				disabled="#{fn:length(plc.insuredVehicles) gt 1}" />
@@ -26,7 +26,7 @@
 		<p:panel id="currentDriverPanel">
 			<f:facet name="header">
 				<h:outputText rendered="#{empty driver.displayName}"
-					value="#{gpovts['title.insuted-driver.default-name']}" />
+					value="Новый водитель" />
 				<h:outputText rendered="#{not empty driver.displayName}"
 					value="#{driver.displayName}" />
 				<p:outputLabel rendered="#{not empty driver.insuranceClassType}"
@@ -44,7 +44,7 @@
 
 			<h:panelGrid columns="1">
 
-				<p:outputLabel value="#{gpovts['label.input.insured.id-number']}" />
+				<p:outputLabel value="ИИН водителя" />
 				<h:panelGrid columns="2">
 					<p:inputMask id="driverIdNumber" value="#{driver.idNumber}"
 						mask="9999 99999 999" converter="maskedIdNumberConverter">
@@ -55,7 +55,7 @@
 					<p:message for="driverIdNumber" />
 				</h:panelGrid>
 				<p:outputLabel
-					value="#{gpovts['label.input.insured.insured-age-class']}" />
+					value="Возраст водителя" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="driverAgeClass" value="#{driver.ageClass}"
 						disabled="#{driver.fetched}">
@@ -68,7 +68,7 @@
 				</h:panelGrid>
 
 				<p:outputLabel
-					value="#{gpovts['label.input.insured.driver-expirience-class']}" />
+					value="Стаж вождения" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="driverExpirienceClass"
 						value="#{driver.expirienceClass}">
@@ -92,7 +92,7 @@
 							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 					</p:selectBooleanCheckbox>
 					<p:outputLabel
-						value="#{gpovts['label.input.insured.has-privilege']}"
+						value="(льготные условия — инвалиды, пенсионеры, участники ВОВ)"
 						onclick="PF('w_hasAnyPrivilegeCheckbox#{driverNumber}').toggle()" />
 				</p:outputPanel>
 			</h:panelGrid>

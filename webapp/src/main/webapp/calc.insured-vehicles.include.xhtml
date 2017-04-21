@@ -17,7 +17,7 @@
 		<c:set var="vehicleNumber" value="#{iteration + 1}" />
 
 		<f:facet name="header">
-			<p:commandButton value="#{gpovts['command.add-vehicle']}"
+			<p:commandButton value="Добавить ТС"
 				action="#{actionFacade.addInsuredVehicle}" process="@this"
 				update="@form" disabled="#{fn:length(plc.insuredDrivers) gt 1}" />
 		</f:facet>
@@ -25,7 +25,7 @@
 		<p:panel id="currentVehiclePanel">
 			<f:facet name="header">
 				<h:outputText rendered="#{empty vehicle.displayName}"
-					value="#{gpovts['title.insuted-vehicle.default-name']}" />
+					value="Новое ТС" />
 				<h:outputText rendered="#{not empty vehicle.displayName}"
 					value="#{vehicle.displayName}" />
 			</f:facet>
@@ -41,7 +41,7 @@
 
 			<h:panelGrid columns="1">
 
-				<p:outputLabel value="#{gpovts['label.input.vehicle-age-class']}" />
+				<p:outputLabel value="Срок эксплуатации ТС" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleAgeClass"
 						value="#{vehicle.vehicleAgeClass}" disabled="#{vehicle.fetched}"
@@ -54,7 +54,7 @@
 					<p:message for="vehicleAgeClass" />
 				</h:panelGrid>
 
-				<p:outputLabel value="#{gpovts['label.input.vehicle-class']}" />
+				<p:outputLabel value="Тип ТС" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleClass" value="#{vehicle.vehicleClass}"
 						disabled="#{vehicle.fetched}" style="width: 300px;">
@@ -75,12 +75,12 @@
 								listener="#{actionFacade.onVehicleTemporaryEntryChanged(vehicle)}" />
 						</p:selectBooleanCheckbox>
 						<p:outputLabel
-							value="#{gpovts['label.input.vehicle.temporary-entry']}"
+							value="временный въезд на территорию РК"
 							onclick="PF('temporaryEntry#{vehicleNumber}WV').toggle()" />
 					</p:outputPanel>
 				</h:panelGrid>
 
-				<p:outputLabel value="#{gpovts['label.input.vehicle-region']}" />
+				<p:outputLabel value="Регион регистрации ТС" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleRegion" value="#{vehicle.area}"
 						filter="true" filterMatchMode="contains" style="width: 290px;"
@@ -93,7 +93,7 @@
 					<p:message for="vehicleRegion" />
 				</h:panelGrid>
 
-				<p:outputLabel value="#{gpovts['label.input.vehicle-city']}" />
+				<p:outputLabel value="Город регистрации ТС" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleCity" value="#{vehicle.city}"
 						filter="true" filterMatchMode="contains" style="width: 200px;"

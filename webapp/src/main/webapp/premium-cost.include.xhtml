@@ -14,18 +14,18 @@
 	<p:defaultCommand target="cmdCalculateCost" />
 	<h:panelGrid columns="2">
 		<p:commandButton id="cmdCalculateCost"
-			value="#{gpovts['command.calculate-cost']}" process="@form"
+			value="Расчитать стоимость" process="@form"
 			update="@form"
 			oncomplete="handleDialogShow(xhr, status, args, PF('costDialog'))" />
 		<p:commandButton id="cmdReset" value="Новый расчет" process="@this"
 			update="@form" action="#{actionFacade.doInitialize}" />
 	</h:panelGrid>
 
-	<p:dialog header="#{gpovts['title.policy-cost']}"
+	<p:dialog header="Стоимость страхования"
 		widgetVar="costDialog" resizable="false" modal="true" width="400"
 		height="300" closeOnEscape="true" id="costDialog">
 		<h:panelGroup styleClass="policyCostLabel">
-			<h:outputText value="#{gpovts['label.output.policy-cost']}" />
+			<h:outputText value="Стоимость полиса" />
 		</h:panelGroup>
 		<h:outputText styleClass="policyCost"
 			value="#{plc.calculation.premiumCost}">
@@ -35,7 +35,7 @@
 
 		<h:panelGroup styleClass="policyCostLabel">
 			<h:outputText
-				value=" #{gpovts['label.output.policy-cost-with-discount']} " />
+				value=" с учетом скидки " />
 			<p:spinner id="dicountValue"
 				value="#{discountData.discountPercentValue}" stepFactor="5"
 				max="100" min="0" suffix="%" size="4">
@@ -54,7 +54,7 @@
 		</h:outputText>
 
 		<h:panelGroup styleClass="policyCostButton">
-			<p:button value="#{gpovts['command.close-dialog']}"
+			<p:button value="Закрыть"
 				onclick="PF('costDialog').hide(); return false;" />
 		</h:panelGroup>
 	</p:dialog>
