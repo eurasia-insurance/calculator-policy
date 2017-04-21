@@ -4,65 +4,65 @@ public class ValidationException extends Exception {
 
     private static final long serialVersionUID = 1L;
 
-    private final MessageBundleCode messageCode;
-    private final MessageBundleCode descriptionCode;
+    private final MessagesBundleCode messageCode;
+    private final MessagesBundleCode descriptionCode;
 
-    public ValidationException(MessageBundleCode code) {
+    public ValidationException(MessagesBundleCode code) {
 	super();
 	this.messageCode = code;
 	this.descriptionCode = code;
     }
 
-    public ValidationException(MessageBundleCode messageCode, MessageBundleCode descriptionCode) {
+    public ValidationException(MessagesBundleCode messageCode, MessagesBundleCode descriptionCode) {
 	super();
 	this.messageCode = messageCode;
 	this.descriptionCode = descriptionCode;
     }
 
-    public ValidationException(MessageBundleCode messageCode, MessageBundleCode descriptionCode, String message,
+    public ValidationException(MessagesBundleCode messageCode, MessagesBundleCode descriptionCode, String message,
 	    Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
 	super(message, cause, enableSuppression, writableStackTrace);
 	this.messageCode = messageCode;
 	this.descriptionCode = descriptionCode;
     }
 
-    public ValidationException(MessageBundleCode code, String message, Throwable cause, boolean enableSuppression,
+    public ValidationException(MessagesBundleCode code, String message, Throwable cause, boolean enableSuppression,
 	    boolean writableStackTrace) {
 	super(message, cause, enableSuppression, writableStackTrace);
 	this.messageCode = code;
 	this.descriptionCode = code;
     }
 
-    public ValidationException(MessageBundleCode messageCode, MessageBundleCode descriptionCode, String message,
+    public ValidationException(MessagesBundleCode messageCode, MessagesBundleCode descriptionCode, String message,
 	    Throwable cause) {
 	super(message, cause);
 	this.messageCode = messageCode;
 	this.descriptionCode = descriptionCode;
     }
 
-    public ValidationException(MessageBundleCode code, String message, Throwable cause) {
+    public ValidationException(MessagesBundleCode code, String message, Throwable cause) {
 	super(message, cause);
 	this.messageCode = code;
 	this.descriptionCode = code;
     }
 
-    public ValidationException(MessageBundleCode code, String message) {
+    public ValidationException(MessagesBundleCode code, String message) {
 	super(message);
 	this.messageCode = code;
 	this.descriptionCode = code;
     }
 
-    public ValidationException(MessageBundleCode code, Throwable cause) {
+    public ValidationException(MessagesBundleCode code, Throwable cause) {
 	super(cause);
 	this.messageCode = code;
 	this.descriptionCode = code;
     }
 
-    public MessageBundleCode getMessageCode() {
+    public MessagesBundleCode getMessageCode() {
 	return messageCode;
     }
 
-    public MessageBundleCode getDescriptionCode() {
+    public MessagesBundleCode getDescriptionCode() {
 	return descriptionCode;
     }
 }

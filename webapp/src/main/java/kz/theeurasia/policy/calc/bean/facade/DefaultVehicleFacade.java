@@ -16,7 +16,7 @@ import com.lapsa.insurance.esbd.services.policy.VehicleServiceDAO;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
-import kz.theeurasia.policy.calc.api.MessageBundleCode;
+import kz.theeurasia.policy.calc.api.MessagesBundleCode;
 import kz.theeurasia.policy.calc.api.ValidationException;
 import kz.theeurasia.policy.calc.api.VehicleFacade;
 
@@ -32,7 +32,7 @@ public class DefaultVehicleFacade implements VehicleFacade {
     @Override
     public PolicyVehicle add(Policy policy) throws ValidationException {
 	if (policy.getInsuredVehicles().size() > 0 && policy.getInsuredDrivers().size() > 1)
-	    throw new ValidationException(MessageBundleCode.ONLY_ONE_VEHICLE_ALLOWED);
+	    throw new ValidationException(MessagesBundleCode.ONLY_ONE_VEHICLE_ALLOWED);
 	PolicyVehicle e = new PolicyVehicle();
 	policy.getInsuredVehicles().add(e);
 	_reset(policy, e);
@@ -42,7 +42,7 @@ public class DefaultVehicleFacade implements VehicleFacade {
     @Override
     public void remove(Policy policy, PolicyVehicle vehicle) throws ValidationException {
 	if (policy.getInsuredVehicles().size() <= 1)
-	    throw new ValidationException(MessageBundleCode.VEHICLES_LIST_CANT_BE_EMPTY);
+	    throw new ValidationException(MessagesBundleCode.VEHICLES_LIST_CANT_BE_EMPTY);
 	policy.getInsuredVehicles().remove(vehicle);
     }
 

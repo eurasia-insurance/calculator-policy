@@ -8,7 +8,7 @@ import com.lapsa.insurance.domain.policy.Policy;
 import com.lapsa.insurance.domain.policy.PolicyDriver;
 
 import kz.theeurasia.policy.calc.api.DriverFacade;
-import kz.theeurasia.policy.calc.api.MessageBundleCode;
+import kz.theeurasia.policy.calc.api.MessagesBundleCode;
 import kz.theeurasia.policy.calc.api.ValidationException;
 
 @Named
@@ -23,7 +23,7 @@ public class DefaultDriverFacade implements DriverFacade {
     @Override
     public PolicyDriver add(Policy policy) throws ValidationException {
 	if (policy.getInsuredDrivers().size() > 0 && policy.getInsuredVehicles().size() > 1)
-	    throw new ValidationException(MessageBundleCode.ONLY_ONE_DRIVER_ALLOWED);
+	    throw new ValidationException(MessagesBundleCode.ONLY_ONE_DRIVER_ALLOWED);
 	PolicyDriver e = new PolicyDriver();
 	policy.getInsuredDrivers().add(e);
 	_reset(e);
@@ -33,7 +33,7 @@ public class DefaultDriverFacade implements DriverFacade {
     @Override
     public void remove(Policy policy, PolicyDriver driver) throws ValidationException {
 	if (policy.getInsuredDrivers().size() <= 1)
-	    throw new ValidationException(MessageBundleCode.DRIVER_LIST_CANT_BE_EMPTY);
+	    throw new ValidationException(MessagesBundleCode.DRIVER_LIST_CANT_BE_EMPTY);
 	policy.getInsuredDrivers().remove(driver);
     }
 

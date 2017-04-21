@@ -9,12 +9,8 @@
 			<supported-locale>ru_RU</supported-locale>
 		</locale-config>
 		<resource-bundle>
-			<base-name>GlobalMessages</base-name>
-			<var>glb</var>
-		</resource-bundle>
-		<resource-bundle>
-			<base-name>OSGPOVTSMessages</base-name>
-			<var>gpovts</var>
+			<base-name>Messages</base-name>
+			<var>msg</var>
 		</resource-bundle>
 		<resource-handler>org.omnifaces.resourcehandler.CombinedResourceHandler</resource-handler>
 	</application>

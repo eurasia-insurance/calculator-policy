@@ -18,6 +18,7 @@ import kz.theeurasia.policy.calc.api.ActionFacade;
 import kz.theeurasia.policy.calc.api.CalculationFacade;
 import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
 import kz.theeurasia.policy.calc.api.DriverFacade;
+import kz.theeurasia.policy.calc.api.MessagesBundleCode;
 import kz.theeurasia.policy.calc.api.PolicyHolder;
 import kz.theeurasia.policy.calc.api.ValidationException;
 import kz.theeurasia.policy.calc.api.VehicleFacade;
@@ -26,7 +27,7 @@ import kz.theeurasia.policy.calc.api.VehicleFacade;
 @ApplicationScoped
 public class DefaultActionFacade implements ActionFacade {
 
-    private ResourceBundle gpovts;
+    private ResourceBundle messages = ResourceBundle.getBundle(MessagesBundleCode.BUNDLE_BASE_NAME);
 
     @Inject
     private DriverFacade driverFacade;
@@ -86,8 +87,8 @@ public class DefaultActionFacade implements ActionFacade {
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
-			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
-			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
+			    messages.getString(e.getMessageCode().getMessageBundleCode()),
+			    messages.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
 	calculationFacade.calculatePremiumCost(data);
     }
@@ -100,8 +101,8 @@ public class DefaultActionFacade implements ActionFacade {
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
-			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
-			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
+			    messages.getString(e.getMessageCode().getMessageBundleCode()),
+			    messages.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
 	calculationFacade.calculatePremiumCost(data);
     }
@@ -114,8 +115,8 @@ public class DefaultActionFacade implements ActionFacade {
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
-			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
-			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
+			    messages.getString(e.getMessageCode().getMessageBundleCode()),
+			    messages.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
 	calculationFacade.calculatePremiumCost(data);
     }
@@ -128,8 +129,8 @@ public class DefaultActionFacade implements ActionFacade {
 	} catch (ValidationException e) {
 	    FacesContext.getCurrentInstance().addMessage(null,
 		    new FacesMessage(FacesMessage.SEVERITY_WARN,
-			    gpovts.getString(e.getMessageCode().getMessageBundleCode()),
-			    gpovts.getString(e.getDescriptionCode().getMessageBundleCode())));
+			    messages.getString(e.getMessageCode().getMessageBundleCode()),
+			    messages.getString(e.getDescriptionCode().getMessageBundleCode())));
 	}
 	calculationFacade.calculatePremiumCost(data);
     }
