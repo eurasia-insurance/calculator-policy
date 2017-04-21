@@ -127,7 +127,7 @@
 			<!-- internal lapsa -->
 			<dependency>
 				<groupId>com.lapsa.lapsa-lib</groupId>
-				<artifactId>lapsa-validation</artifactId>
+				<artifactId>lapsa-faces</artifactId>
 				<version>${lapsa-lib.version}</version>
 			</dependency>
 			<dependency>

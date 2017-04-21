@@ -29,4 +29,8 @@ public interface ActionFacade {
 
     void onVehicleCityChanged(PolicyVehicle vehicle);
 
+    String doPeriodYear();
+
+    String doPeriodMonth(int monthsCount);
+
 }
