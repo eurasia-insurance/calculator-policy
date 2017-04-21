@@ -1,6 +1,6 @@
 package kz.theeurasia.policy.calc.bean.dataBuilder;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -47,7 +47,7 @@ public class DevelopingManyVehiclesDataBuilder implements DefaultCalculationData
 	    drv2.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv2.getResidenceData().setCity(KZCity.ALM);
 	    drv2.getDriverLicenseData().setNumber("123");
-	    drv2.getDriverLicenseData().setDateOfIssue(new Date());
+	    drv2.getDriverLicenseData().setDateOfIssue(LocalDate.now());
 	    drv2.setHasAnyPrivilege(false);
 
 	    PolicyVehicle vhc1 = vehicleFacade.add(calculation);

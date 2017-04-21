@@ -1,7 +1,6 @@
 package kz.theeurasia.policy.calc.bean.dataBuilder;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -55,22 +54,22 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv1.getResidenceData().setResident(true);
 	    drv1.getOriginData().setCountry(Country.KAZ);
 	    drv1.getDriverLicenseData().setNumber("123");
-	    drv1.getDriverLicenseData().setDateOfIssue(new Date());
+	    drv1.getDriverLicenseData().setDateOfIssue(LocalDate.now());
 	    drv1.setHasAnyPrivilege(true);
 	    drv1.setGpwParticipant(true);
 	    drv1.getGpwParticipantCertificateData().setNumber("123");
-	    drv1.getGpwParticipantCertificateData().setDateOfIssue(new Date());
+	    drv1.getGpwParticipantCertificateData().setDateOfIssue(LocalDate.now());
 	    drv1.setHandicaped(true);
 	    drv1.getHandicapedCertificateData().setNumber("123");
-	    drv1.getHandicapedCertificateData().setValidFrom(new Date());
-	    drv1.getHandicapedCertificateData().setValidTill(new Date());
+	    drv1.getHandicapedCertificateData().setValidFrom(LocalDate.now());
+	    drv1.getHandicapedCertificateData().setValidTill(LocalDate.now());
 	    drv1.setPensioner(true);
 	    drv1.getPensionerCertificateData().setNumber("123");
-	    drv1.getPensionerCertificateData().setDateOfIssue(new Date());
+	    drv1.getPensionerCertificateData().setDateOfIssue(LocalDate.now());
 	    drv1.setPriveleger(true);
 	    drv1.getPrivilegerCertificateData().setType("123");
 	    drv1.getPrivilegerCertificateData().setNumber("123");
-	    drv1.getPrivilegerCertificateData().setDateOfIssue(new Date());
+	    drv1.getPrivilegerCertificateData().setDateOfIssue(LocalDate.now());
 
 	    PolicyDriver drv2 = driverFacade.add(calculation);
 	    drv2.setIdNumber("870622300359");
@@ -81,7 +80,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    // drv2.getResidenceData().setResident(true);
 	    // drv2.getOriginData().setCountry(CountryDict.KAZ);
 	    drv2.getDriverLicenseData().setNumber("123");
-	    drv2.getDriverLicenseData().setDateOfIssue(new Date());
+	    drv2.getDriverLicenseData().setDateOfIssue(LocalDate.now());
 	    drv2.setHasAnyPrivilege(false);
 
 	    PolicyDriver drv3 = driverFacade.add(calculation);
@@ -92,12 +91,10 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv3.getPersonalData().setName("Вадим");
 	    drv3.getPersonalData().setSurename("Исаев");
 	    drv3.getPersonalData().setPatronymic("Олегович");
-	    Calendar dob = Calendar.getInstance();
-	    dob.set(1980, Calendar.FEBRUARY, 25);
-	    drv3.getPersonalData().setDayOfBirth(dob.getTime());
+	    drv3.getPersonalData().setDayOfBirth(LocalDate.of(1980, 2, 25));
 	    drv3.getPersonalData().setSex(Sex.MALE);
 	    drv3.getIdentityCardData().setType(IdentityCardType.PASSPORT);
-	    drv3.getIdentityCardData().setDateOfIssue(new Date());
+	    drv3.getIdentityCardData().setDateOfIssue(LocalDate.now());
 	    drv3.getIdentityCardData().setIssuingAuthority("МВД РФ");
 	    drv3.getIdentityCardData().setNumber("123123123");
 	    drv3.getResidenceData().setCity(KZCity.ALM);
@@ -105,7 +102,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv3.getResidenceData().setResident(true);
 	    drv3.getOriginData().setCountry(Country.KAZ);
 	    drv3.getDriverLicenseData().setNumber("123");
-	    drv3.getDriverLicenseData().setDateOfIssue(new Date());
+	    drv3.getDriverLicenseData().setDateOfIssue(LocalDate.now());
 	    drv3.setHasAnyPrivilege(false);
 
 	    PolicyDriver drv4 = driverFacade.add(calculation);
@@ -120,7 +117,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv4.getResidenceData().setResident(true);
 	    drv4.getOriginData().setCountry(Country.KAZ);
 	    drv4.getDriverLicenseData().setNumber("123");
-	    drv4.getDriverLicenseData().setDateOfIssue(new Date());
+	    drv4.getDriverLicenseData().setDateOfIssue(LocalDate.now());
 	    drv4.setHasAnyPrivilege(false);
 
 	    PolicyVehicle vhc1 = vehicleFacade.add(calculation);
