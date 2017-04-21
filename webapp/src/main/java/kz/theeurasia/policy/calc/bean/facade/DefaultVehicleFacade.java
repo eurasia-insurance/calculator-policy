@@ -109,9 +109,9 @@ public class DefaultVehicleFacade implements VehicleFacade {
 
     @Override
     public void handleTemporaryEntryChanged(PolicyVehicle vehicle) {
-	if (vehicle.isTemporaryEntry()) {
-	    vehicle.setArea(null);
-	    vehicle.setCity(null);
-	}
+//	if (vehicle.isTemporaryEntry()) {
+//	    vehicle.setArea(null);
+//	    vehicle.setCity(null);
+//	}
     }
 }
