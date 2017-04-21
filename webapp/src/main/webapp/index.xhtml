@@ -18,13 +18,23 @@
 		</f:metadata>
 
 		<h:form id="calcForm">
-			<ui:decorate template="period-cost.include.xhtml" />
-			<h:panelGrid columns="2" styleClass="mainTable"
-				columnClasses="col1,col2">
-				<ui:decorate template="calc.insured-drivers.include.xhtml" />
-				<ui:decorate template="calc.insured-vehicles.include.xhtml" />
-			</h:panelGrid>
-			<ui:decorate template="premium-cost.include.xhtml" />
+
+			<p:layout>
+				<p:layoutUnit position="north" size="80">
+					<ui:decorate template="buttons.include.xhtml" />
+				</p:layoutUnit>
+				<p:layoutUnit position="west" resizable="true" minSize="400">
+					<ui:decorate template="calc.insured-drivers.include.xhtml" />
+				</p:layoutUnit>
+				<p:layoutUnit position="east" resizable="true" minSize="400">
+					<ui:decorate template="calc.insured-vehicles.include.xhtml" />
+				</p:layoutUnit>
+				<p:layoutUnit position="center">
+					<ui:decorate template="period.include.xhtml" />
+					<ui:decorate template="premium-cost.include.xhtml" />
+				</p:layoutUnit>
+			</p:layout>
+
 		</h:form>
 
 	</ui:define>

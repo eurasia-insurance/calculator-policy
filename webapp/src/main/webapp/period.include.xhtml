@@ -12,36 +12,36 @@
 
 	<c:set var="per" value="#{policy.value.period}" />
 
-	<p:panelGrid>
-		<p:row>
-			<p:column>
-				<h:panelGrid columns="2">
-					<p:outputLabel for="periodFrom" value="Начало действия" />
-					<p:outputLabel for="periodTo" value="Окончание действия" />
-					<lf:inputLocalDate id="periodFrom" value="#{per.from}"
-						process="@this" update="@form"
-						changedListener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
-					<lf:inputLocalDate id="periodTo" value="#{per.to}" process="@this"
-						update="@form"
-						changedListener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
-					<p:message for="periodFrom:value" />
-					<p:message for="periodTo:value" />
-				</h:panelGrid>
-			</p:column>
-			<p:column>
-				<h:panelGrid columns="3">
-					<p:commandButton value="На 1 год"
-						action="#{actionFacade.doPeriodYear}" process="@this"
-						update="@form" />
-					<p:commandButton value="На пол-года"
-						action="#{actionFacade.doPeriodMonth(6)}" process="@this"
-						update="@form" />
-					<p:commandButton value="На 1 месяц"
-						action="#{actionFacade.doPeriodMonth(1)}" process="@this"
-						update="@form" />
-				</h:panelGrid>
-			</p:column>
-		</p:row>
-	</p:panelGrid>
+	<p:panel header="Период страхования">
+		<h:panelGrid columns="2">
+			<p:outputLabel for="periodFrom" value="Начало действия" />
+			<p:outputLabel for="periodTo" value="Окончание действия" />
+			<lf:inputLocalDate id="periodFrom" value="#{per.from}"
+				process="@this" update="@form"
+				changedListener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
+			<lf:inputLocalDate id="periodTo" value="#{per.to}" process="@this"
+				update="@form"
+				changedListener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
+			<p:message for="periodFrom:value" />
+			<p:message for="periodTo:value" />
+		</h:panelGrid>
+
+		<h:panelGrid columns="3">
+			<p:commandButton value="На 1 год"
+				action="#{actionFacade.doPeriodYear}" process="@this" update="@form" />
+			<p:commandButton value="На пол-года"
+				action="#{actionFacade.doPeriodMonth(6)}" process="@this"
+				update="@form" />
+			<p:commandButton value="На 1 месяц"
+				action="#{actionFacade.doPeriodMonth(1)}" process="@this"
+				update="@form" />
+		</h:panelGrid>
+
+	</p:panel>
+
+	<h:panelGrid columns="2">
+
+
+	</h:panelGrid>
 
 </ui:composition>
