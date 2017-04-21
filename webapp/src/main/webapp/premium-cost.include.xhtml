@@ -11,21 +11,10 @@
 
 	<c:set var="plc" value="#{policy.value}" />
 
-	<p:defaultCommand target="cmdCalculateCost" />
-	<h:panelGrid columns="2">
-		<p:commandButton id="cmdCalculateCost"
-			value="Расчитать стоимость" process="@form"
-			update="@form"
-			oncomplete="handleDialogShow(xhr, status, args, PF('costDialog'))" />
-		<p:commandButton id="cmdReset" value="Новый расчет" process="@this"
-			update="@form" action="#{actionFacade.doInitialize}" />
-	</h:panelGrid>
+	<p:panel rendered="#{plc.calculation.premiumCost gt 0}" header="Стоимость полиса">
 
-	<p:dialog header="Стоимость страхования"
-		widgetVar="costDialog" resizable="false" modal="true" width="400"
-		height="300" closeOnEscape="true" id="costDialog">
 		<h:panelGroup styleClass="policyCostLabel">
-			<h:outputText value="Стоимость полиса" />
+			<h:outputText value="Стоимость полиса составляет" />
 		</h:panelGroup>
 		<h:outputText styleClass="policyCost"
 			value="#{plc.calculation.premiumCost}">
@@ -34,8 +23,7 @@
 		</h:outputText>
 
 		<h:panelGroup styleClass="policyCostLabel">
-			<h:outputText
-				value=" с учетом скидки " />
+			<h:outputText value=" с учетом скидки " />
 			<p:spinner id="dicountValue"
 				value="#{discountData.discountPercentValue}" stepFactor="5"
 				max="100" min="0" suffix="%" size="4">
@@ -53,10 +41,12 @@
 				groupingUsed="true" currencySymbol="&#8376;" />
 		</h:outputText>
 
-		<h:panelGroup styleClass="policyCostButton">
-			<p:button value="Закрыть"
-				onclick="PF('costDialog').hide(); return false;" />
+	</p:panel>
+
+	<p:panel rendered="#{plc.calculation.premiumCost eq 0}">
+		<h:panelGroup styleClass="policyCostLabel">
+		Введите все параметры полиса для получения стоимости страхования
 		</h:panelGroup>
-	</p:dialog>
+	</p:panel>
 
 </ui:composition>
