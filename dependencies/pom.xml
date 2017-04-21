@@ -25,6 +25,11 @@
 			<artifactId>insurance-esbd-impl-ws</artifactId>
 			<type>ejb</type>
 		</dependency>
+		<!-- internal lapsa -->
+		<dependency>
+			<groupId>com.lapsa.lapsa-lib</groupId>
+			<artifactId>lapsa-hibernate-validation</artifactId>
+		</dependency>
 		<!-- internal esbd -->
 		<dependency>
 			<groupId>com.lapsa.esbd-lib</groupId>
