@@ -1,0 +1,5 @@
+messages.driver-list.cant-be-empty = Должен присутствовать как минимум один застрахованный водитель
+messages.vehicle-list.cant-be-empty = Должно присутствовать как минимум одно транспортное средство 
+messages.driver-list.only-one-driver-allowed = Неверное соотношение застрахованных водителей и транспортных средств в одном полисе
+messages.vehicle-list.only-one-vehicle-allowed = Неверное соотношение застрахованных водителей и транспортных средств в одном полисе
+label.si.UNSPECIFIED = Не указано

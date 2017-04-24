@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<ui:composition xmlns:h="http://xmlns.jcp.org/jsf/html"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:comp="http://xmlns.jcp.org/jsf/composite"
@@ -10,22 +11,19 @@
 
 	<c:set var="plc" value="#{policy.value}" />
 
-	<p:dataGrid var="driver" value="#{plc.insuredDrivers}" layout="grid"
-		columns="1" rowIndexVar="iteration">
+	<p:panel>
+		<p:commandButton value="Добавить водителя"
+			action="#{actionFacade.addInsuredDriver}" process="@this"
+			update="@form" partialSubmit="true" partialSubmitFilter="@this"
+			disabled="#{fn:length(plc.insuredVehicles) gt 1}" />
+	</p:panel>
 
-		<c:set var="driverNumber" value="#{iteration + 1}" />
-
-		<f:facet name="header">
-			<p:commandButton value="#{gpovts['command.add-insured']}"
-				action="#{actionFacade.addInsuredDriver}" process="@this"
-				update="@form" partialSubmit="true" partialSubmitFilter="@this"
-				disabled="#{fn:length(plc.insuredVehicles) gt 1}" />
-		</f:facet>
+	<ui:repeat var="driver" value="#{plc.insuredDrivers}" rowKeyVar="index">
 
 		<p:panel id="currentDriverPanel">
 			<f:facet name="header">
 				<h:outputText rendered="#{empty driver.displayName}"
-					value="#{gpovts['title.insuted-driver.default-name']}" />
+					value="Новый водитель" />
 				<h:outputText rendered="#{not empty driver.displayName}"
 					value="#{driver.displayName}" />
 				<p:outputLabel rendered="#{not empty driver.insuranceClassType}"
@@ -43,39 +41,37 @@
 
 			<h:panelGrid columns="1">
 
-				<p:outputLabel value="#{gpovts['label.input.insured.id-number']}" />
+				<p:outputLabel value="ИИН водителя" />
 				<h:panelGrid columns="2">
 					<p:inputMask id="driverIdNumber" value="#{driver.idNumber}"
-						mask="9999 99999 999" converter="maskedIdNumberConverter">
+						mask="9999 99999 999" converter="maskedIdNumberConverter" placeholder="введите ИИН">
 						<pe:keyFilter regEx="/[0123456789]/i" preventPaste="false" />
 						<p:ajax process="@this" update="@form"
 							listener="#{actionFacade.onDriverIdNumberChanged(driver)}" />
 					</p:inputMask>
 					<p:message for="driverIdNumber" />
 				</h:panelGrid>
-				<p:outputLabel
-					value="#{gpovts['label.input.insured.insured-age-class']}" />
+				<p:outputLabel value="Возраст водителя" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="driverAgeClass" value="#{driver.ageClass}"
 						disabled="#{driver.fetched}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
-						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
-						<f:selectItems value="#{insuredAgeClassService.selectableItemsSI}" />
+						<f:selectItem itemLabel="#{msg['label.si.UNSPECIFIED']}" />
+						<f:selectItems value="#{insuredAgeClassService.selectableItemsShortSI}" />
 					</p:selectOneMenu>
 					<p:message for="driverAgeClass" />
 				</h:panelGrid>
 
-				<p:outputLabel
-					value="#{gpovts['label.input.insured.driver-expirience-class']}" />
+				<p:outputLabel value="Стаж вождения" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="driverExpirienceClass"
 						value="#{driver.expirienceClass}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
-						<f:selectItem itemLabel="#{glb['label.si.UNSPECIFIED']}" />
+						<f:selectItem itemLabel="#{msg['label.si.UNSPECIFIED']}" />
 						<f:selectItems
-							value="#{insuredExpirienceClassService.selectableItemsSI}" />
+							value="#{insuredExpirienceClassService.selectableItemsShortSI}" />
 					</p:selectOneMenu>
 					<p:message for="driverExpirienceClass" />
 				</h:panelGrid>
@@ -85,19 +81,19 @@
 			<h:panelGrid columns="2">
 				<p:outputPanel>
 					<p:selectBooleanCheckbox
-						widgetVar="w_hasAnyPrivilegeCheckbox#{driverNumber}"
+						widgetVar="w_hasAnyPrivilegeCheckbox#{index}"
 						value="#{driver.hasAnyPrivilege}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 					</p:selectBooleanCheckbox>
 					<p:outputLabel
-						value="#{gpovts['label.input.insured.has-privilege']}"
-						onclick="PF('w_hasAnyPrivilegeCheckbox#{driverNumber}').toggle()" />
+						value="(льготные условия — инвалиды, пенсионеры, участники ВОВ)"
+						onclick="PF('w_hasAnyPrivilegeCheckbox#{index}').toggle()" />
 				</p:outputPanel>
 			</h:panelGrid>
 
 		</p:panel>
 
-	</p:dataGrid>
+	</ui:repeat>
 
 </ui:composition>

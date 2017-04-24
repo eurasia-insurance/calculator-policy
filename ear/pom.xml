@@ -33,7 +33,7 @@
 						<webModule>
 							<groupId>kz.theeurasia.policy.policy-calc</groupId>
 							<artifactId>policy-calc-webapp</artifactId>
-							<contextRoot>/calc</contextRoot>
+							<contextRoot>/policy-calc</contextRoot>
 						</webModule>
 					</modules>
 				</configuration>

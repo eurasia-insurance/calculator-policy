@@ -9,13 +9,18 @@
 			<supported-locale>ru_RU</supported-locale>
 		</locale-config>
 		<resource-bundle>
-			<base-name>GlobalMessages</base-name>
-			<var>glb</var>
-		</resource-bundle>
-		<resource-bundle>
-			<base-name>OSGPOVTSMessages</base-name>
-			<var>gpovts</var>
+			<base-name>Messages</base-name>
+			<var>msg</var>
 		</resource-bundle>
 		<resource-handler>org.omnifaces.resourcehandler.CombinedResourceHandler</resource-handler>
 	</application>
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>home</from-outcome>
+			<to-view-id>/index</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
 </faces-config>
