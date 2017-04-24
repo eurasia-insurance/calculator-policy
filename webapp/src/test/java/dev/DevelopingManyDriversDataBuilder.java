@@ -1,4 +1,4 @@
-package kz.theeurasia.policy.calc.bean.dataBuilder;
+package dev;
 
 import java.time.LocalDate;
 import java.util.logging.Level;
@@ -24,6 +24,7 @@ import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
 import kz.theeurasia.policy.calc.api.DriverFacade;
 import kz.theeurasia.policy.calc.api.ValidationException;
 import kz.theeurasia.policy.calc.api.VehicleFacade;
+import kz.theeurasia.policy.calc.bean.dataBuilder.ProjectStageDepend;
 
 @RequestScoped
 @ProjectStageDepend(stage = ProjectStage.Development)
