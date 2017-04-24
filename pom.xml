@@ -23,7 +23,7 @@
 
 	<properties>
 		<!-- APIs -->
-		<kz-lib.version>2.4</kz-lib.version>
+		<kz-lib.version>2.5-SNAPSHOT</kz-lib.version>
 		<international-lib.version>2.2-SNAPSHOT</international-lib.version>
 		<lapsa-lib.version>1.5-SNAPSHOT</lapsa-lib.version>
 		<insurance-lib.version>1.12-SNAPSHOT</insurance-lib.version>
