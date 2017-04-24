@@ -1,4 +1,4 @@
-package kz.theeurasia.policy.calc.bean.dataBuilder;
+package dev;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.*;
@@ -11,5 +11,5 @@ import javax.inject.Qualifier;
 @Qualifier
 @Target({ METHOD, TYPE, FIELD })
 @Retention(RUNTIME)
-public @interface ManyVehicles {
+public @interface ManyDrivers {
 }
