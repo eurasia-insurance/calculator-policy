@@ -13,28 +13,36 @@
 	<name>Policy : Calc : App depdendencies</name>
 
 	<dependencies>
-		<!-- own -->
+		<!-- own runtime -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>policy-calc-webapp</artifactId>
 			<type>war</type>
+			<scope>runtime</scope>
+			<optional>false</optional>
 		</dependency>
-		<!-- internal insurance -->
+		<!-- internal insurance runtime -->
 		<dependency>
 			<groupId>com.lapsa.insurance-lib</groupId>
 			<artifactId>insurance-esbd-impl-ws</artifactId>
 			<type>ejb</type>
+			<scope>runtime</scope>
+			<optional>false</optional>
 		</dependency>
-		<!-- internal lapsa -->
+		<!-- internal lapsa runtime -->
 		<dependency>
 			<groupId>com.lapsa.lapsa-lib</groupId>
 			<artifactId>lapsa-hibernate-validation</artifactId>
+			<scope>runtime</scope>
+			<optional>false</optional>
 		</dependency>
-		<!-- internal esbd -->
+		<!-- internal esbd runtime -->
 		<dependency>
 			<groupId>com.lapsa.esbd-lib</groupId>
 			<artifactId>esbd-connection-impl-default</artifactId>
 			<type>ejb</type>
+			<scope>runtime</scope>
+			<optional>false</optional>
 		</dependency>
 	</dependencies>
 

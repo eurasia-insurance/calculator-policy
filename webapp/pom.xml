@@ -82,6 +82,13 @@
 			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
+		<!-- internal lapsa runtime -->
+		<dependency>
+			<groupId>com.lapsa.lapsa-lib</groupId>
+			<artifactId>lapsa-hibernate-validation</artifactId>
+			<scope>runtime</scope>
+			<optional>false</optional>
+		</dependency>
 		<!-- external -->
 		<dependency>
 			<groupId>org.primefaces</groupId>

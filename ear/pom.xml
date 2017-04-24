@@ -13,12 +13,12 @@
 	<name>Policy : Calc : Enterprise ARchive</name>
 
 	<dependencies>
-		<!-- own -->
+		<!-- own runtime -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>policy-calc-dependencies</artifactId>
 			<type>pom</type>
-			<scope>compile</scope>
+			<scope>runtime</scope>
 			<optional>false</optional>
 		</dependency>
 	</dependencies>
