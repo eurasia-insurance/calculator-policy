@@ -29,7 +29,7 @@
 		<!-- EJBs & WARs -->
 		<insurance-services-impl-cdi.version>2.0-SNAPSHOT</insurance-services-impl-cdi.version>
 		<insurance-esbd-impl-ws.version>3.0-SNAPSHOT</insurance-esbd-impl-ws.version>
-		<esbd-connection-impl-default.version>2.0-SNAPSHOT</esbd-connection-impl-default.version>
+		<esbd-connection-impl-default.version>4.0-SNAPSHOT</esbd-connection-impl-default.version>
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
 		<primefaces-themes.version>1.0.10</primefaces-themes.version>
