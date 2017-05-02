@@ -27,9 +27,9 @@
 		<lapsa-lib.version>2.0-SNAPSHOT</lapsa-lib.version>
 		<insurance-lib.version>2.0-SNAPSHOT</insurance-lib.version>
 		<!-- EJBs & WARs -->
-		<insurance-services-impl-cdi.version>1.10</insurance-services-impl-cdi.version>
-		<insurance-esbd-impl-ws.version>2.1</insurance-esbd-impl-ws.version>
-		<esbd-connection-impl-default.version>1.0.1</esbd-connection-impl-default.version>
+		<insurance-services-impl-cdi.version>2.0-SNAPSHOT</insurance-services-impl-cdi.version>
+		<insurance-esbd-impl-ws.version>3.0-SNAPSHOT</insurance-esbd-impl-ws.version>
+		<esbd-connection-impl-default.version>2.0-SNAPSHOT</esbd-connection-impl-default.version>
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
 		<primefaces-themes.version>1.0.10</primefaces-themes.version>
