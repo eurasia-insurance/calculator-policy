@@ -9,7 +9,7 @@
 
 	<groupId>kz.theeurasia.policy.policy-calc</groupId>
 	<artifactId>parent</artifactId>
-	<version>2.0-SNAPSHOT</version>
+	<version>2.0</version>
 	<packaging>pom</packaging>
 
 	<name>Policy : Calc : Parent</name>
@@ -168,7 +168,7 @@
 	<scm>
 		<connection>scm:git:https://gitlab.lapsa.tech/eurasia/eurasia-policy-calc.git</connection>
 		<developerConnection>scm:git:https://gitlab.lapsa.tech/eurasia/eurasia-policy-calc.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>v2.0</tag>
 	</scm>
 
 	<issueManagement>
