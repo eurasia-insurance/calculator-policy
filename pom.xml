@@ -9,7 +9,7 @@
 
 	<groupId>kz.theeurasia.policy.policy-calc</groupId>
 	<artifactId>parent</artifactId>
-	<version>2.0.2-SNAPSHOT</version>
+	<version>2.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Policy : Calc : Parent</name>
@@ -25,9 +25,9 @@
 		<kz-lib.version>3.0</kz-lib.version>
 		<international-lib.version>3.0</international-lib.version>
 		<lapsa-lib.version>2.0</lapsa-lib.version>
-		<insurance-lib.version>2.0</insurance-lib.version>
+		<insurance-lib.version>2.0.2</insurance-lib.version>
 		<!-- EJBs & WARs -->
-		<insurance-services-impl-cdi.version>2.0</insurance-services-impl-cdi.version>
+		<insurance-services-impl-cdi.version>2.1</insurance-services-impl-cdi.version>
 		<insurance-esbd-impl-ws.version>3.0</insurance-esbd-impl-ws.version>
 		<esbd-connection-impl-default.version>4.0</esbd-connection-impl-default.version>
 		<!-- external -->
