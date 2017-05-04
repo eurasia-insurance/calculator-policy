@@ -7,12 +7,12 @@
 		<version>2.0</version>
 	</parent>
 
-	<groupId>kz.theeurasia.policy.policy-calc</groupId>
+	<groupId>kz.theeurasia.policy-calc</groupId>
 	<artifactId>parent</artifactId>
 	<version>2.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Policy : Calc : Parent</name>
+	<name>Policy Calculator : Parent</name>
 
 	<modules>
 		<module>webapp</module>
@@ -166,14 +166,14 @@
 	</organization>
 
 	<scm>
-		<connection>scm:git:https://gitlab.lapsa.tech/eurasia/eurasia-policy-calc.git</connection>
-		<developerConnection>scm:git:https://gitlab.lapsa.tech/eurasia/eurasia-policy-calc.git</developerConnection>
+		<connection>scm:git:https://gitlab.lapsa.tech/eurasia/policy-calc.git</connection>
+		<developerConnection>scm:git:https://gitlab.lapsa.tech/eurasia/policy-calc.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
 	<issueManagement>
 		<system>gitlab</system>
-		<url>https://gitlab.lapsa.tech/eurasia/eurasia-policy-calc/issues</url>
+		<url>https://gitlab.lapsa.tech/eurasia/policy-calc/issues</url>
 	</issueManagement>
 
 </project>
