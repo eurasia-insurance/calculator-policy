@@ -43,12 +43,12 @@
 
 				<p:outputLabel value="ИИН водителя" />
 				<h:panelGrid columns="2">
-					<p:inputMask id="driverIdNumber" value="#{driver.idNumber}"
-						mask="9999 99999 999" converter="maskedIdNumberConverter" placeholder="введите ИИН">
+					<p:inputText id="driverIdNumber" value="#{driver.idNumber}"
+						placeholder="введите ИИН" maxlength="12">
 						<pe:keyFilter regEx="/[0123456789]/i" preventPaste="false" />
 						<p:ajax process="@this" update="@form"
 							listener="#{actionFacade.onDriverIdNumberChanged(driver)}" />
-					</p:inputMask>
+					</p:inputText>
 					<p:message for="driverIdNumber" />
 				</h:panelGrid>
 				<p:outputLabel value="Возраст водителя" />
