@@ -7,7 +7,7 @@
 		<version>2.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>policy-calc-ear</artifactId>
+	<artifactId>policy-calc-app</artifactId>
 	<packaging>ear</packaging>
 
 	<name>Policy Calculator : EAR</name>

@@ -17,10 +17,11 @@
 	<modules>
 		<module>webapp</module>
 		<module>dependencies</module>
-		<module>ear</module>
+		<module>app</module>
 	</modules>
 
 	<properties>
+		<payara-bom.version>4.1.2-2</payara-bom.version>
 		<!-- APIs -->
 		<kz-lib.version>3.2</kz-lib.version>
 		<international-lib.version>3.3</international-lib.version>
@@ -43,6 +44,13 @@
 	<dependencyManagement>
 		<dependencies>
 			<!-- BOMS -->
+			<dependency>
+				<groupId>tech.lapsa.payara</groupId>
+				<artifactId>payara-bom</artifactId>
+				<version>${payara-bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<dependency>
 				<groupId>com.lapsa.kz-lib</groupId>
 				<artifactId>kz-root</artifactId>
@@ -100,7 +108,7 @@
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>policy-calc-ear</artifactId>
+				<artifactId>policy-calc-app</artifactId>
 				<version>${project.version}</version>
 				<type>ear</type>
 			</dependency>
