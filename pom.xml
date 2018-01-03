@@ -15,8 +15,8 @@
 	<name>Policy Calculator : Parent</name>
 
 	<modules>
-		<module>webapp</module>
 		<module>dependencies</module>
+		<module>webapp</module>
 		<module>app</module>
 	</modules>
 
