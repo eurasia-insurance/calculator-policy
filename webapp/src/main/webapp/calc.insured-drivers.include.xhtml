@@ -18,16 +18,16 @@
 			disabled="#{fn:length(plc.insuredVehicles) gt 1}" />
 	</p:panel>
 
-	<ui:repeat var="driver" value="#{plc.insuredDrivers}" rowKeyVar="index">
+	<ui:repeat var="driver" value="#{plc.insuredDrivers}" varStatus="status">
 
 		<p:panel id="currentDriverPanel">
 			<f:facet name="header">
-				<h:outputText rendered="#{empty driver.displayName}"
+				<h:outputText rendered="#{empty driver.personalData.fullName}"
 					value="Новый водитель" />
-				<h:outputText rendered="#{not empty driver.displayName}"
-					value="#{driver.displayName}" />
+				<h:outputText rendered="#{not empty driver.personalData}"
+					value="#{driver.personalData.fullName}" />
 				<p:outputLabel rendered="#{not empty driver.insuranceClassType}"
-					value=" - #{insuranceClassTypeService.displayName(driver.insuranceClassType)}" />
+					value=" - #{localized.regular(driver.insuranceClassType)}" />
 			</f:facet>
 			<f:facet name="actions">
 				<p:commandLink
@@ -44,8 +44,10 @@
 				<p:outputLabel value="ИИН водителя" />
 				<h:panelGrid columns="2">
 					<p:inputText id="driverIdNumber" value="#{driver.idNumber}"
-						placeholder="введите ИИН" maxlength="12">
+						placeholder="введите ИИН" maxlength="12"
+						validatorMessage="Обязательное поле">
 						<pe:keyFilter regEx="/[0123456789]/i" preventPaste="false" />
+						<f:validateRequired />
 						<p:ajax process="@this" update="@form"
 							listener="#{actionFacade.onDriverIdNumberChanged(driver)}" />
 					</p:inputText>
@@ -54,11 +56,12 @@
 				<p:outputLabel value="Возраст водителя" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="driverAgeClass" value="#{driver.ageClass}"
-						disabled="#{driver.fetched}">
+						disabled="#{driver.fetched}" validatorMessage="Обязательное поле">
+						<f:validateRequired />
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{msg['label.si.UNSPECIFIED']}" />
-						<f:selectItems value="#{insuredAgeClassService.selectableItemsShortSI}" />
+						<f:selectItems value="#{si.array.few(InsuredAgeClass.selectable)}" />
 					</p:selectOneMenu>
 					<p:message for="driverAgeClass" />
 				</h:panelGrid>
@@ -66,12 +69,14 @@
 				<p:outputLabel value="Стаж вождения" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="driverExpirienceClass"
-						value="#{driver.expirienceClass}">
+						value="#{driver.expirienceClass}"
+						validatorMessage="Обязательное поле">
+						<f:validateRequired />
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{msg['label.si.UNSPECIFIED']}" />
 						<f:selectItems
-							value="#{insuredExpirienceClassService.selectableItemsShortSI}" />
+							value="#{si.array.few(InsuredExpirienceClass.selectable)}" />
 					</p:selectOneMenu>
 					<p:message for="driverExpirienceClass" />
 				</h:panelGrid>
@@ -81,14 +86,14 @@
 			<h:panelGrid columns="2">
 				<p:outputPanel>
 					<p:selectBooleanCheckbox
-						widgetVar="w_hasAnyPrivilegeCheckbox#{index}"
+						widgetVar="hasAnyPrivilege#{status.index}WV"
 						value="#{driver.hasAnyPrivilege}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 					</p:selectBooleanCheckbox>
 					<p:outputLabel
 						value="(льготные условия — инвалиды, пенсионеры, участники ВОВ)"
-						onclick="PF('w_hasAnyPrivilegeCheckbox#{index}').toggle()" />
+						onclick="PF('hasAnyPrivilege#{status.index}WV').toggle()" />
 				</p:outputPanel>
 			</h:panelGrid>
 

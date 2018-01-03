@@ -8,28 +8,33 @@
 	</parent>
 
 	<groupId>kz.theeurasia.policy-calc</groupId>
-	<artifactId>parent</artifactId>
+	<artifactId>policy-calc-root</artifactId>
 	<version>2.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Policy Calculator : Parent</name>
 
 	<modules>
-		<module>webapp</module>
 		<module>dependencies</module>
-		<module>ear</module>
+		<module>webapp</module>
+		<module>app</module>
 	</modules>
 
 	<properties>
+		<payara-bom.version>4.1.2-2</payara-bom.version>
 		<!-- APIs -->
-		<kz-lib.version>3.0</kz-lib.version>
-		<international-lib.version>3.1</international-lib.version>
-		<lapsa-lib.version>2.1</lapsa-lib.version>
-		<insurance-lib.version>2.2</insurance-lib.version>
-		<!-- EJBs & WARs -->
-		<insurance-services-impl-cdi.version>2.1</insurance-services-impl-cdi.version>
-		<insurance-esbd-impl-ws.version>3.0</insurance-esbd-impl-ws.version>
-		<esbd-connection-impl-default.version>4.0</esbd-connection-impl-default.version>
+		<kz-lib.version>3.2.1</kz-lib.version>
+		<international-lib.version>3.3</international-lib.version>
+		<lapsa-lib.version>2.3</lapsa-lib.version>
+		<insurance-lib.version>2.4</insurance-lib.version>
+		<insurance-domain.version>2.4</insurance-domain.version>
+		<javax-faces-commons.version>1.1</javax-faces-commons.version>
+		<insurance-faces.version>3.1</insurance-faces.version>
+		<lapsa-primefaces.version>1.1</lapsa-primefaces.version>
+		<!-- EJBs -->
+		<esbd-dao.version>2.1</esbd-dao.version>
+		<insurance-calculation.version>2.1</insurance-calculation.version>
+		<insurance-facade.version>1.1</insurance-facade.version>
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
 		<primefaces-themes.version>1.0.10</primefaces-themes.version>
@@ -38,10 +43,60 @@
 
 	<dependencyManagement>
 		<dependencies>
+			<!-- BOMS -->
+			<dependency>
+				<groupId>tech.lapsa.payara</groupId>
+				<artifactId>payara-bom</artifactId>
+				<version>${payara-bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.lapsa.kz-lib</groupId>
+				<artifactId>kz-root</artifactId>
+				<version>${kz-lib.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.lapsa.international-lib</groupId>
+				<artifactId>international-root</artifactId>
+				<version>${international-lib.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.lapsa.insurance-lib</groupId>
+				<artifactId>insurance-root</artifactId>
+				<version>${insurance-lib.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>tech.lapsa.esbd</groupId>
+				<artifactId>esbd-dao-root</artifactId>
+				<version>${esbd-dao.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>tech.lapsa.insurance</groupId>
+				<artifactId>insurance-calculation-root</artifactId>
+				<version>${insurance-calculation.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>tech.lapsa.insurance</groupId>
+				<artifactId>insurance-facade-root</artifactId>
+				<version>${insurance-facade.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 			<!-- own -->
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>policy-calc-webapp</artifactId>
+				<artifactId>policy-calc</artifactId>
 				<version>${project.version}</version>
 				<type>war</type>
 			</dependency>
@@ -53,86 +108,25 @@
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>policy-calc-ear</artifactId>
+				<artifactId>policy-calc-app</artifactId>
 				<version>${project.version}</version>
 				<type>ear</type>
 			</dependency>
 			<!-- internal kz -->
 			<dependency>
-				<groupId>com.lapsa.kz-lib</groupId>
-				<artifactId>kz-core</artifactId>
-				<version>${kz-lib.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.lapsa.kz-lib</groupId>
-				<artifactId>kz-eelib</artifactId>
-				<version>${kz-lib.version}</version>
-			</dependency>
-			<!-- internal international -->
-			<dependency>
-				<groupId>com.lapsa.international-lib</groupId>
-				<artifactId>international-core</artifactId>
-				<version>${international-lib.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.lapsa.international-lib</groupId>
-				<artifactId>international-eelib</artifactId>
-				<version>${international-lib.version}</version>
-			</dependency>
-			<!-- intenral insurance -->
-			<dependency>
-				<groupId>com.lapsa.insurance-lib</groupId>
-				<artifactId>insurance-elements</artifactId>
-				<version>${insurance-lib.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.lapsa.insurance-lib</groupId>
+				<groupId>tech.lapsa.insurance</groupId>
 				<artifactId>insurance-domain</artifactId>
-				<version>${insurance-lib.version}</version>
+				<version>${insurance-domain.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.lapsa.insurance-lib</groupId>
-				<artifactId>insurance-validation</artifactId>
-				<version>${insurance-lib.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.lapsa.insurance-lib</groupId>
+				<groupId>tech.lapsa.insurance</groupId>
 				<artifactId>insurance-faces</artifactId>
-				<version>${insurance-lib.version}</version>
+				<version>${insurance-faces.version}</version>
 			</dependency>
 			<dependency>
-				<groupId>com.lapsa.insurance-lib</groupId>
-				<artifactId>insurance-esbd</artifactId>
-				<version>${insurance-lib.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.lapsa.insurance-lib</groupId>
-				<artifactId>insurance-services-impl-cdi</artifactId>
-				<version>${insurance-services-impl-cdi.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.lapsa.insurance-lib</groupId>
-				<artifactId>insurance-esbd-impl-ws</artifactId>
-				<version>${insurance-esbd-impl-ws.version}</version>
-				<type>ejb</type>
-			</dependency>
-			<!-- internal esbd -->
-			<dependency>
-				<groupId>com.lapsa.esbd-lib</groupId>
-				<artifactId>esbd-connection-impl-default</artifactId>
-				<version>${esbd-connection-impl-default.version}</version>
-				<type>ejb</type>
-			</dependency>
-			<!-- internal lapsa -->
-			<dependency>
-				<groupId>com.lapsa.lapsa-lib</groupId>
-				<artifactId>lapsa-faces</artifactId>
-				<version>${lapsa-lib.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.lapsa.lapsa-lib</groupId>
-				<artifactId>lapsa-hibernate-validation</artifactId>
-				<version>${lapsa-lib.version}</version>
+				<groupId>tech.lapsa.lapsa</groupId>
+				<artifactId>lapsa-primefaces</artifactId>
+				<version>${lapsa-primefaces.version}</version>
 			</dependency>
 			<!-- external -->
 			<dependency>

@@ -3,23 +3,25 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>kz.theeurasia.policy-calc</groupId>
-		<artifactId>parent</artifactId>
+		<artifactId>policy-calc-root</artifactId>
 		<version>2.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>policy-calc-ear</artifactId>
+	<artifactId>policy-calc-app</artifactId>
 	<packaging>ear</packaging>
 
-	<name>Policy Calculator : Enterprise ARchive</name>
+	<name>Policy Calculator : EAR</name>
 
 	<dependencies>
-		<!-- own runtime -->
 		<dependency>
 			<groupId>${project.groupId}</groupId>
 			<artifactId>policy-calc-dependencies</artifactId>
 			<type>pom</type>
-			<scope>runtime</scope>
-			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>policy-calc</artifactId>
+			<type>war</type>
 		</dependency>
 	</dependencies>
 
@@ -32,7 +34,7 @@
 					<modules>
 						<webModule>
 							<groupId>kz.theeurasia.policy-calc</groupId>
-							<artifactId>policy-calc-webapp</artifactId>
+							<artifactId>policy-calc</artifactId>
 							<contextRoot>/policy-calc</contextRoot>
 						</webModule>
 					</modules>

@@ -3,46 +3,104 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>kz.theeurasia.policy-calc</groupId>
-		<artifactId>parent</artifactId>
+		<artifactId>policy-calc-root</artifactId>
 		<version>2.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>policy-calc-dependencies</artifactId>
 	<packaging>pom</packaging>
 
-	<name>Policy Calculator : App depdendencies</name>
+	<name>Policy Calculator : Depdendencies</name>
 
 	<dependencies>
-		<!-- own runtime -->
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>policy-calc-webapp</artifactId>
-			<type>war</type>
-			<scope>runtime</scope>
-			<optional>false</optional>
-		</dependency>
-		<!-- internal insurance runtime -->
+		<!-- internal insurance -->
 		<dependency>
 			<groupId>com.lapsa.insurance-lib</groupId>
-			<artifactId>insurance-esbd-impl-ws</artifactId>
-			<type>ejb</type>
-			<scope>runtime</scope>
+			<artifactId>insurance-elements</artifactId>
+			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
-		<!-- internal lapsa runtime -->
 		<dependency>
-			<groupId>com.lapsa.lapsa-lib</groupId>
-			<artifactId>lapsa-hibernate-validation</artifactId>
-			<scope>runtime</scope>
+			<groupId>tech.lapsa.insurance</groupId>
+			<artifactId>insurance-domain</artifactId>
+			<scope>compile</scope>
 			<optional>false</optional>
 		</dependency>
-		<!-- internal esbd runtime -->
 		<dependency>
-			<groupId>com.lapsa.esbd-lib</groupId>
-			<artifactId>esbd-connection-impl-default</artifactId>
-			<type>ejb</type>
-			<scope>runtime</scope>
+			<groupId>tech.lapsa.insurance</groupId>
+			<artifactId>insurance-faces</artifactId>
+			<scope>compile</scope>
 			<optional>false</optional>
+		</dependency>
+		<!-- EJBs -->
+		<dependency>
+			<groupId>tech.lapsa.esbd</groupId>
+			<artifactId>esbd-dao-client</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>tech.lapsa.insurance</groupId>
+			<artifactId>insurance-calculation-client</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>tech.lapsa.insurance</groupId>
+			<artifactId>insurance-facade-client</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<!-- internal kz -->
+		<dependency>
+			<groupId>com.lapsa.kz-lib</groupId>
+			<artifactId>kz-core</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.lapsa.kz-lib</groupId>
+			<artifactId>kz-faces</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<!-- internal international -->
+		<dependency>
+			<groupId>com.lapsa.international-lib</groupId>
+			<artifactId>international-core</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>com.lapsa.international-lib</groupId>
+			<artifactId>international-faces</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<!-- internal lapsa -->
+		<dependency>
+			<groupId>tech.lapsa.javax</groupId>
+			<artifactId>javax-faces-commons</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>tech.lapsa.lapsa</groupId>
+			<artifactId>lapsa-primefaces</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<!-- external -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<scope>compile</scope>
+			<optional>false</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>all-themes</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 

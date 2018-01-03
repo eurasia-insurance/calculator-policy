@@ -8,7 +8,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.application.ProjectStage;
 import javax.inject.Inject;
 
-import com.lapsa.country.Country;
 import com.lapsa.insurance.domain.policy.Policy;
 import com.lapsa.insurance.domain.policy.PolicyDriver;
 import com.lapsa.insurance.domain.policy.PolicyVehicle;
@@ -16,6 +15,7 @@ import com.lapsa.insurance.elements.IdentityCardType;
 import com.lapsa.insurance.elements.InsuredAgeClass;
 import com.lapsa.insurance.elements.InsuredExpirienceClass;
 import com.lapsa.insurance.elements.Sex;
+import com.lapsa.international.country.Country;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
@@ -25,6 +25,7 @@ import kz.theeurasia.policy.calc.api.DriverFacade;
 import kz.theeurasia.policy.calc.api.ValidationException;
 import kz.theeurasia.policy.calc.api.VehicleFacade;
 import kz.theeurasia.policy.calc.bean.dataBuilder.ProjectStageDepend;
+import tech.lapsa.kz.taxpayer.TaxpayerNumber;
 
 @RequestScoped
 @ProjectStageDepend(stage = ProjectStage.Development)
@@ -47,7 +48,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
     public void buildDefaultData(Policy calculation) {
 	try {
 	    PolicyDriver drv1 = driverFacade.add(calculation);
-	    drv1.setIdNumber("570325300699");
+	    drv1.setIdNumber(TaxpayerNumber.of("570325300699"));
 	    driverFacade.fetchInfo(calculation, drv1);
 	    drv1.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv1.getResidenceData().setCity(KZCity.ALM);
@@ -57,23 +58,9 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv1.getDriverLicenseData().setNumber("123");
 	    drv1.getDriverLicenseData().setDateOfIssue(LocalDate.now());
 	    drv1.setHasAnyPrivilege(true);
-	    drv1.setGpwParticipant(true);
-	    drv1.getGpwParticipantCertificateData().setNumber("123");
-	    drv1.getGpwParticipantCertificateData().setDateOfIssue(LocalDate.now());
-	    drv1.setHandicaped(true);
-	    drv1.getHandicapedCertificateData().setNumber("123");
-	    drv1.getHandicapedCertificateData().setValidFrom(LocalDate.now());
-	    drv1.getHandicapedCertificateData().setValidTill(LocalDate.now());
-	    drv1.setPensioner(true);
-	    drv1.getPensionerCertificateData().setNumber("123");
-	    drv1.getPensionerCertificateData().setDateOfIssue(LocalDate.now());
-	    drv1.setPriveleger(true);
-	    drv1.getPrivilegerCertificateData().setType("123");
-	    drv1.getPrivilegerCertificateData().setNumber("123");
-	    drv1.getPrivilegerCertificateData().setDateOfIssue(LocalDate.now());
 
 	    PolicyDriver drv2 = driverFacade.add(calculation);
-	    drv2.setIdNumber("870622300359");
+	    drv2.setIdNumber(TaxpayerNumber.of("870622300359"));
 	    driverFacade.fetchInfo(calculation, drv2);
 	    drv2.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv2.getResidenceData().setCity(KZCity.ALM);
@@ -85,7 +72,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv2.setHasAnyPrivilege(false);
 
 	    PolicyDriver drv3 = driverFacade.add(calculation);
-	    drv3.setIdNumber("800225000319");
+	    drv3.setIdNumber(TaxpayerNumber.of("800225000319"));
 	    driverFacade.fetchInfo(calculation, drv3);
 	    drv3.setAgeClass(InsuredAgeClass.OVER25);
 	    drv3.setExpirienceClass(InsuredExpirienceClass.MORE2);
@@ -107,7 +94,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv3.setHasAnyPrivilege(false);
 
 	    PolicyDriver drv4 = driverFacade.add(calculation);
-	    drv4.setIdNumber("860401402685");
+	    drv4.setIdNumber(TaxpayerNumber.of("860401402685"));
 	    driverFacade.fetchInfo(calculation, drv4);
 	    drv4.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv4.getPersonalData().setSex(Sex.FEMALE);
@@ -123,7 +110,6 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 
 	    PolicyVehicle vhc1 = vehicleFacade.add(calculation);
 	    vhc1.setVinCode("JN1TANS51U0303376");
-	    vehicleFacade.fetchInfo(calculation, vhc1);
 	    vhc1.setArea(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc1);
 

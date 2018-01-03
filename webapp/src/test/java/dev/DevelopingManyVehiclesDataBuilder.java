@@ -21,6 +21,7 @@ import kz.theeurasia.policy.calc.api.DriverFacade;
 import kz.theeurasia.policy.calc.api.ValidationException;
 import kz.theeurasia.policy.calc.api.VehicleFacade;
 import kz.theeurasia.policy.calc.bean.dataBuilder.ProjectStageDepend;
+import tech.lapsa.kz.taxpayer.TaxpayerNumber;
 
 @RequestScoped
 @ProjectStageDepend(stage = ProjectStage.Development)
@@ -43,7 +44,7 @@ public class DevelopingManyVehiclesDataBuilder implements DefaultCalculationData
     public void buildDefaultData(Policy calculation) {
 	try {
 	    PolicyDriver drv2 = driverFacade.add(calculation);
-	    drv2.setIdNumber("870622300359");
+	    drv2.setIdNumber(TaxpayerNumber.of("870622300359"));
 	    driverFacade.fetchInfo(calculation, drv2);
 	    drv2.setExpirienceClass(InsuredExpirienceClass.MORE2);
 	    drv2.getResidenceData().setCity(KZCity.ALM);
@@ -53,13 +54,11 @@ public class DevelopingManyVehiclesDataBuilder implements DefaultCalculationData
 
 	    PolicyVehicle vhc1 = vehicleFacade.add(calculation);
 	    vhc1.setVinCode("JN1TANS51U0303376");
-	    vehicleFacade.fetchInfo(calculation, vhc1);
 	    vhc1.setArea(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc1);
 
 	    PolicyVehicle vhc2 = vehicleFacade.add(calculation);
 	    vhc2.setVinCode("WDB2030421F503751");
-	    vehicleFacade.fetchInfo(calculation, vhc2);
 	    vhc2.setArea(KZArea.GALM);
 	    vehicleFacade.evaluateMajorCity(vhc2);
 
