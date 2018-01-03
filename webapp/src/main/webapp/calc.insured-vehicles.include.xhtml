@@ -104,10 +104,8 @@
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onVehicleCityChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{msg['label.si.UNSPECIFIED']}" />
-						<!-- 						<f:selectItems rendered="#{not empty vehicle.area}" -->
-						<!-- 							value="#{si.array.few(KZCity.regionalByArea(vehicle.area))}" /> -->
-						<f:selectItems rendered="#{empty vehicle.area}"
-							value="#{si.array.few(KZCity.selectable)}" />
+						<f:selectItems
+							value="#{si.array.few(KZCity.regionalByAreaOrAll(vehicle.area))}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleCity" />
 				</h:panelGrid>
