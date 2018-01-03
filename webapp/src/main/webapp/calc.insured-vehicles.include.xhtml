@@ -18,7 +18,7 @@
 	</p:panel>
 
 	<ui:repeat var="vehicle" value="#{plc.insuredVehicles}"
-		rowKeyVar="index">
+		varStatus="status">
 
 		<p:panel id="currentVehiclePanel">
 			<f:facet name="header">
@@ -68,13 +68,14 @@
 
 				<h:panelGrid columns="2">
 					<p:outputPanel>
-						<p:selectBooleanCheckbox widgetVar="temporaryEntry#{index}WV"
+						<p:selectBooleanCheckbox
+							widgetVar="temporaryEntry#{status.index}WV"
 							value="#{vehicle.temporaryEntry}">
 							<p:ajax event="change" process="@this" update="@form"
 								listener="#{actionFacade.onVehicleTemporaryEntryChanged(vehicle)}" />
 						</p:selectBooleanCheckbox>
 						<p:outputLabel value="временный въезд на территорию РК"
-							onclick="PF('temporaryEntry#{index}WV').toggle()" />
+							onclick="PF('temporaryEntry#{status.index}WV').toggle()" />
 					</p:outputPanel>
 				</h:panelGrid>
 

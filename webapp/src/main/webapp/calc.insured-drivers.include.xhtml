@@ -18,7 +18,7 @@
 			disabled="#{fn:length(plc.insuredVehicles) gt 1}" />
 	</p:panel>
 
-	<ui:repeat var="driver" value="#{plc.insuredDrivers}" rowKeyVar="index">
+	<ui:repeat var="driver" value="#{plc.insuredDrivers}" varStatus="status">
 
 		<p:panel id="currentDriverPanel">
 			<f:facet name="header">
@@ -86,14 +86,14 @@
 			<h:panelGrid columns="2">
 				<p:outputPanel>
 					<p:selectBooleanCheckbox
-						widgetVar="w_hasAnyPrivilegeCheckbox#{index}"
+						widgetVar="hasAnyPrivilege#{status.index}WV"
 						value="#{driver.hasAnyPrivilege}">
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 					</p:selectBooleanCheckbox>
 					<p:outputLabel
 						value="(льготные условия — инвалиды, пенсионеры, участники ВОВ)"
-						onclick="PF('w_hasAnyPrivilegeCheckbox#{index}').toggle()" />
+						onclick="PF('hasAnyPrivilege#{status.index}WV').toggle()" />
 				</p:outputPanel>
 			</h:panelGrid>
 
