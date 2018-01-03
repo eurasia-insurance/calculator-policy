@@ -34,7 +34,7 @@
 		<!-- EJBs -->
 		<esbd-dao.version>2.1</esbd-dao.version>
 		<insurance-calculation.version>2.1</insurance-calculation.version>
-		<insurance-facade.version>1.1</insurance-facade.version>
+		<insurance-facade.version>1.2</insurance-facade.version>
 		<!-- external -->
 		<primefaces.version>5.3.16</primefaces.version>
 		<primefaces-themes.version>1.0.10</primefaces-themes.version>
