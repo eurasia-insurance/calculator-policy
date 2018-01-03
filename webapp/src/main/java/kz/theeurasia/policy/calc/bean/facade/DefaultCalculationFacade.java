@@ -1,37 +1,32 @@
 package kz.theeurasia.policy.calc.bean.facade;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
+import com.lapsa.insurance.domain.CalculationData;
 import com.lapsa.insurance.domain.policy.Policy;
-import com.lapsa.insurance.services.other.CalculationFailed;
-import com.lapsa.insurance.services.other.PolicyCalculationService;
 
 import kz.theeurasia.policy.calc.api.CalculationFacade;
+import tech.lapsa.insurance.calculation.CalculationFailed;
+import tech.lapsa.insurance.calculation.PolicyCalculation.PolicyCalculationRemote;
 
 @Named
-@ApplicationScoped
+@RequestScoped
 public class DefaultCalculationFacade implements CalculationFacade {
 
     private static final long serialVersionUID = 1L;
 
-    @Inject
-    private Logger logger;
-
-    @Inject
-    private PolicyCalculationService calculationService;
+    @EJB
+    private PolicyCalculationRemote calculationService;
 
     @Override
     public void calculatePremiumCost(Policy policy) {
 	try {
-	    calculationService.calculatePolicyCost(policy);
+	    final CalculationData cd = calculationService.calculateAmount(policy);
+	    policy.setCalculation(cd);
 	} catch (CalculationFailed e) {
-	    logger.log(Level.FINER, "Calculation failed", e);
-	    policy.getCalculation().setCalculatedPremiumCost(0);
+	    policy.getCalculation().setAmount(0d);
 	}
     }
 }

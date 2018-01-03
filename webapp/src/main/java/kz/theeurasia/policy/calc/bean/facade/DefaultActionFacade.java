@@ -3,7 +3,7 @@ package kz.theeurasia.policy.calc.bean.facade;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
@@ -24,7 +24,7 @@ import kz.theeurasia.policy.calc.api.ValidationException;
 import kz.theeurasia.policy.calc.api.VehicleFacade;
 
 @Named("actionFacade")
-@ApplicationScoped
+@RequestScoped
 public class DefaultActionFacade implements ActionFacade {
 
     private ResourceBundle messages = ResourceBundle.getBundle(MessagesBundleCode.BUNDLE_BASE_NAME);
@@ -154,16 +154,6 @@ public class DefaultActionFacade implements ActionFacade {
     @Override
     public void onPolicyCostCalculationFormChanged() {
 	Policy data = policyHolder.getValue();
-	calculationFacade.calculatePremiumCost(data);
-    }
-
-    @Override
-    public void onVehicleVinCodeChanged(PolicyVehicle insuredVehicle) {
-	Policy data = policyHolder.getValue();
-	try {
-	    vehicleFacade.fetchInfo(data, insuredVehicle);
-	} catch (ValidationException e) {
-	}
 	calculationFacade.calculatePremiumCost(data);
     }
 

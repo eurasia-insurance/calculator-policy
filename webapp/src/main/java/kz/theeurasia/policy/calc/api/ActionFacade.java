@@ -21,8 +21,6 @@ public interface ActionFacade {
 
     void onPolicyCostCalculationFormChanged();
 
-    void onVehicleVinCodeChanged(PolicyVehicle insuredVehicle);
-
     void onVehicleTemporaryEntryChanged(PolicyVehicle vehicle);
 
     void onVehicleRegionChanged(PolicyVehicle insuredVehicle);

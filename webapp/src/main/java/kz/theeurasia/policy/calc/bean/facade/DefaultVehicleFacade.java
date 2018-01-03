@@ -1,18 +1,10 @@
 package kz.theeurasia.policy.calc.bean.facade;
 
-import java.util.Calendar;
-
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 import com.lapsa.insurance.domain.policy.Policy;
 import com.lapsa.insurance.domain.policy.PolicyVehicle;
-import com.lapsa.insurance.elements.VehicleAgeClass;
-import com.lapsa.insurance.esbd.domain.entities.policy.VehicleEntity;
-import com.lapsa.insurance.esbd.services.InvalidInputParameter;
-import com.lapsa.insurance.esbd.services.NotFound;
-import com.lapsa.insurance.esbd.services.policy.VehicleServiceDAO;
 import com.lapsa.kz.country.KZArea;
 import com.lapsa.kz.country.KZCity;
 
@@ -21,13 +13,10 @@ import kz.theeurasia.policy.calc.api.ValidationException;
 import kz.theeurasia.policy.calc.api.VehicleFacade;
 
 @Named
-@ApplicationScoped
+@RequestScoped
 public class DefaultVehicleFacade implements VehicleFacade {
 
     private static final long serialVersionUID = 1L;
-
-    @Inject
-    private VehicleServiceDAO vehicleService;
 
     @Override
     public PolicyVehicle add(Policy policy) throws ValidationException {
@@ -44,25 +33,6 @@ public class DefaultVehicleFacade implements VehicleFacade {
 	if (policy.getInsuredVehicles().size() <= 1)
 	    throw new ValidationException(MessagesBundleCode.VEHICLES_LIST_CANT_BE_EMPTY);
 	policy.getInsuredVehicles().remove(vehicle);
-    }
-
-    @Override
-    public void fetchInfo(Policy policy, PolicyVehicle vehicle) throws ValidationException {
-	try {
-	    VehicleEntity fetched = vehicleService.getByVINCode(vehicle.getVinCode());
-	    vehicle.setFetched(true);
-	    vehicle.setVehicleClass(fetched.getVehicleClass());
-	    if (fetched.getRealeaseDate() != null) {
-		int age = CalculatorUtil.calculateAgeByDOB(fetched.getRealeaseDate());
-		vehicle.setVehicleAgeClass(age > 7 ? VehicleAgeClass.OVER7 : VehicleAgeClass.UNDER7);
-	    }
-	    vehicle.setColor(fetched.getColor());
-	    vehicle.setManufacturer(fetched.getVehicleModel().getManufacturer().getName());
-	    vehicle.setModel(fetched.getVehicleModel().getName());
-	    vehicle.setYearOfManufacture(fetched.getRealeaseDate().get(Calendar.YEAR));
-	} catch (NotFound | InvalidInputParameter e) {
-	    _resetFetchedInfo(policy, vehicle);
-	}
     }
 
     public void evaluateMajorCity(PolicyVehicle insuredVehicle) {
@@ -109,9 +79,9 @@ public class DefaultVehicleFacade implements VehicleFacade {
 
     @Override
     public void handleTemporaryEntryChanged(PolicyVehicle vehicle) {
-//	if (vehicle.isTemporaryEntry()) {
-//	    vehicle.setArea(null);
-//	    vehicle.setCity(null);
-//	}
+	// if (vehicle.isTemporaryEntry()) {
+	// vehicle.setArea(null);
+	// vehicle.setCity(null);
+	// }
     }
 }

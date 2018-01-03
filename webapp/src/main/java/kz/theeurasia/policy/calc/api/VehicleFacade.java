@@ -11,8 +11,6 @@ public interface VehicleFacade extends Serializable {
 
     void remove(Policy policy, PolicyVehicle vehicle) throws ValidationException;
 
-    void fetchInfo(Policy policy, PolicyVehicle vehicle) throws ValidationException;
-
     void handleAreaChanged(PolicyVehicle insuredVehicle);
 
     void evaluateMajorCity(PolicyVehicle insuredVehicle);

@@ -1,13 +1,12 @@
 package kz.theeurasia.policy.calc.bean.dataBuilder;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;
+import javax.faces.FacesException;
 import javax.faces.application.ProjectStage;
 import javax.inject.Inject;
 
+import com.lapsa.insurance.domain.InsurancePeriodData;
 import com.lapsa.insurance.domain.policy.Policy;
 
 import kz.theeurasia.policy.calc.api.DefaultCalculationDataBuilder;
@@ -26,16 +25,14 @@ public class ProductionDataBuilder implements DefaultCalculationDataBuilder {
     @Inject
     private VehicleFacade vehicleFacade;
 
-    @Inject
-    private Logger logger;
-
     @Override
-    public void buildDefaultData(Policy Policy) {
+    public void buildDefaultData(final Policy policy) {
 	try {
-	    driverFacade.add(Policy);
-	    vehicleFacade.add(Policy);
+	    driverFacade.add(policy);
+	    vehicleFacade.add(policy);
+	    policy.setPeriod(new InsurancePeriodData());
 	} catch (ValidationException e) {
-	    logger.log(Level.SEVERE, e.getMessage(), e);
+	    throw new FacesException(e);
 	}
     }
 
