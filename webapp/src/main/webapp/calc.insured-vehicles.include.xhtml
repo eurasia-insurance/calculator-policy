@@ -22,10 +22,9 @@
 
 		<p:panel id="currentVehiclePanel">
 			<f:facet name="header">
-				<h:outputText rendered="#{empty vehicle.displayName}"
-					value="Новое ТС" />
-				<h:outputText rendered="#{not empty vehicle.displayName}"
-					value="#{vehicle.displayName}" />
+				<h:outputText rendered="#{empty vehicle.fullName}" value="Новое ТС" />
+				<h:outputText rendered="#{not empty vehicle.fullName}"
+					value="#{vehicle.fullName}" />
 			</f:facet>
 			<f:facet name="actions">
 				<p:commandLink
@@ -43,11 +42,12 @@
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleAgeClass"
 						value="#{vehicle.vehicleAgeClass}" disabled="#{vehicle.fetched}"
-						style="width: 200px;">
+						style="width: 200px;" validatorMessage="Обязательное поле">
+						<f:validateRequired />
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{msg['label.si.UNSPECIFIED']}" />
-						<f:selectItems value="#{vehicleAgeClassService.selectableItemsShortSI}" />
+						<f:selectItems value="#{si.array.few(VehicleAgeClass.selectable)}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleAgeClass" />
 				</h:panelGrid>
@@ -55,11 +55,13 @@
 				<p:outputLabel value="Тип ТС" />
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleClass" value="#{vehicle.vehicleClass}"
-						disabled="#{vehicle.fetched}" style="width: 300px;">
+						disabled="#{vehicle.fetched}" style="width: 300px;"
+						validatorMessage="Обязательное поле">
+						<f:validateRequired />
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onPolicyCostCalculationFormChanged}" />
 						<f:selectItem itemLabel="#{msg['label.si.UNSPECIFIED']}" />
-						<f:selectItems value="#{vehicleClassService.selectableItemsShortSI}" />
+						<f:selectItems value="#{si.array.few(VehicleClass.selectable)}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleClass" />
 				</h:panelGrid>
@@ -80,11 +82,13 @@
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleRegion" value="#{vehicle.area}"
 						filter="true" filterMatchMode="contains" style="width: 290px;"
-						disabled="#{vehicle.temporaryEntry}">
+						disabled="#{vehicle.temporaryEntry}"
+						validatorMessage="Обязательное поле">
+						<f:validateRequired />
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onVehicleRegionChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{msg['label.si.UNSPECIFIED']}" />
-						<f:selectItems value="#{kzAreaService.selectableItemsShortSI}" />
+						<f:selectItems value="#{si.array.few(KZArea.selectable)}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleRegion" />
 				</h:panelGrid>
@@ -93,12 +97,16 @@
 				<h:panelGrid columns="2">
 					<p:selectOneMenu id="vehicleCity" value="#{vehicle.city}"
 						filter="true" filterMatchMode="contains" style="width: 200px;"
-						disabled="#{vehicle.temporaryEntry or vehicle.area eq 'GALM' or vehicle.area eq 'GAST'}">
+						disabled="#{vehicle.temporaryEntry or vehicle.area eq 'GALM' or vehicle.area eq 'GAST'}"
+						validatorMessage="Обязательное поле">
+						<f:validateRequired />
 						<p:ajax event="change" process="@this" update="@form"
 							listener="#{actionFacade.onVehicleCityChanged(vehicle)}" />
 						<f:selectItem itemLabel="#{msg['label.si.UNSPECIFIED']}" />
-						<f:selectItems
-							value="#{kzCityService.regionalItemsByAreaSI(vehicle.area)}" />
+						<!-- 						<f:selectItems rendered="#{not empty vehicle.area}" -->
+						<!-- 							value="#{si.array.few(KZCity.regionalByArea(vehicle.area))}" /> -->
+						<f:selectItems rendered="#{empty vehicle.area}"
+							value="#{si.array.few(KZCity.selectable)}" />
 					</p:selectOneMenu>
 					<p:message for="vehicleCity" />
 				</h:panelGrid>

@@ -11,13 +11,13 @@
 
 	<c:set var="plc" value="#{policy.value}" />
 
-	<p:panel rendered="#{plc.calculation.premiumCost gt 0}" header="Стоимость полиса">
+	<p:panel rendered="#{plc.calculation.amount gt 0}" header="Стоимость полиса">
 
 		<h:panelGroup styleClass="policyCostLabel">
 			<h:outputText value="Стоимость полиса составляет" />
 		</h:panelGroup>
 		<h:outputText styleClass="policyCost"
-			value="#{plc.calculation.premiumCost}">
+			value="#{plc.calculation.amount}">
 			<f:convertNumber type="currency" locale="kk_KZ" maxFractionDigits="0"
 				groupingUsed="true" currencySymbol="&#8376;" />
 		</h:outputText>
@@ -36,14 +36,14 @@
 		</h:panelGroup>
 
 		<h:outputText styleClass="policyCost" id="discountCost"
-			value="#{plc.calculation.premiumCost * (1 - discountData.discountValue)}">
+			value="#{plc.calculation.amount * (1 - discountData.discountValue)}">
 			<f:convertNumber type="currency" locale="kk_KZ" maxFractionDigits="0"
 				groupingUsed="true" currencySymbol="&#8376;" />
 		</h:outputText>
 
 	</p:panel>
 
-	<p:panel rendered="#{plc.calculation.premiumCost eq 0}">
+	<p:panel rendered="#{plc.calculation.amount eq 0}">
 		<h:panelGroup styleClass="policyCostLabel">
 		Введите все параметры полиса для получения стоимости страхования
 		</h:panelGroup>
