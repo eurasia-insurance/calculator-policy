@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>tech.lapsa.calculator</groupId>
 		<artifactId>calculator-policy-root</artifactId>
-		<version>2.3</version>
+		<version>2.3.1-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>calculator-policy-app</artifactId>
