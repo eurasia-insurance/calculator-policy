@@ -26,9 +26,9 @@
 		<payara-bom.version>4.1.2-2</payara-bom.version>
 		<!-- tech -->
 		<javax-faces-commons.version>1.1</javax-faces-commons.version>
-		<insurance-domain.version>2.5.1</insurance-domain.version>
+		<insurance-domain.version>2.5.2</insurance-domain.version>
 		<insurance-faces.version>3.1.1</insurance-faces.version>
-		<lapsa-primefaces.version>1.1.2</lapsa-primefaces.version>
+		<lapsa-primefaces.version>1.2</lapsa-primefaces.version>
 		<lapsa-arquillian-test.version>1.2</lapsa-arquillian-test.version>
 		<!-- EJB clients -->
 		<esbd-dao-client.version>2.2</esbd-dao-client.version>
