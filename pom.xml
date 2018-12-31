@@ -22,7 +22,6 @@
 
 	<properties>
 		<!-- BOMS -->
-		<lapsa-commons.version>1.2</lapsa-commons.version>
 		<payara-bom.version>CURRENT-SNAPSHOT</payara-bom.version>
 		<java-commons.version>CURRENT-SNAPSHOT</java-commons.version>
 		<!-- tech -->
