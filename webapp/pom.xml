@@ -10,7 +10,7 @@
 	<artifactId>calculator-policy</artifactId>
 	<packaging>war</packaging>
 
-	<name>Policy Calculator : WAR</name>
+	<name>Calculator Lib : Policy : WAR</name>
 
 	<dependencies>
 		<!-- own -->

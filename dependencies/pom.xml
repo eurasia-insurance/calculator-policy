@@ -10,7 +10,7 @@
 	<artifactId>calculator-policy-dependencies</artifactId>
 	<packaging>pom</packaging>
 
-	<name>Policy Calculator : Depdendencies</name>
+	<name>Calculator Lib : Policy : Depdendencies</name>
 
 	<dependencies>
 		<dependency>

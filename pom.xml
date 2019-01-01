@@ -12,7 +12,7 @@
 	<version>CURRENT-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Policy Calculator : Parent</name>
+	<name>Calculator Lib : Policy</name>
 
 	<modules>
 		<module>dependencies</module>

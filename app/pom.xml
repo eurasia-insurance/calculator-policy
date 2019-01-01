@@ -10,7 +10,7 @@
 	<artifactId>calculator-policy-app</artifactId>
 	<packaging>ear</packaging>
 
-	<name>Policy Calculator : EAR</name>
+	<name>Calculator Lib : Policy : EAR</name>
 
 	<dependencies>
 		<dependency>
