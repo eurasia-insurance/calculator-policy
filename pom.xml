@@ -22,8 +22,8 @@
 
 	<properties>
 		<!-- BOMS -->
-		<payara-bom.version>CURRENT-SNAPSHOT</payara-bom.version>
 		<java-commons.version>CURRENT-SNAPSHOT</java-commons.version>
+		<payara-bom.version>CURRENT-SNAPSHOT</payara-bom.version>
 		<!-- tech -->
 		<javax-faces-commons.version>CURRENT-SNAPSHOT</javax-faces-commons.version>
 		<insurance-domain.version>CURRENT-SNAPSHOT</insurance-domain.version>
@@ -96,11 +96,6 @@
 				<type>ear</type>
 			</dependency>
 			<!-- tech -->
-			<dependency>
-				<groupId>tech.lapsa.esbd</groupId>
-				<artifactId>esbd-dao-client</artifactId>
-				<version>${esbd-dao-client.version}</version>
-			</dependency>
 			<dependency>
 				<groupId>tech.lapsa.insurance</groupId>
 				<artifactId>insurance-calculation-client</artifactId>
