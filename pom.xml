@@ -9,7 +9,7 @@
 
 	<groupId>tech.lapsa.calculator</groupId>
 	<artifactId>calculator-policy-root</artifactId>
-	<version>20190303</version>
+	<version>CURRENT-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Calculator Lib : Policy</name>
@@ -151,7 +151,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/eurasia-insurance/calculator-policy.git</connection>
 		<developerConnection>scm:git:https://github.com/eurasia-insurance/calculator-policy.git</developerConnection>
-		<tag>v20190303</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 </project>
