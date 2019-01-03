@@ -8,11 +8,11 @@
 	</parent>
 
 	<groupId>tech.lapsa.calculator</groupId>
-	<artifactId>calculator-policy-root</artifactId>
+	<artifactId>calculator-webapp-root</artifactId>
 	<version>CURRENT-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>Calculator Lib : Policy</name>
+	<name>Calculator Lib : Web-application</name>
 
 	<modules>
 		<module>dependencies</module>
@@ -79,19 +79,19 @@
 			<!-- own -->
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>calculator-policy</artifactId>
+				<artifactId>calculator-webapp</artifactId>
 				<version>${project.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>calculator-policy-dependencies</artifactId>
+				<artifactId>calculator-webapp-dependencies</artifactId>
 				<version>${project.version}</version>
 				<type>pom</type>
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>calculator-policy-app</artifactId>
+				<artifactId>calculator-webapp-app</artifactId>
 				<version>${project.version}</version>
 				<type>ear</type>
 			</dependency>
@@ -149,8 +149,8 @@
 	</dependencyManagement>
 
 	<scm>
-		<connection>scm:git:https://github.com/eurasia-insurance/calculator-policy.git</connection>
-		<developerConnection>scm:git:https://github.com/eurasia-insurance/calculator-policy.git</developerConnection>
+		<connection>scm:git:https://github.com/eurasia-insurance/calculator-webapp.git</connection>
+		<developerConnection>scm:git:https://github.com/eurasia-insurance/calculator-webapp.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
