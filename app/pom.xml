@@ -35,7 +35,7 @@
 						<webModule>
 							<groupId>tech.lapsa.calculator</groupId>
 							<artifactId>calculator-webapp</artifactId>
-							<contextRoot>/policy-calc</contextRoot>
+							<contextRoot>/calculator</contextRoot>
 						</webModule>
 					</modules>
 				</configuration>
