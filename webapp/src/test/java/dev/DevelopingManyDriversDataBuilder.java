@@ -79,8 +79,8 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv3.getPersonalData().setName("Вадим");
 	    drv3.getPersonalData().setSurename("Исаев");
 	    drv3.getPersonalData().setPatronymic("Олегович");
-	    drv3.getPersonalData().setDayOfBirth(LocalDate.of(1980, 2, 25));
-	    drv3.getPersonalData().setSex(Sex.MALE);
+	    drv3.getPersonalData().setDateOfBirth(LocalDate.of(1980, 2, 25));
+	    drv3.getPersonalData().setGender(Sex.MALE);
 	    drv3.getIdentityCardData().setType(IdentityCardType.PASSPORT);
 	    drv3.getIdentityCardData().setDateOfIssue(LocalDate.now());
 	    drv3.getIdentityCardData().setIssuingAuthority("МВД РФ");
@@ -97,7 +97,7 @@ public class DevelopingManyDriversDataBuilder implements DefaultCalculationDataB
 	    drv4.setIdNumber(TaxpayerNumber.of("860401402685"));
 	    driverFacade.fetchInfo(calculation, drv4);
 	    drv4.setExpirienceClass(InsuredExpirienceClass.MORE2);
-	    drv4.getPersonalData().setSex(Sex.FEMALE);
+	    drv4.getPersonalData().setGender(Sex.FEMALE);
 	    drv4.getIdentityCardData().setIssuingAuthority("МВД РК");
 
 	    drv4.getResidenceData().setCity(KZCity.ALM);
