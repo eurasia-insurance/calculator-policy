@@ -22,23 +22,23 @@
 
 	<properties>
 		<!-- BOMS -->
-		<java-commons.version>20190128r1</java-commons.version>
-		<payara-bom.version>20190128r1</payara-bom.version>
+		<java-commons.version>CURRENT-SNAPSHOT</java-commons.version>
+		<payara-bom.version>CURRENT-SNAPSHOT</payara-bom.version>
 		<!-- tech -->
-		<javax-faces-commons.version>20190128r1</javax-faces-commons.version>
-		<insurance-domain.version>20190128r1</insurance-domain.version>
-		<insurance-faces.version>20190128r1</insurance-faces.version>
-		<lapsa-primefaces.version>20190128r1</lapsa-primefaces.version>
-		<lapsa-arquillian-test.version>20190128r1</lapsa-arquillian-test.version>
+		<javax-faces-commons.version>CURRENT-SNAPSHOT</javax-faces-commons.version>
+		<insurance-domain.version>CURRENT-SNAPSHOT</insurance-domain.version>
+		<insurance-faces.version>CURRENT-SNAPSHOT</insurance-faces.version>
+		<lapsa-primefaces.version>CURRENT-SNAPSHOT</lapsa-primefaces.version>
+		<lapsa-arquillian-test.version>CURRENT-SNAPSHOT</lapsa-arquillian-test.version>
 		<!-- EJB clients -->
-		<esbd-dao-client.version>20190128r1</esbd-dao-client.version>
-		<insurance-calculation-client.version>20190128r1</insurance-calculation-client.version>
-		<insurance-facade-client.version>20190128r1</insurance-facade-client.version>
+		<esbd-dao-client.version>CURRENT-SNAPSHOT</esbd-dao-client.version>
+		<insurance-calculation-client.version>CURRENT-SNAPSHOT</insurance-calculation-client.version>
+		<insurance-facade-client.version>CURRENT-SNAPSHOT</insurance-facade-client.version>
 		<!-- oldies -->
-		<insurance-lib.version>20190128r1</insurance-lib.version>
-		<kz-lib.version>20190128r1</kz-lib.version>
-		<international-lib.version>20190128r1</international-lib.version>
-		<lapsa-lib.version>20190128r1</lapsa-lib.version>
+		<insurance-lib.version>CURRENT-SNAPSHOT</insurance-lib.version>
+		<kz-lib.version>CURRENT-SNAPSHOT</kz-lib.version>
+		<international-lib.version>CURRENT-SNAPSHOT</international-lib.version>
+		<lapsa-lib.version>CURRENT-SNAPSHOT</lapsa-lib.version>
 		<!-- external -->
 		<primefaces.version>6.1.13</primefaces.version>
 		<primefaces-themes.version>1.0.10</primefaces-themes.version>
